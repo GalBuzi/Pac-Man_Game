@@ -7,6 +7,7 @@
 	<script type="text/javascript" src="./app.js"></script>
 	<script type="text/javascript" src="LoginCheck.js"></script>
 	<script type="text/javascript" src="Register.js"></script>
+	<script type="text/javascript" src="./about.js"></script>
 </head>
 
 <body class="container">
@@ -14,7 +15,15 @@
 		<header><img src="pacman_logo3.png" width="400px" height="50px">
 			Shay Eretz Kdosha 203276258 & Gal Buzaglo 203886528
 		</header>
-		<nav>nav</nav>
+		<nav class="menu">
+			<li>Hello <b>Guest</b>,</li>
+			<br>
+			<br>
+			<li><a herf="#" onclick="homePageFunction(this)">Welcome</a></li>
+			<li><a herf="#" onclick="registerEnterFunction(this)">Register</a></li>
+			<li><a herf="#" onclick="loginEnterFunction(this)">Login</a></li>
+			<li><a herf="#" onclick="gotoAbout(this)">About</a></li>
+		</nav>
 		<content>
 			<!-- Welcome Part -->
 			<div class="content" id="welcome" style="text-align:center">
@@ -81,6 +90,17 @@
 
 			</div>
 
+			<dialog class="content" id="about">
+				<button id="btnClose" title="Close" class="close" onclick="closeWindow()">X</button>
+				<h2>About</h2>
+				<p> Presentors: Gal Buzaglo & Shay Eretz Kdosha</p>
+				<p> JQuery plugin was used all around our code but mainly for validation in the login and registration pages,
+					where we used the validate method.</p>
+				<p>The major difficulties were handling the page resolution and creating the wanted layout.
+					For that reason we used a template of known layout containg header, navigation, content and footer as required.
+				 </p>
+			</dialog>
+
 			<!-- Game Play Part -->
 			<div id="gamePlay">
 				<canvas id="canvas" height="600" width="600"></canvas>
@@ -109,12 +129,12 @@
 
 
 	$(document).ready(function(){
-    	//RESET TO WELCOME TO SHOW ONLY
     	$("#welcome").show();
 		$("#login").hide();
 		$("#register").hide();
 	 	$("#gameSettings").hide();
     	$("#gamePlay").hide();	
+		$("#about").hide();
 	});
 
 	function registerEnterFunction(element) {
