@@ -1,0 +1,49 @@
+/* shay */
+
+#welcome{
+
+    background-image: url("Pacman.JPG");
+    background-repeat: no-repeat;
+    width: 820px;
+    height: 510px
+    
+}
+
+ .button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+
+/* #welcome .welcomeButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+  } */
+  
+  /* #welcome .button:hover {
+    background-color: black;
+  } */
+
+  /* Gal */
+
+
+

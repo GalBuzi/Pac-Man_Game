@@ -1,23 +1,87 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="stylesheet" href="style.css">
 		<script src="./jquery-3.4.1.slim.min.js"></script>
 		<script type="text/javascript" src="./app.js"></script>
 	</head>
 
-	<!-- check!!!! -->
-
 	<body>
-		<div id="score">
-			<label for="lblScore">SCORE:</label>
-			<input id="lblScore" type="text" />
+		<header>
+
+		</header>
+
+		<menu>
+
+
+		</menu>
+
+		<content>
+		<!-- Welcome Part -->
+		<div id = "welcome" style="text-align:center">
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			<h1 id="h1welcome" style="color: white;">
+			<span data-shadow-text="Text-Shadow" id="spanWelcome">Welcome</span><br>
+			Please Login or Register to continue</h1>
+			<br>
+			<button class="welcomeButton" id="Wlogin">Register</button>
+			<button class="welcomeButton" id="Wlogin">Login</button>
 		</div>
-		<div id="time">
-			<label for="lblTime">TIME:</label>
-			<input id="lblTime" type="text" />
+
+		<!-- Register Part -->
+		<div id = "register">
+
+			
 		</div>
-		<div id="game">
+			
+	
+		<!-- Login Part -->
+		<div id = "login">
+
+			
+		</div>
+
+
+		<!-- Game Settings Part -->
+		<div id = "gameSettings">
+
+			
+		</div>
+
+		<!-- Game Play Part -->
+		<div id="gamePlay">
 			<canvas id="canvas" height="600" width="600"></canvas>
+				<div id="score">
+					<label for="lblScore">SCORE:</label>
+					<input id="lblScore" type="text" />
+				</div>
+			<div id="time">
+				<label for="lblTime">TIME:</label>
+				<input id="lblTime" type="text" />
+			</div>
 		</div>
+
+	</content>
+
+	<footer>
+
+
+	</footer>
+
 	</body>
+
+	<script>
+		$(document).ready(function(){
+    	//RESET TO WELCOME TO SHOW ONLY
+    
+    	$("#welcome").show();
+		$("#login").hide();
+		$("#register").hide();
+	 	$("#gameSettings").hide();
+    	$("#gamePlay").hide();	
+	});
+
+	</script>
+
 </html>
