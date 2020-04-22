@@ -15,15 +15,17 @@
 		</header>
 
 		<menu>
-			<nav class="menu">
-				<li id="loggedInUser">Hello <b>Guest</b>!</li>
-				<br>
-				<br>
-				<li><a herf="#" onclick="switchScreen('welcome')">Welcome</a></li>
-				<li><a herf="#" onclick="switchScreen('register')">Register</a></li>
-				<li><a herf="#" onclick="switchScreen('login')">Login</a></li>
-				<li><a herf="#" onclick="switchScreen('gameSettings')">Game Settings</a></li>
-			</nav>
+			<div class="wrapper">
+				<div class="sidebar">
+					<h2>Hello User,</h2>
+					<ul>
+						<li><a href="#"><i class="fas fa-home"></i>Welcome</a></li>
+						<li><a href="#"><i class="fas fa-user"></i>Register</a></li>
+						<li><a href="#"><i class="fas fa-address-card"></i>Login</a></li>
+						<li><a href="#"><i class="fas fa-project-diagram"></i>Game Settings</a></li>
+						<li><a href="#"><i class="fas fa-blog"></i>About</a></li>
+					</ul> 
+				</div>	
 		</menu>
 
 		<content>
@@ -66,14 +68,6 @@
 		<!-- Game Play Part -->
 		<div id="gamePlay">
 			<canvas id="canvas" height="600" width="600"></canvas>
-				<div id="score">
-					<label for="lblScore">SCORE:</label>
-					<input id="lblScore" type="text" />
-				</div>
-			<div id="time">
-				<label for="lblTime">TIME:</label>
-				<input id="lblTime" type="text" />
-			</div>
 		</div>
 
 	</content>
