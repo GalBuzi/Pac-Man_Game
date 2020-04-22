@@ -1,7 +1,7 @@
 /* shayek */
 
 .container {
-    background-color: grey;
+    background-color: rgb(238, 120, 42);
     /* display: flex;
     flex-direction: column;
     min-height: 100vh; */
@@ -13,55 +13,58 @@ header {
     text-align: center;
     font-size: 25px;
     font-style: italic;
-    background-color: #262626;
-    color: papayawhip;
+    background-color: #ffce49;
+    color: rgb(0, 0, 0);
     border-bottom: 2px solid white;
 
 }
 
 
-/* #welcome{
+#welcome{
 
-    background-image: url("Pacman.JPG");
+    background-image: url("Pacman_Run2.JPG");
+    background-position: center;
     background-repeat: no-repeat;
-    width: 820px;
-    height: 510px
+    min-height: 100%;
     
-} */
+}
 
- .button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
+[id^=RegisterButton]{
+    border-radius: 10px;
+    padding: 10px 50px;
+    font-size:20px;
+    font-family: 'Courier New', Courier, monospace;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+[id^=LoginButton]{
+    border-radius: 10px;
+    padding: 10px 50px;
+    font-size:20px;
+    font-family: 'Courier New', Courier, monospace;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
 
 
-/* #welcome .welcomeButton {
+#RegisterButton{
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    background-color: #555;
-    color: white;
-    font-size: 16px;
-    padding: 12px 24px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    text-align: center;
-  } */
-  
-  /* #welcome .button:hover {
-    background-color: black;
-  } */
+    top: 250px;
+    left: 1000px;
+    background-color: rgb(241, 241, 200);
+    font-weight: bold;
+    color: black;
+}
+
+#LoginButton{
+    position: absolute;
+    top: 320px;
+    left: 1000px;
+    background-color:  rgb(241, 241, 200);
+    font-weight: bold;
+    color: black;
+}
 
   /* GalB */
 
