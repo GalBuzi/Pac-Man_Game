@@ -1,19 +1,33 @@
 /* shayek */
 
 .container {
-    display: flex;
+    background-color: grey;
+    /* display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100vh; */
 }
 
-#welcome{
+header {
+    grid-column: span 3;
+    padding: 15px;
+    text-align: center;
+    font-size: 25px;
+    font-style: italic;
+    background-color: #262626;
+    color: papayawhip;
+    border-bottom: 2px solid white;
+
+}
+
+
+/* #welcome{
 
     background-image: url("Pacman.JPG");
     background-repeat: no-repeat;
     width: 820px;
     height: 510px
     
-}
+} */
 
  .button {
     background-color: #4CAF50;
