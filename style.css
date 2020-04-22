@@ -65,5 +65,38 @@ header {
 
   /* GalB */
 
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
+.menu{
+    background-color: rgb(63, 70, 77);
+    padding: 15px;
+    border-right:  3px solid black;
+    font-size: 24px;
+    width: 200px;
+    height: 400px;
 
+}
+.menu li
+{
+    display:inline;
+}
+.menu a
+{
+    text-decoration: none;
+    color:#eaefef;
+    display: inline-block;
+    padding: 10px 25px;
+    height:30px;
+    border-radius: 5px;
+    /*border-bottom: 5px solid white;*/
+}
+.menu a:hover
+{
+    background: rgba(255, 255, 255, 0.747);
+    color:black;
+    
+}

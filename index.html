@@ -15,8 +15,15 @@
 		</header>
 
 		<menu>
-
-
+			<nav class="menu">
+				<li id="loggedInUser">Hello <b>Guest</b>!</li>
+				<br>
+				<br>
+				<li><a herf="#" onclick="switchScreen('welcome')">Welcome</a></li>
+				<li><a herf="#" onclick="switchScreen('register')">Register</a></li>
+				<li><a herf="#" onclick="switchScreen('login')">Login</a></li>
+				<li><a herf="#" onclick="switchScreen('gameSettings')">Game Settings</a></li>
+			</nav>
 		</menu>
 
 		<content>
@@ -34,21 +41,24 @@
 		<!-- Register Part -->
 		<di class ="content" id = "register">
 
-			
+
+
 		</div>
 			
 	
 		<!-- Login Part -->
 		<div id = "login">
 
-			
+
+
 		</div>
 
 
 		<!-- Game Settings Part -->
 		<div id = "gameSettings">
 
-			
+
+
 		</div>
 
 		<!-- Game Play Part -->
@@ -74,16 +84,49 @@
 	</body>
 
 	<script>
-		$(document).ready(function(){
-    	//RESET TO WELCOME TO SHOW ONLY
-    
-    	$("#welcome").hide();
-		$("#login").show();
-		$("#register").hide();
-	 	$("#gameSettings").hide();
-    	$("#gamePlay").hide();	
-	});
+		function switchScreen(nextScreen){
+			if(nextScreen === "welcome"){
+				$(document).ready(
+					$("#welcome").show(),
+					$("#login").hide),
+					$("#register").hide(),
+					$("#gameSettings").hide,
+					$("#gamePlay").hide()
+			}
+			else if(nextScreen === "login"){
+				$(document).ready(
+					$("#welcome").hide(),
+					$("#login").show),
+					$("#register").hide(),
+					$("#gameSettings").hide,
+					$("#gamePlay").hide()
+			}
+			else if(nextScreen === "register"){
+				$(document).ready(
+					$("#welcome").hide(),
+					$("#login").hide),
+					$("#register").show(),
+					$("#gameSettings").hide,
+					$("#gamePlay").hide()
+			}
+			else if(nextScreen === "gameSettings"){
+				$(document).ready(
+					$("#welcome").hide(),
+					$("#login").hide),
+					$("#register").hide(),
+					$("#gameSettings").show,
+					$("#gamePlay").hide()
+			}
+			else if(nextScreen === "gamePlay"){
+				$(document).ready(
+					$("#welcome").hide(),
+					$("#login").hide),
+					$("#register").hide(),
+					$("#gameSettings").hide,
+					$("#gamePlay").show()
+			}
 
+		}
 	</script>
 
 </html>
