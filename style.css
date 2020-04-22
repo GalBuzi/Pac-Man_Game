@@ -32,6 +32,7 @@
     
 }
 
+
 [id^=RegisterButton]{
     position: absolute;
     border-radius: 10px;
@@ -71,6 +72,38 @@
     font-weight: bold;
     color: black;
 }
+
+#register{
+    background-color: rgb(241, 241, 200);
+    display: block;
+    position: relative;
+    width: 35%;
+    left: 35%;
+
+}
+
+
+#SubmitButton{
+    position: absolute;
+    top: 75%;
+    left: 35%;
+    background-color:  rgb(160, 199, 160);
+    font-weight: bold;
+    color: black;
+}
+
+[id^=SubmitButton]{
+    border-radius: 10px;
+    padding: 10px 50px;
+    font-size:20px;
+    font-family: 'Courier New', Courier, monospace;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+
+
+
 
   /* GalB */
 

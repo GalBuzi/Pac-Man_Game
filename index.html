@@ -23,18 +23,39 @@
 		<!-- Welcome Part -->
 		<div class = "content" id="welcome" style="text-align:center">
 			<h1 id="h1welcome" style="color: black;">
-			<span data-shadow-text="Text-Shadow" id="spanWelcome">Welcome!</span>
+			<span data-shadow-text="Text-Shadow" id="spanWelcome"><u>Welcome!</u></span>
 			<br><br><br><br><br><br><br><br>
 			</h1>
 			<br>
-			<h1><br><br><br>Please Login or Register to continue!</h1>
+			<h1><br><br><br><u>Please Login or Register to continue!</u></h1>
 			
-			<button class="welcomeButton" id="RegisterButton">Register</button>
-			<button class="welcomeButton" id="LoginButton">Login</button>
+			<button class="welcomeButton" id="RegisterButton" onclick="registerEnterFunction(this)">Register</button>
+			<button class="welcomeButton" id="LoginButton" onclick="loginEnterFunction(this)">Login</button>
 		</div>
 
 		<!-- Register Part -->
-		<di class ="content" id = "register">
+		<div class ="content" id = "register" style="text-align:center">
+			<h2><u>Please Enter Register Information Details:</u></h2> 
+			
+			<b>User Name:</b>
+			<input class="name" type="text" name="username" placeholder="Choose user name" required >
+			<br><br>
+			<b>Password:</b>
+			<input class="pass" type="password" name="password" placeholder="Choose Password" required>
+			<br><br>
+			<b>First Name:</b>
+			<input class="name" type="text" name="firstName" placeholder="Enter your first name" required>
+			<br><br>
+			<b>Last Name:</b>
+			<input class="name" type="text" name="lastName" placeholder="Enter your last name" required>
+			<br><br>
+			<b>E-mail:</b>
+			<input class="mail" type="email" name="email" placeholder="Enter your email:" required>
+			<br><br>
+			<b>Date of birth:</b>
+			<input class="Date" type="Date" name="date" required>
+			<br><br><br><br><br><br><br><br>
+			<button class="submitButton" id="SubmitButton" onclick="homePageFunction(this)">Submit</button>
 
 			
 		</div>
@@ -42,6 +63,8 @@
 	
 		<!-- Login Part -->
 		<div id = "login">
+			check
+			<button class="playButton" id="playButton" onclick="startGameFunction(this)">play</button>
 
 			
 		</div>
@@ -78,13 +101,45 @@
 	<script>
 		$(document).ready(function(){
     	//RESET TO WELCOME TO SHOW ONLY
-    
     	$("#welcome").show();
 		$("#login").hide();
 		$("#register").hide();
 	 	$("#gameSettings").hide();
     	$("#gamePlay").hide();	
 	});
+
+	function registerEnterFunction(element) {
+		$("#welcome").hide();
+		$("#login").hide();
+		$("#register").show();
+	 	$("#gameSettings").hide();
+    	$("#gamePlay").hide();	
+	}
+
+	function loginEnterFunction(element) {
+		$("#welcome").hide();
+		$("#login").show();
+		$("#register").hide();
+	 	$("#gameSettings").hide();
+    	$("#gamePlay").hide();	
+	}
+
+	function homePageFunction(element) {
+		$("#welcome").show();
+		$("#login").hide();
+		$("#register").hide();
+	 	$("#gameSettings").hide();
+    	$("#gamePlay").hide();	
+	}
+
+	function startGameFunction(element) {
+		$("#welcome").hide();
+		$("#login").hide();
+		$("#register").hide();
+	 	$("#gameSettings").hide();
+    	$("#gamePlay").show();	
+	}
+
 
 	</script>
 
