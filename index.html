@@ -1,128 +1,138 @@
-
 <!DOCTYPE html>
 <html>
-	<head>
-		<link rel="stylesheet" href="style.css">
-		<script src="./jquery-3.4.1.slim.min.js"></script>
-		<script type="text/javascript" src="./app.js"></script>
-	</head>
 
-	<body class= "container">
+<head>
+	<link rel="stylesheet" href="style.css">
+	<script src="./jquery-3.4.1.slim.min.js"></script>
+	<script type="text/javascript" src="./app.js"></script>
+</head>
 
-		<header class="header">
-			<img src="pacman_logo3.png" width="400px" height="50px" >
+<body class="container">
+	<div class="wrapper">
+		<header><img src="pacman_logo3.png" width="400px" height="50px">
 			Shay Eretz Kdosha 203276258 & Gal Buzaglo 203886528
 		</header>
-
-		<menu>
-			<div class="wrapper">
-				<div class="sidebar">
-					<h2>Hello User,</h2>
-					<ul>
-						<li><a href="#"><i class="fas fa-home"></i>Welcome</a></li>
-						<li><a href="#"><i class="fas fa-user"></i>Register</a></li>
-						<li><a href="#"><i class="fas fa-address-card"></i>Login</a></li>
-						<li><a href="#"><i class="fas fa-project-diagram"></i>Game Settings</a></li>
-						<li><a href="#"><i class="fas fa-blog"></i>About</a></li>
-					</ul> 
-				</div>	
-		</menu>
-
+		<nav>nav</nav>
 		<content>
-		<!-- Welcome Part -->
-		<div class = "content" id="welcome" style="text-align:center">
-			<h1 id="h1welcome" style="color: black;">
-			<span data-shadow-text="Text-Shadow" id="spanWelcome">Welcome!</span>
-			<br><br><br><br><br><br><br><br>
-			</h1>
-			<br>
-			<h1><br><br><br>Please Login or Register to continue!</h1>
-			
-			<button class="welcomeButton" id="RegisterButton">Register</button>
-			<button class="welcomeButton" id="LoginButton">Login</button>
-		</div>
+			<!-- Welcome Part -->
+			<div class="content" id="welcome" style="text-align:center">
+				<h1 id="h1welcome" style="color: black;">
+					<span data-shadow-text="Text-Shadow" id="spanWelcome"><u>Welcome!</u></span>
+					<br><br><br><br><br><br><br><br>
+				</h1>
+				<br>
+				<h1><br><br><br><u>Please Login or Register to continue!</u></h1>
 
-		<!-- Register Part -->
-		<di class ="content" id = "register">
+				<button class="welcomeButton" id="RegisterButton"
+					onclick="registerEnterFunction(this)">Register</button>
+				<button class="welcomeButton" id="LoginButton" onclick="loginEnterFunction(this)">Login</button>
+			</div>
 
+			<!-- Register Part -->
+			<div class="content" id="register" style="text-align:center">
+				<h2><u>Please Enter Register Information Details:</u></h2>
 
-
-		</div>
-			
-	
-		<!-- Login Part -->
-		<div id = "login">
-
-
-
-		</div>
-
-
-		<!-- Game Settings Part -->
-		<div id = "gameSettings">
-
-
-
-		</div>
-
-		<!-- Game Play Part -->
-		<div id="gamePlay">
-			<canvas id="canvas" height="600" width="600"></canvas>
-		</div>
-
-	</content>
-
-	<footer>
+				<b>User Name:</b>
+				<input class="name" type="text" name="username" placeholder="Choose user name" required>
+				<br><br>
+				<b>Password:</b>
+				<input class="pass" type="password" name="password" placeholder="Choose Password" required>
+				<br><br>
+				<b>First Name:</b>
+				<input class="name" type="text" name="firstName" placeholder="Enter your first name" required>
+				<br><br>
+				<b>Last Name:</b>
+				<input class="name" type="text" name="lastName" placeholder="Enter your last name" required>
+				<br><br>
+				<b>E-mail:</b>
+				<input class="mail" type="email" name="email" placeholder="Enter your email:" required>
+				<br><br>
+				<b>Date of birth:</b>
+				<input class="Date" type="Date" name="date" required>
+				<br><br><br><br><br><br><br><br>
+				<button class="submitButton" id="SubmitButton" onclick="homePageFunction(this)">Submit</button>
 
 
-	</footer>
+			</div>
 
-	</body>
+			<!-- Login Part -->
+			<div id="login">
+				check
+				<button class="playButton" id="playButton" onclick="startGameFunction(this)">play</button>
 
-	<script>
-		function switchScreen(nextScreen){
-			if(nextScreen === "welcome"){
-				$(document).ready(
-					$("#welcome").show(),
-					$("#login").hide),
-					$("#register").hide(),
-					$("#gameSettings").hide,
-					$("#gamePlay").hide()
-			}
-			else if(nextScreen === "login"){
-				$(document).ready(
-					$("#welcome").hide(),
-					$("#login").show),
-					$("#register").hide(),
-					$("#gameSettings").hide,
-					$("#gamePlay").hide()
-			}
-			else if(nextScreen === "register"){
-				$(document).ready(
-					$("#welcome").hide(),
-					$("#login").hide),
-					$("#register").show(),
-					$("#gameSettings").hide,
-					$("#gamePlay").hide()
-			}
-			else if(nextScreen === "gameSettings"){
-				$(document).ready(
-					$("#welcome").hide(),
-					$("#login").hide),
-					$("#register").hide(),
-					$("#gameSettings").show,
-					$("#gamePlay").hide()
-			}
-			else if(nextScreen === "gamePlay"){
-				$(document).ready(
-					$("#welcome").hide(),
-					$("#login").hide),
-					$("#register").hide(),
-					$("#gameSettings").hide,
-					$("#gamePlay").show()
-			}
 
-		}
-	</script>
+			</div>
+
+
+			<!-- Game Settings Part -->
+			<div id="gameSettings">
+
+
+			</div>
+
+			<!-- Game Play Part -->
+			<div id="gamePlay">
+				<canvas id="canvas" height="600" width="600"></canvas>
+				<!-- <div id="score">
+					<label for="lblScore">SCORE:</label>
+					<input id="lblScore" type="text" />
+				</div>
+				<div id="time">
+					<label for="lblTime">TIME:</label>
+					<input id="lblTime" type="text" />
+				</div> -->
+			</div>
+
+
+		</content>
+
+
+		<footer>Contact information: galbuz@post.bgu.ac.il or shayeret@post.bgu.ac.il</footer>
+	</div>
+
+</body>
+
+<script>
+	$(document).ready(function(){
+    	//RESET TO WELCOME TO SHOW ONLY
+    	$("#welcome").show();
+		$("#login").hide();
+		$("#register").hide();
+	 	$("#gameSettings").hide();
+    	$("#gamePlay").hide();	
+	});
+
+	function registerEnterFunction(element) {
+		$("#welcome").hide();
+		$("#login").hide();
+		$("#register").show();
+	 	$("#gameSettings").hide();
+    	$("#gamePlay").hide();	
+	}
+
+	function loginEnterFunction(element) {
+		$("#welcome").hide();
+		$("#login").show();
+		$("#register").hide();
+	 	$("#gameSettings").hide();
+    	$("#gamePlay").hide();	
+	}
+
+	function homePageFunction(element) {
+		$("#welcome").show();
+		$("#login").hide();
+		$("#register").hide();
+	 	$("#gameSettings").hide();
+    	$("#gamePlay").hide();	
+	}
+
+	function startGameFunction(element) {
+		$("#welcome").hide();
+		$("#login").hide();
+		$("#register").hide();
+	 	$("#gameSettings").hide();
+    	$("#gamePlay").show();	
+	}
+</script>
 
 </html>
