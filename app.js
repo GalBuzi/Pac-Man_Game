@@ -170,3 +170,58 @@ function UpdatePosition() {
 		Draw();
 	}
 }
+
+function registerEnterFunction(element) {
+	$("#welcome").hide();
+	$("#login").hide();
+	$("#register").show();
+	 $("#gameSettings").hide();
+	$("#gamePlay").hide();	
+	$("#about").hide();
+}
+
+function loginEnterFunction(element) {
+	$("#welcome").hide();
+	$("#login").show();
+	$("#register").hide();
+	 $("#gameSettings").hide();
+	$("#gamePlay").hide();	
+	$("#about").hide();
+}
+
+function homePageFunction(element) {
+	$("#welcome").show();
+	$("#login").hide();
+	$("#register").hide();
+	 $("#gameSettings").hide();
+	$("#gamePlay").hide();	
+	$("#about").hide();
+}
+
+
+function startGameFunction(element) {
+	$("#welcome").hide();
+	$("#login").hide();
+	$("#register").hide();
+	 $("#gameSettings").hide();
+	$("#gamePlay").show();	
+	$("#about").hide();
+}
+
+function gotoSettings(element) {
+	$("#welcome").hide();
+	$("#login").hide();
+	$("#register").hide();
+	 $("#gameSettings").show();
+	$("#gamePlay").hide();	
+	$("#about").hide();
+}
+
+function gotoAbout(element) {
+	$("#welcome").hide();
+	$("#login").hide();
+	$("#register").hide();
+	 $("#gameSettings").hide();
+	$("#gamePlay").hide();	
+	$("#about").show();
+}
