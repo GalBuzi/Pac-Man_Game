@@ -80,6 +80,7 @@ footer {
   background-repeat: no-repeat;
 }
 
+
 [id^=RegisterButton]{
   position: absolute;
   border-radius: 10px;
