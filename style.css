@@ -100,8 +100,8 @@ footer {
 
 #RegisterButton{
   position: absolute;
-  top: 30%;
-  left: 70%;
+  top: 40%;
+  left: 75%;
   background-color: rgb(241, 241, 200);
   font-weight: bold;
   color: black;
@@ -109,8 +109,8 @@ footer {
 
 #LoginButton{
   position: absolute;
-  top: 40%;
-  left: 70%;
+  top: 50%;
+  left: 75%;
   background-color:  rgb(241, 241, 200);
   font-weight: bold;
   color: black;
@@ -120,8 +120,8 @@ footer {
   background-color: rgb(241, 241, 200);
   display: block;
   position: relative;
-  width: 35%;
-  left: 35%;
+  width: 40%;
+  left: 27%;
 
 }
 
@@ -144,6 +144,34 @@ footer {
   transition-duration: 0.4s;
 }
 
+#login{
+    background-color: rgb(241, 241, 200);
+    display: block;
+    position: relative;
+    width: 40%;
+    left: 27%;
+  
+  }
+
+  #loginButton{
+    position: absolute;
+    top: 70%;
+    left: 35%;
+    background-color:  rgb(160, 199, 160);
+    font-weight: bold;
+    color: black;
+  }
+  
+  [id^=loginButton]{
+    border-radius: 10px;
+    padding: 10px 50px;
+    font-size:20px;
+    font-family: 'Courier New', Courier, monospace;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
+
+  
 .menu{
   background-color: rgb(63, 70, 77);
   padding: 15px;

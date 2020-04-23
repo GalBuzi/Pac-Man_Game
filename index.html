@@ -6,6 +6,8 @@
 	<script src="./jquery-3.4.1.slim.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 	<script type="text/javascript" src="./app.js"></script>
+	<script type="text/javascript" src="LoginCheck.js"></script>
+	<script type="text/javascript" src="Register.js"></script>
 	<script type="text/javascript" src="./about.js"></script>
 </head>
 
@@ -33,8 +35,7 @@
 				<br>
 				<h1><br><br><br><u>Please Login or Register to continue!</u></h1>
 
-				<button class="welcomeButton" id="RegisterButton"
-					onclick="registerEnterFunction(this)">Register</button>
+				<button class="welcomeButton" id="RegisterButton" onclick="registerEnterFunction(this)">Register</button>
 				<button class="welcomeButton" id="LoginButton" onclick="loginEnterFunction(this)">Login</button>
 			</div>
 
@@ -43,32 +44,41 @@
 				<h2><u>Please Enter Register Information Details:</u></h2>
 
 				<b>User Name:</b>
-				<input class="name" type="text" name="username" placeholder="Choose user name" required>
+				<input class="name" type="text" id="usernameReg" placeholder="Choose user name" required>
 				<br><br>
 				<b>Password:</b>
-				<input class="pass" type="password" name="password" placeholder="Choose Password" required>
+				<input class="pass" type="password" id="passwordReg" placeholder="Choose Password" required>
 				<br><br>
 				<b>First Name:</b>
-				<input class="name" type="text" name="firstName" placeholder="Enter your first name" required>
+				<input class="name" type="text" id="firstNameReg" placeholder="Enter your first name" required>
 				<br><br>
 				<b>Last Name:</b>
-				<input class="name" type="text" name="lastName" placeholder="Enter your last name" required>
+				<input class="name" type="text" id="lastNameReg" placeholder="Enter your last name" required>
 				<br><br>
 				<b>E-mail:</b>
-				<input class="mail" type="email" name="email" placeholder="Enter your email:" required>
+				<input class="mail" type="email" id="emailReg" placeholder="Enter your email:" required>
 				<br><br>
 				<b>Date of birth:</b>
-				<input class="Date" type="Date" name="date" required>
+				<input class="Date" type="Date" id="dateReg" required>
 				<br><br><br><br><br><br><br><br>
-				<button class="submitButton" id="SubmitButton" onclick="homePageFunction(this)">Submit</button>
+				<button class="submitButton" id="SubmitButton" onclick="validateRegister() ;return false;">Submit</button>
 
 
 			</div>
 
 			<!-- Login Part -->
-			<div id="login">
-				check
-				<button class="playButton" id="playButton" onclick="startGameFunction(this)">play</button>
+			<div class="content" id="login" style="text-align:center">
+				<br>
+				<b><u>Please enter user name and password!</u></b><br><br>
+				<b>User name:</b>
+				<input class="name" type="text" id="username" placeholder="Username" required >
+				<br><br>
+				<b>Password:</b>
+                <input class="pass" type="password" id="password" placeholder="Password" required>
+                <br><br>
+
+				<button class="loginButton" id="loginButton" onclick="validateLogin() ;return false;">Login</button>
+				<br><br><br><br><br>
 
 
 			</div>
@@ -76,7 +86,8 @@
 
 			<!-- Game Settings Part -->
 			<div id="gameSettings">
-
+				Settings
+				<button class="playButton" id="playButton" onclick="startGameFunction(this)">play</button>
 
 			</div>
 
@@ -102,14 +113,14 @@
 			<!-- Game Play Part -->
 			<div id="gamePlay">
 				<canvas id="canvas" height="600" width="600"></canvas>
-				<!-- <div id="score">
+				<div id="score">
 					<label for="lblScore">SCORE:</label>
 					<input id="lblScore" type="text" />
 				</div>
 				<div id="time">
 					<label for="lblTime">TIME:</label>
 					<input id="lblTime" type="text" />
-				</div> -->
+				</div>
 			</div>
 
 
@@ -122,8 +133,13 @@
 </body>
 
 <script>
-	$(document).ready(function () {
-		$("#welcome").show();
+
+	var users = ['p'];
+    var passwords =  ['p'];
+
+
+	$(document).ready(function(){
+    	$("#welcome").show();
 		$("#login").hide();
 		$("#register").hide();
 		$("#gameSettings").hide();
@@ -131,7 +147,47 @@
 		$("#about").hide();
 	});
 
+	function registerEnterFunction(element) {
+		$("#welcome").hide();
+		$("#login").hide();
+		$("#register").show();
+	 	$("#gameSettings").hide();
+    	$("#gamePlay").hide();	
+	}
 
+	function loginEnterFunction(element) {
+		$("#welcome").hide();
+		$("#login").show();
+		$("#register").hide();
+	 	$("#gameSettings").hide();
+    	$("#gamePlay").hide();	
+	}
+
+	function homePageFunction(element) {
+		$("#welcome").show();
+		$("#login").hide();
+		$("#register").hide();
+	 	$("#gameSettings").hide();
+    	$("#gamePlay").hide();	
+	}
+
+	// function settingsPageFunction(element) {
+	// 	$("#welcome").hide();
+	// 	$("#login").hide();
+	// 	$("#register").hide();
+	//  	$("#gameSettings").show();
+    // 	$("#gamePlay").hide();	
+	// }
+
+	function startGameFunction(element) {
+		$("#welcome").hide();
+		$("#login").hide();
+		$("#register").hide();
+	 	$("#gameSettings").hide();
+    	$("#gamePlay").show();	
+	}
+
+	
 </script>
 
 </html>
