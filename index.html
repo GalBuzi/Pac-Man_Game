@@ -4,6 +4,7 @@
 <head>
 	<link rel="stylesheet" href="style.css">
 	<script src="./jquery-3.4.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 	<script type="text/javascript" src="./app.js"></script>
 	<script type="text/javascript" src="./about.js"></script>
 </head>
@@ -20,7 +21,7 @@
 			<li><a herf="#" onclick="homePageFunction(this)">Welcome</a></li>
 			<li><a herf="#" onclick="registerEnterFunction(this)">Register</a></li>
 			<li><a herf="#" onclick="loginEnterFunction(this)">Login</a></li>
-			<li><a herf="#" onclick="gotoAbout(this)">About</a></li>
+			<li><a id="myBtn" herf="#" onclick="gotoAbout(this)">About</a></li>
 		</nav>
 		<content>
 			<!-- Welcome Part -->
@@ -79,16 +80,24 @@
 
 			</div>
 
+			<!-- The Modal -->
 			<dialog class="content" id="about">
-				<button id="btnClose" title="Close" class="close" onclick="closeWindow()">X</button>
-				<h2>About</h2>
-				<p> Presentors: Gal Buzaglo & Shay Eretz Kdosha</p>
-				<p> JQuery plugin was used all around our code but mainly for validation in the login and registration pages,
-					where we used the validate method.</p>
-				<p>The major difficulties were handling the page resolution and creating the wanted layout.
-					For that reason we used a template of known layout containg header, navigation, content and footer as required.
-				 </p>
+
+				<!-- Modal content -->
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<h2>About</h2>
+					<p> Presentors: Gal Buzaglo & Shay Eretz Kdosha</p>
+					<p> JQuery plugin was used all around our code but mainly for validation in the login and
+						registration pages,
+						where we used the validate method.</p>
+					<p>The major difficulties were handling the page resolution and creating the wanted layout.
+						For that reason we used a template of known layout containg header, navigation, content and
+						footer as required.
+					</p>
+				</div>
 			</dialog>
+
 
 			<!-- Game Play Part -->
 			<div id="gamePlay">
@@ -113,16 +122,16 @@
 </body>
 
 <script>
-	$(document).ready(function(){
-    	$("#welcome").show();
+	$(document).ready(function () {
+		$("#welcome").show();
 		$("#login").hide();
 		$("#register").hide();
-	 	$("#gameSettings").hide();
-    	$("#gamePlay").hide();	
+		$("#gameSettings").hide();
+		$("#gamePlay").hide();
 		$("#about").hide();
 	});
 
-	
+
 </script>
 
 </html>
