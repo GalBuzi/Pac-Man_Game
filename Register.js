@@ -7,27 +7,45 @@ function validateRegister() {
     var dateBirth=$('#dateReg').val();
 
     var allFieldsIn = false;
+    var isUserNameOk = false;
     var isPasswordOk = false;
     var isFirstNameOk = false;
     var isLastNameOk = false;
     var isEmailOk = false;
 
     allFieldsIn = checkAllFieldsInserted(username,password,firstName,lastName,email,dateBirth)
-    isPasswordOk = checkPassword(password);
-    isFirstNameOk = checkNameOrLastName(firstName);
-    isLastNameOk = checkNameOrLastName(lastName);
-    isEmailOk = ValidateEmail(email);
-
-    if(allFieldsIn && isPasswordOk && isFirstNameOk && isLastNameOk && isEmailOk){
-        users.push(username);
-        passwords.push(password);
-        alert("New user in the system")
-        $("#welcome").show();
-		$("#login").hide();
-		$("#register").hide();
-	 	$("#gameSettings").hide();
-    	$("#gamePlay").hide();	
+    if(allFieldsIn){
+        isUserNameOk = checkIfUserNameExist(username);
+        if(!isUserNameOk){
+            isPasswordOk = checkPassword(password);
+            if(isPasswordOk){
+                isFirstNameOk = checkNameOrLastName(firstName);
+                if(isFirstNameOk){
+                    isLastNameOk = checkNameOrLastName(lastName);
+                    if(isLastNameOk){
+                        isEmailOk = ValidateEmail(email);
+                        if(isEmailOk){
+                            if(allFieldsIn && !isUserNameOk && isPasswordOk && isFirstNameOk && isLastNameOk && isEmailOk){
+                                users.push(username);
+                                passwords.push(password);
+                                alert("New user in the system")
+                                $("#welcome").show();
+                                $("#login").hide();
+                                $("#register").hide();
+                                $("#gameSettings").hide();
+                                $("#gamePlay").hide();	
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
+    
+    
+    
+
+
 
     function checkAllFieldsInserted(username,password,firstName,lastName,email,dateBirth){
         if(username == ""){
@@ -58,6 +76,16 @@ function validateRegister() {
             return true;
         }
     }
+    
+    function checkIfUserNameExist(username){
+        for(i = 0 ; i <users.length; i++){
+            if(username == users[i]){
+                alert("The user name already exist choose another user name!")
+                return true;
+            }
+        }
+        return false;
+    }
 
     function ValidateEmail(givenMail){
        var mail =  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
@@ -84,7 +112,6 @@ function validateRegister() {
         if(password.length > 5){
             if(containLettersAndNumbers(password)){
                 return true;
-                    // alert("The Password OK");
             }
             else{
                 alert("password must contain numbers and letters!")
