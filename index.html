@@ -8,6 +8,7 @@
 	<script type="text/javascript" src="./app.js"></script>
 	<script type="text/javascript" src="LoginCheck.js"></script>
 	<script type="text/javascript" src="Register.js"></script>
+	<script type="text/javascript" src="Settings.js"></script>
 	<script type="text/javascript" src="./about.js"></script>
 </head>
 
@@ -85,9 +86,81 @@
 
 
 			<!-- Game Settings Part -->
-			<div id="gameSettings">
-				Settings
-				<button class="playButton" id="playButton" onclick="startGameFunction(this)">play</button>
+			<div class="content" id="gameSettings" style="text-align:center">
+				<br>
+				<h3><u>Game-Settings</u></h3>
+				<div>
+					<table id="settingsTable" style="display: inline-block">
+							<tr>
+								<th> Number of balls: </th>
+								<th>
+									<div class="range-slider">
+										<input class="range-slider__range" type="range" value="75" min="50" max="90" onchange="showRangeSliderValue(this.value)">
+										<span class="range-slider__value">75</span>
+									</div>
+								</th>
+							</tr>
+						<tr>
+							<th> Game duration:</th>
+							<th><input type="text" name="gameTime" placeholder="Minimum 60"> Seconds</th>
+						</tr>
+						<tr>
+							<th>Number of monsters:</th>
+							<th> <select name="numMonsters">
+									<option selected>1</option>
+									<option >2</option>
+									<option >3</option>
+									<option >4</option>
+							</select>
+							</th>
+						</tr>
+						<tr>
+							<th></th>
+							<th> 5 points <input type="color" name="5ptColor" value="#948cea"> </th>
+						</tr>
+						<tr>
+							<th> Game balls color :</th>
+							<th> 15 points <input type="color" name="15ptColor" value="#eda3c1"> </th>
+						<tr>
+							<th></th>
+							<th> 25 points <input type="color" name="25ptColor" value="#8dddb8"> </th>
+						</tr>
+						<br>
+					</table>
+
+					<table id="keysTable" style="float:right">
+						<tr>
+							<th>Set game buttons:</th>
+							<th>
+								<input class="keys" type="button" value="Up" width="1px" height="10px" onclick="catchUserChoiceForKeys(this)">
+								<span id="keyUp"></span>
+							</th>
+							<th></th>
+						</tr>
+						<tr>
+							<th>
+								<span id="keyLeft"></span>
+								<input class="keys" value="Left" type="button" width="1px" height="10px"  onclick="catchUserChoiceForKeys(this)"></th>
+							<th><img src="arrow.png" height="100" width="150"></th>
+							<th>
+								<input class="keys" value="Right" type="button" width="1px" height="10px" onclick="catchUserChoiceForKeys(this)">
+								<span id="keyRight"></span>
+							</th>
+						</tr>
+						<tr>
+							<th></th>
+							<th>
+								<input class="keys" id="buttonDown" value="Down" type="button" width="1px" height="10px" onclick="catchUserChoiceForKeys(this)">
+								<span id="keyDown"></span>
+							</th>
+							<th></th>
+						</tr>
+					</table>
+				</div>
+				<br>
+				<br>
+				<button class="randomButton" id="randomButton" onclick="randomizeGameSettings(this)">Random</button>
+				<button class="playButton" id="playButton" onclick="allGameSettingSet(this)">Start Play!</button>
 
 			</div>
 

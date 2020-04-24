@@ -41,11 +41,7 @@ function validateRegister() {
             }
         }
     }
-    
-    
-    
-
-
+} 
 
     function checkAllFieldsInserted(username,password,firstName,lastName,email,dateBirth){
         if(username == ""){
@@ -135,5 +131,3 @@ function validateRegister() {
             }
       }
 
-
-}
