@@ -120,11 +120,37 @@ footer {
   background-color: rgb(241, 241, 200);
   display: block;
   position: relative;
-  width: 40%;
-  left: 27%;
+  width: 50%;
+  left: 22%;
+  margin-top:30px;
 
 }
 
+#gameSettings{
+    background-color: rgb(241, 241, 200);
+    display: block;
+    position: relative;
+    width:90%;
+    left: 5%;
+    height:50%;
+    margin-top:30px;
+  
+  }
+
+#settingsTable {
+    margin-top:1%;
+
+}
+
+#keysTable{
+    margin-top: 1%;
+    margin-right: 10%;
+}
+
+.keys{
+    width: 60px;
+    height: 20px;
+}
 
 #SubmitButton{
   position: absolute;
@@ -150,6 +176,7 @@ footer {
     position: relative;
     width: 40%;
     left: 27%;
+    margin-top:30px;
   
   }
 
