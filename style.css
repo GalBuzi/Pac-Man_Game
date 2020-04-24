@@ -200,9 +200,9 @@ footer {
 
   
 .menu{
-  background-color: rgb(63, 70, 77);
+  background-color: #ffce49;
   padding: 15px;
-  border-right:  3px solid black;
+  border-right:  2px solid white;
   color:#ffffff;
 }
 .menu li
@@ -269,4 +269,6 @@ footer {
 
 #canvas {
   border-color: black;
+  padding-top: 50px;
+  
 }

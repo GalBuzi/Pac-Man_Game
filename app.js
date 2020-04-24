@@ -16,24 +16,19 @@ function Start() {
 	board = new Array();
 	score = 0;
 	pac_color = "yellow";
-	var cnt = 100; //num
+	var cnt = 200; //num
 	var food_remain = 50; //total food left on board
 	var pacman_remain = 1; //boolean , how many time to draw the pacman
 	start_time = new Date();
 	// 0=empty 1= 25-Food, 2=pacman, 3=15-Food, 4=wall, 5=5-Food, 6=life
-	for (var i = 0; i < 10; i++) {
+	for (var i = 0; i < 20; i++) {
 		board[i] = new Array();
 		//put obstacles in (i=3,j=3) and (i=3,j=4) and (i=3,j=5), (i=6,j=1) and (i=6,j=2)
 		for (var j = 0; j < 10; j++) {
-			if (
-				(i == 8 && j == 3) ||
-				(i == 3 && j == 4) ||
-				(i == 3 && j == 5) ||
-				(i == 6 && j == 1) ||
-				(i == 6 && j == 2)
-			) {
+			if(placeWalls(i,j)){
 				board[i][j] = 4;
-			} else {
+			}
+            else {
 				var randomNum = Math.random();
 				if (randomNum <= (1.0 * food_remain) / cnt) {
 					food_remain--;
@@ -73,6 +68,16 @@ function Start() {
 	interval = setInterval(UpdatePosition, 250); //update posision to all charecters every 250 mili sec
 }
 
+function placeWalls(i,j){
+        return (i === 2 && j === 1) || (i === 3 && j === 1) || (i === 2 && j === 2) || (i === 3 && j === 2) || (i === 2 && j === 5)
+        || (i === 2 && j === 6) || (i === 2 && j === 7) || (i === 3 && j === 6) || (i === 6 && j === 5) || (i === 6 && j === 6)
+        || (i === 7 && j === 0) || (i === 8 && j === 0) || (i === 9 && j === 0) || (i === 7 && j === 1) || (i === 8 && j === 1)
+        || (i === 9 && j === 1) || (i === 8 && j === 2) || (i === 11 && j === 3) || (i === 12 && j === 3) || (i === 13 && j === 3)
+        || (i === 12 && j === 4) || (i === 11 && j === 5) || (i === 12 && j === 5) || (i === 13 && j === 5) || (i === 15 && j === 6)
+        || (i === 16 && j === 6) || (i === 15 && j === 7) || (i === 16 && j === 7) || (i === 17 && j === 2) || (i === 18 && j === 2)
+        || (i === 17 && j === 3) || (i === 18 && j === 3);
+    }
+
 function findRandomEmptyCell(board) {
 	var i = Math.floor(Math.random() * 9 + 1);
 	var j = Math.floor(Math.random() * 9 + 1);
@@ -102,7 +107,7 @@ function Draw() {
 	canvas.width = canvas.width; //clean board
 	lblScore.value = score;
 	lblTime.value = time_elapsed;
-	for (var i = 0; i < 10; i++) {
+	for (var i = 0; i < 20; i++) {
 		for (var j = 0; j < 10; j++) {
 			var center = new Object();
 			center.x = i * 60 + 30;
