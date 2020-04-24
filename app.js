@@ -1,11 +1,11 @@
-var context;
-var shape = new Object();
-var board;
-var score;
-var pac_color;
-var start_time;
-var time_elapsed;
-var interval;
+var context; //where the canvas is being created
+var shape = new Object(); 
+var board; //2d array
+var score; //score of user
+var pac_color; // pacman charecter color 
+var start_time; // starting time of the game
+var time_elapsed; //time left to play OR time from start
+var interval; //responsible for update position
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
@@ -16,16 +16,17 @@ function Start() {
 	board = new Array();
 	score = 0;
 	pac_color = "yellow";
-	var cnt = 100;
-	var food_remain = 50;
-	var pacman_remain = 1;
+	var cnt = 100; //num
+	var food_remain = 50; //total food left on board
+	var pacman_remain = 1; //boolean , how many time to draw the pacman
 	start_time = new Date();
+	// 0=empty 1= 25-Food, 2=pacman, 3=15-Food, 4=wall, 5=5-Food, 6=life
 	for (var i = 0; i < 10; i++) {
 		board[i] = new Array();
 		//put obstacles in (i=3,j=3) and (i=3,j=4) and (i=3,j=5), (i=6,j=1) and (i=6,j=2)
 		for (var j = 0; j < 10; j++) {
 			if (
-				(i == 3 && j == 3) ||
+				(i == 8 && j == 3) ||
 				(i == 3 && j == 4) ||
 				(i == 3 && j == 5) ||
 				(i == 6 && j == 1) ||
@@ -37,7 +38,7 @@ function Start() {
 				if (randomNum <= (1.0 * food_remain) / cnt) {
 					food_remain--;
 					board[i][j] = 1;
-				} else if (randomNum < (1.0 * (pacman_remain + food_remain)) / cnt) {
+				} else if (randomNum < (1.0 * (pacman_remain + food_remain)) / cnt) { //place the pacman on board where there is no food
 					shape.i = i;
 					shape.j = j;
 					pacman_remain--;
@@ -69,7 +70,7 @@ function Start() {
 		},
 		false
 	);
-	interval = setInterval(UpdatePosition, 250);
+	interval = setInterval(UpdatePosition, 250); //update posision to all charecters every 250 mili sec
 }
 
 function findRandomEmptyCell(board) {
@@ -132,11 +133,11 @@ function Draw() {
 }
 
 function UpdatePosition() {
-	board[shape.i][shape.j] = 0;
-	var x = GetKeyPressed();
+	board[shape.i][shape.j] = 0; //coordinates of pacman - delete the pacman and put 0
+	var x = GetKeyPressed(); //get key pressed by user
 	if (x == 1) {
-		if (shape.j > 0 && board[shape.i][shape.j - 1] != 4) {
-			shape.j--;
+		if (shape.j > 0 && board[shape.i][shape.j - 1] != 4) { //check move down
+			shape.j--; // update position
 		}
 	}
 	if (x == 2) {
@@ -154,11 +155,11 @@ function UpdatePosition() {
 			shape.i++;
 		}
 	}
-	if (board[shape.i][shape.j] == 1) {
+	if (board[shape.i][shape.j] == 1) { //if the new position is food, update score
 		score++;
 	}
 	board[shape.i][shape.j] = 2;
-	var currentTime = new Date();
+	var currentTime = new Date(); //to define next line
 	time_elapsed = (currentTime - start_time) / 1000;
 	if (score >= 20 && time_elapsed <= 10) {
 		pac_color = "green";
@@ -172,56 +173,56 @@ function UpdatePosition() {
 }
 
 function registerEnterFunction(element) {
-	$("#welcome").hide();
-	$("#login").hide();
-	$("#register").show();
-	 $("#gameSettings").hide();
-	$("#gamePlay").hide();	
-	$("#about").hide();
-}
+		$("#welcome").hide();
+		$("#login").hide();
+		$("#register").show();
+	 	$("#gameSettings").hide();
+    	$("#gamePlay").hide();	
+		$("#about").hide();
+	}
 
-function loginEnterFunction(element) {
-	$("#welcome").hide();
-	$("#login").show();
-	$("#register").hide();
-	 $("#gameSettings").hide();
-	$("#gamePlay").hide();	
-	$("#about").hide();
-}
+	function loginEnterFunction(element) {
+		$("#welcome").hide();
+		$("#login").show();
+		$("#register").hide();
+	 	$("#gameSettings").hide();
+    	$("#gamePlay").hide();	
+		$("#about").hide();
+	}
 
-function homePageFunction(element) {
-	$("#welcome").show();
-	$("#login").hide();
-	$("#register").hide();
-	 $("#gameSettings").hide();
-	$("#gamePlay").hide();	
-	$("#about").hide();
-}
+	function homePageFunction(element) {
+		$("#welcome").show();
+		$("#login").hide();
+		$("#register").hide();
+	 	$("#gameSettings").hide();
+    	$("#gamePlay").hide();	
+		$("#about").hide();
+	}
 
 
-function startGameFunction(element) {
-	$("#welcome").hide();
-	$("#login").hide();
-	$("#register").hide();
-	 $("#gameSettings").hide();
-	$("#gamePlay").show();	
-	$("#about").hide();
-}
+	function startGameFunction(element) {
+		$("#welcome").hide();
+		$("#login").hide();
+		$("#register").hide();
+	 	$("#gameSettings").hide();
+    	$("#gamePlay").show();	
+		$("#about").hide();
+	}
 
-function gotoSettings(element) {
-	$("#welcome").hide();
-	$("#login").hide();
-	$("#register").hide();
-	 $("#gameSettings").show();
-	$("#gamePlay").hide();	
-	$("#about").hide();
-}
+	function gotoSettings(element) {
+		$("#welcome").hide();
+		$("#login").hide();
+		$("#register").hide();
+	 	$("#gameSettings").show();
+    	$("#gamePlay").hide();	
+		$("#about").hide();
+	}
 
-function gotoAbout(element) {
-	$("#welcome").hide();
-	$("#login").hide();
-	$("#register").hide();
-	 $("#gameSettings").hide();
-	$("#gamePlay").hide();	
-	$("#about").show();
-}
+	function gotoAbout(element) {
+		$("#welcome").hide();
+		$("#login").hide();
+		$("#register").hide();
+	 	$("#gameSettings").hide();
+    	$("#gamePlay").hide();	
+		$("#about").show();
+	}

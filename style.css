@@ -239,3 +239,7 @@ footer {
   text-decoration: none;
   cursor: pointer;
 }
+
+#canvas {
+  border-color: black;
+}
