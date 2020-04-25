@@ -5,8 +5,9 @@ function showRangeSliderValue(val) {
 
 function catchUserChoiceForKeys(button){
     button.addEventListener("keydown", function (event) {
-        $("#key"+button.value).text(event.code);
+        $("#key"+button.value).text(event.key);
     }, false);
+
 }
 
 function randomizeGameSettings(){
@@ -62,7 +63,7 @@ function allGameSettingSet(){
 		$("#login").hide();
 		$("#register").hide();
 	 	$("#gameSettings").hide();
-    	$("#gamePlay").show();	
+    	$("#gamePlay").show();
         return true;
         }
     }

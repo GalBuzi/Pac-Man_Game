@@ -12,6 +12,7 @@ function validateLogin(){
         if (username === users[i]) {
             isExists = true;
             if (password === passwords[i]) {
+                $("#changeLoggedUser > b").text(username);
                 $("#welcome").hide();
                 $("#login").hide();
                 $("#register").hide();
