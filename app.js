@@ -6,21 +6,37 @@ var pac_color; // pacman charecter color
 var start_time; // starting time of the game
 var time_elapsed; //time left to play OR time from start
 var interval; //responsible for update position
-
+var monsters; //array contain the monsters
+var monstersNum; //the number of monsterts in the game
+var intervalMonsters;
 var pac_direction;
 var food_left_to_show_user;
 var keysDown = {}; //dictionary of keys and codes
 
-$(document).ready(function () {
+$(document).ready(function() {
 	context = canvas.getContext("2d");
 	Start();
 });
+
+
+class gameMonster{
+	constructor(x,y,url){
+		this.x= x;
+		this.y=y;
+		this.img = new Image();
+		this.img.src = url;
+	}
+}
+
 
 function Start() {
 	board = new Array();
 	score = 0;
 	pac_color = "yellow";
 	pac_direction = 1;
+	pac_direction=1;
+	monsters =[];
+	monstersNum =4;
 	var cnt = 200; //num
 	var food_remain = $('.range-slider input[type=range]').val(); //total food left on board
 	food_left_to_show_user = food_remain;
@@ -30,6 +46,7 @@ function Start() {
 	var pacman_remain = 1; //boolean , how many time to draw the pacman
 	start_time = new Date();
 	// 0=empty , 1=twenty_five_points_food, 2=pacman, 3=fifteen_points_food , 4=wall, 5=five_points_food, 6=life
+	createMonsters();
 	for (var i = 0; i < 20; i++) {
 		board[i] = new Array();
 		for (var j = 0; j < 10; j++) {
@@ -99,6 +116,14 @@ function Start() {
 		false
 	);
 	interval = setInterval(UpdatePosition, 250); //update posision to all charecters every 250 mili sec
+	intervalMonsters =setInterval(moveMonsters,300);
+}
+
+function createMonsters(){
+	monsters.push(new gameMonster(19,9,"Blue_Monster.png"));
+	monsters.push(new gameMonster(0,0,"Red_Monster.png"));
+	monsters.push(new gameMonster(0,9,"Pink_Monster.png"));
+	monsters.push(new gameMonster(19,0,"Orange_Monster.png"));
 }
 
 function placeWalls(i, j) {
@@ -195,6 +220,12 @@ function Draw() {
 				context.fillStyle = "#67c0ff"; //color
 				context.fill();
 			}
+
+			//draw monsters
+			for(var k =0; k < monsters.length; k++){
+            	if(monsters[k].x === i && monsters[k].y === j)
+                    context.drawImage(monsters[k].img,i*60,j*60,60,60);
+            }
 		}
 	}
 }
@@ -251,6 +282,118 @@ function UpdatePosition() {
 		Draw();
 	}
 }
+
+
+function moveMonsters() {
+	var monster;
+	var minDistance = Number.POSITIVE_INFINITY;
+	var minDistToPacman;
+	var minX;
+	var minY;
+	var randMove;
+	var optionalPositions;
+	var randMoveIndex;
+
+	//move Monsters
+	for (var i = 0; i <= monsters.length; i++) {
+		randMove = Math.random();
+		monster = monsters[i];
+		if (randMove > 0.5) {
+			//explore other posiotion (far from pac-man)
+			optionalPositions = getPossiblePositions(monster.x, monster.y);
+			if(optionalPositions.length>0) {
+				randMoveIndex = Math.floor(Math.random() * Math.floor(optionalPositions.length));
+					minX=optionalPositions[randMoveIndex][0];
+					minY=optionalPositions[randMoveIndex][1];
+				}
+			}
+		else{
+			//explore posiotion (close to pac-man)		
+			//right
+			if (isPositionValid(monster.x + 1, monster.y)) {
+				mDist = checkDistanceFromPac(monster.x + 1, monster.y);
+				if (minDistToPacman < minDistance) {
+					minDistance = minDistToPacman;
+					minX = monster.x + 1;
+					minY = monster.y;
+				}
+			}//left
+			if (isPositionValid(monster.x - 1, monster.y)) {
+				minDistToPacman = checkDistanceFromPac(monster.x - 1, monster.y);
+				if (minDistToPacman < minDistance) {
+					minDistance = minDistToPacman;
+					minX = monster.x - 1;
+					minY = monster.y;
+				}
+			}//down
+			if (isPositionValid(monster.x, monster.y + 1)) {
+				minDistToPacman = checkDistanceFromPac(monster.x, monster.y + 1);
+				if (minDistToPacman < minDistance) {
+					minDistance = minDistToPacman;
+					minX = monster.x;
+					minY = monster.y + 1;
+				}
+			}//up
+			if (isPositionValid(monster.x, monster.y - 1)) {
+				minDistToPacman = checkDistanceFromPac(monster.x, monster.y - 1);
+				if (minDistToPacman < minDistance) {
+					minDistance = minDistToPacman;
+					minX = monster.x;
+					minY = monster.y - 1;
+				}
+			}
+		 }
+
+		if ((i === 0) ||
+			(i === 1 && (minX !== monsters[0].x || minY !== monsters[0].y)) ||
+			(i === 2 && (minX !== monsters[0].x || minY !== monsters[0].y) && 
+			(minX !== monsters[1].x || minY !== monsters[1].y)) ||
+			(i === 3 && (minX !== monsters[0].x || minY !== monsters[0].y) && 
+			(minX !== monsters[1].x || minY !== monsters[1].y)) && 
+			(minX !== monsters[2].x || minY !== monsters[2].y)) 
+			{
+			monster.x = minX;
+			monster.y = minY;
+		}
+		//    monster caught pacman
+		minDistance = Number.POSITIVE_INFINITY;
+	}
+}
+
+
+function getPossiblePositions(x,y){
+	var possibleMoves = [];
+	//checkDown
+	if (isPositionValid(x,y - 1)){
+		possibleMoves.push([x,y-1]);
+	}
+	//checkUp
+	if (isPositionValid(x,y + 1)){
+		possibleMoves.push([x,y+1]);
+	}
+	//checkRight
+	if (isPositionValid(x+1,y)){
+		possibleMoves.push([x+1,y]);
+	}
+	//CheckLeft
+	if (isPositionValid(x-1,y)){
+		possibleMoves.push([x-1,y]);
+	}
+	return possibleMoves;
+}
+
+
+/*checks whether [x,y] are out game boundaries and whether they contains a wall*/
+function isPositionValid(x,y){
+    return (x<20 && x>=0 && y<10 && y>=0 && board[x][y]!==4);
+}
+
+/*compute distance from pacman*/
+function checkDistanceFromPac(x,y){
+    var ans= Math.sqrt(Math.pow(x-shape.i,2)+Math.pow(y-shape.j,2));
+    return ans;
+}
+
 
 function registerEnterFunction(element) {
 	$("#welcome").hide();
