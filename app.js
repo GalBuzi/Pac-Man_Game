@@ -145,8 +145,8 @@ function Start() {
 		},
 		false
 	);
-	interval = setInterval(UpdatePosition, 200); //update posision to all charecters every 250 mili sec
-	intervalMonsters = setInterval(moveMonsters, 250);
+	interval = setInterval(UpdatePosition, 160); //update posision to all charecters every 250 mili sec
+	intervalMonsters = setInterval(moveMonsters, 350);
 }
 
 function placeWalls(i, j) {
@@ -164,20 +164,20 @@ function isCorner(i, j) {
 }
 
 function findRandomEmptyCell(board) {
-	var i = Math.floor(Math.random() * 9 + 1);
+	var i = Math.floor(Math.random() * 19 + 1);
 	var j = Math.floor(Math.random() * 9 + 1);
 	while (board[i][j] != 0) {
-		i = Math.floor(Math.random() * 9 + 1);
+		i = Math.floor(Math.random() * 19 + 1);
 		j = Math.floor(Math.random() * 9 + 1);
 	}
 	return [i, j];
 }
 
 function findRandomEmptyCellForPacman(board) {
-	var i = Math.floor(Math.random() * 9 + 1);
+	var i = Math.floor(Math.random() * 19 + 1);
 	var j = Math.floor(Math.random() * 9 + 1);
-	while (board[i][j] != 0 && !isCorner(i, j)) {
-		i = Math.floor(Math.random() * 9 + 1);
+	while (board[i][j] != 0 && !isCorner(i, j) && i<=16 && i>=3 && j<=7 && j>=2) {
+		i = Math.floor(Math.random() * 19 + 1);
 		j = Math.floor(Math.random() * 9 + 1);
 	}
 	return [i, j];
@@ -350,38 +350,38 @@ function Draw() {
 			// if(pacLife>=0)
 			// $('#gameDetails li:last-child').remove();
 			score = score - 10;
-			if (pacman_lifes_left > 0) {
+			if (pacman_lifes_left >= 0) {
 				//restoreMonstersAndPacToBase();
 				if (monstersNum == 1) {
-                    monsters[0].x=0;
-					monsters[0].y=0;
+                    monsters[0].x=19;
+					monsters[0].y=9;
 				} else if (monstersNum == 2) {
-					monsters[0].x=0;
-					monsters[0].y=0;
+					monsters[0].x=19;
+					monsters[0].y=9;
 					monsters[1].x=0;
-					monsters[1].y=9;
+					monsters[1].y=0;
 				} else if (monstersNum == 3) {
-					monsters[0].x=0;
-					monsters[0].y=0;
+					monsters[0].x=19;
+					monsters[0].y=9;
 					monsters[1].x=0;
-					monsters[1].y=9;
-					monsters[2].x=19;
-					monsters[2].y=0;
+					monsters[1].y=0;
+					monsters[2].x=0;
+					monsters[2].y=9;
 				} else if (monstersNum == 4) {
-					monsters[0].x=0;
-					monsters[0].y=0;
+					monsters[0].x=19;
+					monsters[0].y=9;
 					monsters[1].x=0;
-					monsters[1].y=9;
-					monsters[2].x=19;
-					monsters[2].y=0;
+					monsters[1].y=0;
+					monsters[2].x=0;
+					monsters[2].y=9;
 					monsters[3].x=19;
-					monsters[3].y=9;
+					monsters[3].y=0;
 				}
 				//prevent pacman to start from the corners
 				board[shape.i][shape.j] = 0;
-				var emptyC = findRandomEmptyCell(board);
-				while (!notCorners(emptyC[0], emptyC[1]))
-					emptyC = findRandomEmptyCell(board);
+				var emptyC = findRandomEmptyCellForPacman(board);
+				while (isCorner(emptyC[0], emptyC[1]))
+					emptyC = findRandomEmptyCellForPacman(board);
 				shape.i = emptyC[0];
 				shape.j = emptyC[1];
 				break;
