@@ -63,6 +63,7 @@ function allGameSettingSet(){
 		$("#login").hide();
 		$("#register").hide();
 	 	$("#gameSettings").hide();
+	 	Start();
     	$("#gamePlay").show();
         return true;
         }

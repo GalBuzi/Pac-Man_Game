@@ -49,12 +49,12 @@ header {
 
 #h1welcome{
   color:white;
-  padding-left: 45%;
+  padding-left: 30%;
 }
 
 #logregister{
   color:white;
-  padding-left: 30%;
+  padding-left: 20%;
 }
 
 nav {
@@ -81,8 +81,8 @@ footer {
 
 
 #welcome{
-  background-image: url("Pacman_Run2.JPG");
-  background-position: 50%;
+  background-image: url("pacman_welcome.png");
+  background-position: 40%;
   background-repeat: no-repeat;
 }
 

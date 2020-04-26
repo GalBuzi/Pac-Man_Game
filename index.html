@@ -28,7 +28,7 @@
 		</nav>
 		<content>
 			<!-- Welcome Part -->
-			<div class="content" id="welcome" style="text-align:center">
+			<div class="content" id="welcome">
 				<h1 id="h1welcome" style="color: black;">
 					<span data-shadow-text="Text-Shadow" id="spanWelcome"><marquee behavior="scroll" direction="right"><u>Welcome To Our Pacman Game!!!</u></marquee></span>
 					<!-- <audio id="myAudio" controls autoplay>
@@ -244,11 +244,11 @@
 
 
 	$(document).ready(function(){
-    	$("#welcome").hide();
+    	$("#welcome").show();
 		$("#login").hide();
 		$("#register").hide();
 		$("#gameSettings").hide();
-		$("#gamePlay").show();
+		$("#gamePlay").hide();
 		$("#about").hide();
 	});
 
@@ -275,14 +275,6 @@
 	 	$("#gameSettings").hide();
     	$("#gamePlay").hide();	
 	}
-
-	// function settingsPageFunction(element) {
-	// 	$("#welcome").hide();
-	// 	$("#login").hide();
-	// 	$("#register").hide();
-	//  	$("#gameSettings").show();
-    // 	$("#gamePlay").hide();	
-	// }
 
 	function startGameFunction(element) {
 		$("#welcome").hide();
