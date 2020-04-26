@@ -13,16 +13,16 @@ var pac_direction;
 var food_left_to_show_user;
 var keysDown = {}; //dictionary of keys and codes
 
-$(document).ready(function() {
+$(document).ready(function () {
 	context = canvas.getContext("2d");
 	Start();
 });
 
 
-class gameMonster{
-	constructor(x,y,url){
-		this.x= x;
-		this.y=y;
+class gameMonster {
+	constructor(x, y, url) {
+		this.x = x;
+		this.y = y;
 		this.img = new Image();
 		this.img.src = url;
 	}
@@ -34,9 +34,9 @@ function Start() {
 	score = 0;
 	pac_color = "yellow";
 	pac_direction = 1;
-	pac_direction=1;
-	monsters =[];
-	monstersNum =4;
+	pac_direction = 1;
+	monsters = [];
+	monstersNum = 4;
 	var cnt = 200; //num
 	var food_remain = $('.range-slider input[type=range]').val(); //total food left on board
 	food_left_to_show_user = food_remain;
@@ -100,7 +100,7 @@ function Start() {
 		board[emptyCell[0]][emptyCell[1]] = 5;//place 5 points in whats left
 		food_remain--;
 	}
-	
+
 	addEventListener(
 		"keydown",
 		function (e) {
@@ -116,14 +116,14 @@ function Start() {
 		false
 	);
 	interval = setInterval(UpdatePosition, 250); //update posision to all charecters every 250 mili sec
-	intervalMonsters =setInterval(moveMonsters,300);
+	intervalMonsters = setInterval(moveMonsters, 300);
 }
 
-function createMonsters(){
-	monsters.push(new gameMonster(19,9,"Blue_Monster.png"));
-	monsters.push(new gameMonster(0,0,"Red_Monster.png"));
-	monsters.push(new gameMonster(0,9,"Pink_Monster.png"));
-	monsters.push(new gameMonster(19,0,"Orange_Monster.png"));
+function createMonsters() {
+	monsters.push(new gameMonster(19, 9, "Blue_Monster.png"));
+	monsters.push(new gameMonster(0, 0, "Red_Monster.png"));
+	monsters.push(new gameMonster(0, 9, "Pink_Monster.png"));
+	monsters.push(new gameMonster(19, 0, "Orange_Monster.png"));
 }
 
 function placeWalls(i, j) {
@@ -216,16 +216,16 @@ function Draw() {
 				context.beginPath();
 				context.rect(center.x - 30, center.y - 30, 60, 60);
 				context.strokeStyle = "#0016ff";
-                context.stroke();
+				context.stroke();
 				context.fillStyle = "#67c0ff"; //color
 				context.fill();
 			}
 
 			//draw monsters
-			for(var k =0; k < monsters.length; k++){
-            	if(monsters[k].x === i && monsters[k].y === j)
-                    context.drawImage(monsters[k].img,i*60,j*60,60,60);
-            }
+			for (var k = 0; k < monsters.length; k++) {
+				if (monsters[k].x === i && monsters[k].y === j)
+					context.drawImage(monsters[k].img, i * 60, j * 60, 60, 60);
+			}
 		}
 	}
 }
@@ -258,15 +258,15 @@ function UpdatePosition() {
 		}
 	}
 	if (board[shape.i][shape.j] == 1) { //if the new position is food, update score
-		score+=25;
+		score += 25;
 		food_left_to_show_user--;
 	}
 	if (board[shape.i][shape.j] == 3) { //if the new position is food, update score
-		score+=15;
+		score += 15;
 		food_left_to_show_user--;
 	}
 	if (board[shape.i][shape.j] == 5) { //if the new position is food, update score
-		score+=5;
+		score += 5;
 		food_left_to_show_user--;
 	}
 	board[shape.i][shape.j] = 2;
@@ -301,13 +301,13 @@ function moveMonsters() {
 		if (randMove > 0.5) {
 			//explore other posiotion (far from pac-man)
 			optionalPositions = getPossiblePositions(monster.x, monster.y);
-			if(optionalPositions.length>0) {
+			if (optionalPositions.length > 0) {
 				randMoveIndex = Math.floor(Math.random() * Math.floor(optionalPositions.length));
-					minX=optionalPositions[randMoveIndex][0];
-					minY=optionalPositions[randMoveIndex][1];
-				}
+				minX = optionalPositions[randMoveIndex][0];
+				minY = optionalPositions[randMoveIndex][1];
 			}
-		else{
+		}
+		else {
 			//explore posiotion (close to pac-man)		
 			//right
 			if (isPositionValid(monster.x + 1, monster.y)) {
@@ -342,16 +342,16 @@ function moveMonsters() {
 					minY = monster.y - 1;
 				}
 			}
-		 }
-
+		}
+		//make sure that only one monster is heading towards pacman if 2 or more monsters 
+		//have the same distance to pacman
 		if ((i === 0) ||
 			(i === 1 && (minX !== monsters[0].x || minY !== monsters[0].y)) ||
-			(i === 2 && (minX !== monsters[0].x || minY !== monsters[0].y) && 
-			(minX !== monsters[1].x || minY !== monsters[1].y)) ||
-			(i === 3 && (minX !== monsters[0].x || minY !== monsters[0].y) && 
-			(minX !== monsters[1].x || minY !== monsters[1].y)) && 
-			(minX !== monsters[2].x || minY !== monsters[2].y)) 
-			{
+			(i === 2 && (minX !== monsters[0].x || minY !== monsters[0].y) &&
+				(minX !== monsters[1].x || minY !== monsters[1].y)) ||
+			(i === 3 && (minX !== monsters[0].x || minY !== monsters[0].y) &&
+				(minX !== monsters[1].x || minY !== monsters[1].y)) &&
+			(minX !== monsters[2].x || minY !== monsters[2].y)) {
 			monster.x = minX;
 			monster.y = minY;
 		}
@@ -360,38 +360,38 @@ function moveMonsters() {
 	}
 }
 
-
-function getPossiblePositions(x,y){
+//look for possible moves that monster can make
+function getPossiblePositions(x, y) {
 	var possibleMoves = [];
 	//checkDown
-	if (isPositionValid(x,y - 1)){
-		possibleMoves.push([x,y-1]);
+	if (isPositionValid(x, y - 1)) {
+		possibleMoves.push([x, y - 1]);
 	}
 	//checkUp
-	if (isPositionValid(x,y + 1)){
-		possibleMoves.push([x,y+1]);
+	if (isPositionValid(x, y + 1)) {
+		possibleMoves.push([x, y + 1]);
 	}
 	//checkRight
-	if (isPositionValid(x+1,y)){
-		possibleMoves.push([x+1,y]);
+	if (isPositionValid(x + 1, y)) {
+		possibleMoves.push([x + 1, y]);
 	}
 	//CheckLeft
-	if (isPositionValid(x-1,y)){
-		possibleMoves.push([x-1,y]);
+	if (isPositionValid(x - 1, y)) {
+		possibleMoves.push([x - 1, y]);
 	}
 	return possibleMoves;
 }
 
 
-/*checks whether [x,y] are out game boundaries and whether they contains a wall*/
-function isPositionValid(x,y){
-    return (x<20 && x>=0 && y<10 && y>=0 && board[x][y]!==4);
+//check a position if its in the board game and isnt a wall
+function isPositionValid(x, y) {
+	return (x < 20 && x >= 0 && y < 10 && y >= 0 && board[x][y] !== 4);
 }
 
-/*compute distance from pacman*/
-function checkDistanceFromPac(x,y){
-    var ans= Math.sqrt(Math.pow(x-shape.i,2)+Math.pow(y-shape.j,2));
-    return ans;
+//compute Manhattan distance from pacman to monster
+function checkDistanceFromPac(x, y) {
+	var ans = Math.sqrt(Math.pow(x - shape.i, 2) + Math.pow(y - shape.j, 2));
+	return ans;
 }
 
 
