@@ -391,16 +391,7 @@ function Draw() {
 			}
 		}
 	}
-
-
-	function notCorners(corI, corJ) {
-
-		var ans = !((corI === 0 && corJ === 0) || (corI === 19 && corJ === 9) || (corI === 19 && corJ === 0) || (corI === 0 && corJ === 9));
-		return ans;
-	}
-
 }
-
 
 
 function moveMonsters() {
