@@ -63,6 +63,16 @@ function allGameSettingSet(){
 		$("#login").hide();
 		$("#register").hide();
 	 	$("#gameSettings").hide();
+	 	var colorToFill;
+	 	//fill 5pt to present user
+        colorToFill=$('input[name=5ptColor]').val();
+        $('input[name=5PtKeyColor]').val(colorToFill);
+        //fill 15pt to present user
+        colorToFill=$('input[name=15ptColor]').val();
+        $('input[name=15PtKeyColor]').val(colorToFill);
+        //fill 25pt to present user
+        colorToFill=$('input[name=25ptColor]').val();
+        $('input[name=25PtKeyColor]').val(colorToFill);
 	 	Start();
     	$("#gamePlay").show();
         return true;

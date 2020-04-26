@@ -295,18 +295,22 @@ footer {
   width: 1200px;
   height: 600px;
   position: relative;
-  top: 0;
+  top: 15px;
   bottom: 0;
   left: 0;
   right: 0;
 }
 
-#game_information li {
+#gamePlay ul {
   overflow: hidden;
-  background-color: #000000;
-  display: inline;
+  background-color:  #262626;
   font-size: x-large;
   color: white;
+  text-align:center;
+}
+
+#gamePlay ul li{
+  display:inline;padding:15px
 }
 
 #timer_score{

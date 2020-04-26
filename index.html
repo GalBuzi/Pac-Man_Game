@@ -100,7 +100,7 @@
 				<div>
 					<table id="settingsTable" style="display: inline-block">
 							<tr>
-								<th> Number of balls: </th>
+								<th> Choose Food Amount: </th>
 								<th>
 									<div class="range-slider">
 										<input class="range-slider__range" type="range" value="75" min="50" max="90" onchange="showRangeSliderValue(this.value)">
@@ -110,7 +110,7 @@
 							</tr>
 						<tr>
 							<th> Game duration:</th>
-							<th><input type="text" name="gameTime" placeholder="Minimum 60"> Seconds</th>
+							<th><input type="text" name="gameTime" placeholder="Insert 60 or more Seconds"></th>
 						</tr>
 						<tr>
 							<th>Number of monsters:</th>
@@ -202,14 +202,20 @@
                 
                 
 				<ul id="game_information">
-			        <li> Your Game Settings: </li>
-			        <li> <c>5 Pt Color:</c>  <input type="color" name="5PtKeyColor" disabled> </li>
-                    <li> <c>15 Pt Color:</c> <input type="color" name="15PtKeyColor" disabled> </li>
-                    <li> <c>25 Pt Color:</c> <input type="color" name="25PtKeyColor" disabled> </li>
-                    <li><c>Lifes Left: </c></li>
-                    <li> <img src="life.png" height="20px" width="20px"></li>
-                    <li> <img src="life.png" height="20px" width="20px"></li>
-                    <li> <img src="life.png" height="20px" width="20px"></li>
+			        <li> <b>Your Game Settings:</b> </li>
+			        <span style="display:inline-block; width: 25px;"></span>
+			        <li> <b>5 Pt Color: </b>  <input type="color" name="5PtKeyColor" disabled> </li>
+			        <span style="display:inline-block; width: 25px;"></span>
+                    <li> <b>15 Pt Color:</b> <input type="color" name="15PtKeyColor" disabled> </li>
+                    <span style="display:inline-block; width: 25px;"></span>
+                    <li> <b>25 Pt Color:</b> <input type="color" name="25PtKeyColor" disabled> </li>
+                    <span style="display:inline-block; width: 25px;"></span>
+                    <li><b>Lifes Left: </b></li>
+                    <li> <img id="cherry" src="cherry.png" height="20px" width="20px"></li>
+                    <li> <img src="cherry.png" height="20px" width="20px"></li>
+                    <li> <img src="cherry.png" height="20px" width="20px"></li>
+                    <li> <img src="cherry.png" height="20px" width="20px"></li>
+                    <li> <img src="cherry.png" height="20px" width="20px"></li>
 			    </ul>
 
                 <ul id="timer_score">
