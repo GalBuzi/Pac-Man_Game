@@ -37,19 +37,19 @@ function Start() {
 	score = 0;
 	pac_color = "yellow";
 	pac_direction = 1;
-    pacman_lifes_left=5;
+	pacman_lifes_left = 5;
 	monsters = [];
 	monstersNum = $('select[name=numMonsters]').val();
-	if(monstersNum==1){
-        monsters.push(new gameMonster(19, 9, "Blue_Monster.png"));
-	}else if(monstersNum==2){
-	    monsters.push(new gameMonster(19, 9, "Blue_Monster.png"));
-	    monsters.push(new gameMonster(0, 0, "Red_Monster.png"));
-	}else if(monstersNum==3){
+	if (monstersNum == 1) {
+		monsters.push(new gameMonster(19, 9, "Blue_Monster.png"));
+	} else if (monstersNum == 2) {
+		monsters.push(new gameMonster(19, 9, "Blue_Monster.png"));
+		monsters.push(new gameMonster(0, 0, "Red_Monster.png"));
+	} else if (monstersNum == 3) {
 		monsters.push(new gameMonster(19, 9, "Blue_Monster.png"));
 		monsters.push(new gameMonster(0, 0, "Red_Monster.png"));
 		monsters.push(new gameMonster(0, 9, "Pink_Monster.png"));
-	}else if(monstersNum==4){
+	} else if (monstersNum == 4) {
 		monsters.push(new gameMonster(19, 9, "Blue_Monster.png"));
 		monsters.push(new gameMonster(0, 0, "Red_Monster.png"));
 		monsters.push(new gameMonster(0, 9, "Pink_Monster.png"));
@@ -108,7 +108,7 @@ function Start() {
 						pacman_remain--;
 						board[i][j] = 2;
 					}
-					else{
+					else {
 						board[i][j] = 0;
 					}
 				} else {
@@ -118,8 +118,8 @@ function Start() {
 			}
 		}
 	}
-	if(shape.i === undefined || shape.j === undefined){//place pacman if it didnt happen in loop
-		var pacman_pos = findRandomEmptyCell(board);
+	if (shape.i === undefined || shape.j === undefined) {//place pacman if it didnt happen in loop
+		var pacman_pos = findRandomEmptyCellForPacman(board);
 		board[pacman_pos[0]][pacman_pos[1]] = 2;
 		shape.i = pacman_pos[0];
 		shape.j = pacman_pos[1];
@@ -166,7 +166,17 @@ function isCorner(i, j) {
 function findRandomEmptyCell(board) {
 	var i = Math.floor(Math.random() * 9 + 1);
 	var j = Math.floor(Math.random() * 9 + 1);
-	while (board[i][j] != 0 && !isCorner(i,j)) {
+	while (board[i][j] != 0) {
+		i = Math.floor(Math.random() * 9 + 1);
+		j = Math.floor(Math.random() * 9 + 1);
+	}
+	return [i, j];
+}
+
+function findRandomEmptyCellForPacman(board) {
+	var i = Math.floor(Math.random() * 9 + 1);
+	var j = Math.floor(Math.random() * 9 + 1);
+	while (board[i][j] != 0 && !isCorner(i, j)) {
 		i = Math.floor(Math.random() * 9 + 1);
 		j = Math.floor(Math.random() * 9 + 1);
 	}
@@ -217,10 +227,10 @@ function UpdatePosition() {
 			pac_direction = 4;
 		}
 	}
-	if (board[shape.i][shape.j] === 6){ //pacman ate cherry
-            $("#game_information").append('<li> <img src="cherry.png" height="20px" width="20px"></li>');
-            pacman_lifes_left++;
-    }
+	if (board[shape.i][shape.j] === 6) { //pacman ate cherry
+		$("#game_information").append('<li> <img src="cherry.png" height="20px" width="20px"></li>');
+		pacman_lifes_left++;
+	}
 	if (board[shape.i][shape.j] == 1) { //if the new position is food, update score
 		score += 25;
 		food_left_to_show_user--;
@@ -236,29 +246,30 @@ function UpdatePosition() {
 	board[shape.i][shape.j] = 2;
 	var currentTime = new Date(); //to define next line
 	time_elapsed = (currentTime - start_time) / 1000;
-	if (score == sum_of_five_points + sum_of_fifteen_points+ sum_of_twenty_points) {
+	if (score == sum_of_five_points + sum_of_fifteen_points + sum_of_twenty_points) {
 		window.clearInterval(interval);
 		window.alert("Game completed - You ate everything on your way!");
-	} else{// if(!isGameOver) {
+	} else {// if(!isGameOver) {
 		Draw();
 	}
 }
 
 // function isGameOver(){//chech if there are more life for pacman or if it ran out of time and food
 //     var time_presented_to_user = $('input[name=gameTime]').val();
-    
+
 //     //check pacman's life bar
 //     if (pacLife === 0) {
 //             window.clearInterval(interval);
 //             window.clearInterval(monsterInterval);
 // //             backgroundAudio.pause();
+//             Alert.render("You got just " + score + " points! - Such a LOSER!");
 // //             Alert.render("<img src='Images/gif-you-lost.gif' width='500' height='400'>");
 //             return true;
 //     }else if(time_elapsed >= time_presented_to_user || food_left_to_show_user === 0) { //check if time is over or there's no food left on board
 //             window.clearInterval(interval);
 //             window.clearInterval(monsterInterval);
 // //             backgroundAudio.pause(); 
-//             if (score < 150)
+//             if (score < 100)
 //                 Alert.render("You can do better than " + score + " points!");
 //             else
 //             {
@@ -321,10 +332,10 @@ function Draw() {
 				context.fillStyle = "#67c0ff"; //color
 				context.fill();
 			}
-			else if(board[i][j] == 6){
-                let img = document.getElementById("cherry");
+			else if (board[i][j] == 6) {
+				let img = document.getElementById("cherry");
 				context.drawImage(img, center.x - 25, center.y - 25, 50, 50);
-            }
+			}
 			//draw monsters
 			for (var k = 0; k < monsters.length; k++) {
 				if (monsters[k].x === i && monsters[k].y === j)
@@ -332,6 +343,62 @@ function Draw() {
 			}
 		}
 	}
+
+	for (var m = 0; m < monstersNum ; m++) {
+		if (board[monsters[m].x][monsters[m].y] === 2) {
+			pacman_lifes_left--;
+			// if(pacLife>=0)
+			// $('#gameDetails li:last-child').remove();
+			score = score - 10;
+			if (pacman_lifes_left > 0) {
+				//restoreMonstersAndPacToBase();
+				if (monstersNum == 1) {
+                    monsters[0].x=0;
+					monsters[0].y=0;
+				} else if (monstersNum == 2) {
+					monsters[0].x=0;
+					monsters[0].y=0;
+					monsters[1].x=0;
+					monsters[1].y=9;
+				} else if (monstersNum == 3) {
+					monsters[0].x=0;
+					monsters[0].y=0;
+					monsters[1].x=0;
+					monsters[1].y=9;
+					monsters[2].x=19;
+					monsters[2].y=0;
+				} else if (monstersNum == 4) {
+					monsters[0].x=0;
+					monsters[0].y=0;
+					monsters[1].x=0;
+					monsters[1].y=9;
+					monsters[2].x=19;
+					monsters[2].y=0;
+					monsters[3].x=19;
+					monsters[3].y=9;
+				}
+				//prevent pacman to start from the corners
+				board[shape.i][shape.j] = 0;
+				var emptyC = findRandomEmptyCell(board);
+				while (!notCorners(emptyC[0], emptyC[1]))
+					emptyC = findRandomEmptyCell(board);
+				shape.i = emptyC[0];
+				shape.j = emptyC[1];
+				break;
+				// } else if (checkEndGame()) {
+				// 	break;
+				// }
+			}
+		}
+	}
+
+
+	function notCorners(corI, corJ) {
+
+		var ans = !((corI === 0 && corJ === 0) || (corI === 19 && corJ === 9) || (corI === 19 && corJ === 0) || (corI === 0 && corJ === 9));
+		return ans;
+	}
+
 }
 
 
@@ -396,21 +463,21 @@ function moveMonsters() {
 					}
 				}
 			}
-		
-		//make sure that only one monster is heading towards pacman if 2 or more monsters 
-		//have the same distance to pacman
-// 				if ((i === 0) ||
-// 					(i === 1 && (minX !== monsters[0].x || minY !== monsters[0].y)) ||
-// 					(i === 2 && (minX !== monsters[0].x || minY !== monsters[0].y) &&
-// 						(minX !== monsters[1].x || minY !== monsters[1].y)) ||
-// 					(i === 3 && (minX !== monsters[0].x || minY !== monsters[0].y) &&
-// 						(minX !== monsters[1].x || minY !== monsters[1].y)) &&
-// 					(minX !== monsters[2].x || minY !== monsters[2].y)) {
-		monster.x = minX;
-		monster.y = minY;
-// 		}
-		//    monster caught pacman
-		minDistance = Number.POSITIVE_INFINITY;
+
+			//make sure that only one monster is heading towards pacman if 2 or more monsters 
+			//have the same distance to pacman
+			// 				if ((i === 0) ||
+			// 					(i === 1 && (minX !== monsters[0].x || minY !== monsters[0].y)) ||
+			// 					(i === 2 && (minX !== monsters[0].x || minY !== monsters[0].y) &&
+			// 						(minX !== monsters[1].x || minY !== monsters[1].y)) ||
+			// 					(i === 3 && (minX !== monsters[0].x || minY !== monsters[0].y) &&
+			// 						(minX !== monsters[1].x || minY !== monsters[1].y)) &&
+			// 					(minX !== monsters[2].x || minY !== monsters[2].y)) {
+			monster.x = minX;
+			monster.y = minY;
+			// 		}
+			//    monster caught pacman
+			minDistance = Number.POSITIVE_INFINITY;
 		}
 	}
 }
