@@ -63,7 +63,7 @@ function Start() {
 	food_left_to_show_user = food_remain;
 	var five_points_food = Math.ceil(0.6 * food_remain);
 	sum_of_five_points = 5 * five_points_food;
-	var fifteen_points_food = Math.floor(0.3 * food_remain);
+	var fifteen_points_food = Math.ceil(0.3 * food_remain);
 	sum_of_fifteen_points = 15 * fifteen_points_food;
 	var twenty_five_points_food = Math.floor(0.1 * food_remain);
 	sum_of_twenty_points = 20 * twenty_five_points_food;
@@ -129,9 +129,24 @@ function Start() {
 		pacman_remain--;
 	}
 	while (food_remain > 0) {
-		var emptyCell = findRandomEmptyCell(board);
-		board[emptyCell[0]][emptyCell[1]] = 5;//place 5 points in whats left
-		food_remain--;
+		while(five_points_food > 0){
+			var emptyCell = findRandomEmptyCell(board);
+			board[emptyCell[0]][emptyCell[1]] = 5;//place 5 points in whats left
+			five_points_food--;
+			food_remain--;
+		}
+		while(fifteen_points_food > 0){
+			var emptyCell = findRandomEmptyCell(board);
+			board[emptyCell[0]][emptyCell[1]] = 3;//place 5 points in whats left
+			fifteen_points_food--;
+			food_remain--;
+		}
+		while(twenty_five_points_food > 0){
+			var emptyCell = findRandomEmptyCell(board);
+			board[emptyCell[0]][emptyCell[1]] = 1;//place 5 points in whats left
+			twenty_five_points_food--
+			food_remain--;
+		}
 	}
 
 	addEventListener(
@@ -254,7 +269,7 @@ function UpdatePosition() {
 	board[shape.i][shape.j] = 2;
 	var currentTime = new Date(); //to define next line
 	time_elapsed = (currentTime - start_time) / 1000;
-	if (score == sum_of_five_points + sum_of_fifteen_points + sum_of_twenty_points) {
+	if (score == sum_of_five_points + sum_of_fifteen_points + sum_of_twenty_points + 50) {
 		window.clearInterval(interval);
 		window.alert("Game completed - You ate everything on your way!");
 	} else if(!isGameOver()) {
