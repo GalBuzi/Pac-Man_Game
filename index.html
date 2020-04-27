@@ -193,16 +193,8 @@
 
 			<!-- Game Play Part -->
 			<div id="gamePlay">
-				
-			    <canvas id="canvas" height="600" width="1200">
-				<img id="up" src="up.png" width="30px" height="30px">
-				<img id="down" src="down.png" width="30px" height="30px">
-				<img id="right" src="right.png" width="30px" height="30px">
-				<img id="left" src="left.png" width="30px" height="30px">
-				</canvas>
-                
-                
-				<ul id="game_information">
+
+			<ul id="game_information">
 			        <li> <b>Your Game Settings:</b> </li>
 			        <span style="display:inline-block; width: 25px;"></span>
 			        <li> <b>5 Pt Color: </b>  <input type="color" name="5PtKeyColor" disabled> </li>
@@ -212,13 +204,21 @@
                     <li> <b>25 Pt Color:</b> <input type="color" name="25PtKeyColor" disabled> </li>
                     <span style="display:inline-block; width: 25px;"></span>
                     <li><b>Lifes Left: </b></li>
+                    <span style="display:inline-block; width: 5px;"></span>
                     <li> <img id="cherry" src="cherry.png" height="20px" width="20px"></li>
                     <li> <img src="cherry.png" height="20px" width="20px"></li>
                     <li> <img src="cherry.png" height="20px" width="20px"></li>
                     <li> <img src="cherry.png" height="20px" width="20px"></li>
                     <li> <img src="cherry.png" height="20px" width="20px"></li>
 			    </ul>
-
+				
+			    <canvas id="canvas" height="600" width="1200">
+				<img id="up" src="up.png" width="30px" height="30px">
+				<img id="down" src="down.png" width="30px" height="30px">
+				<img id="right" src="right.png" width="30px" height="30px">
+				<img id="left" src="left.png" width="30px" height="30px">
+				</canvas>
+                
                 <ul id="timer_score">
 			        <div id="score">
 					<label for="lblScore">SCORE:</label>
@@ -230,8 +230,9 @@
 					<div id="food">
 					<label for="foodLeft">Food Left:</label>
 					<input id="foodLeft" type="text" disabled/>
-				</div>
+				    </div>
 			    </ul>
+                
 				
 			</div>
 
