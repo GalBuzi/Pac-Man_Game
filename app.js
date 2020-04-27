@@ -39,8 +39,9 @@ class gameMonster {
 }
 
 
+
 function Start() {
-	// backgroundAudio.play();
+	backgroundAudio.play();
 	board = new Array();
 	score = 0;
 	pac_color = "yellow";
@@ -221,6 +222,7 @@ function GetKeyPressed() {
 		return 4;
 	}
 }
+
 
 
 
@@ -537,6 +539,49 @@ function isPositionValid(x, y) {
 function checkDistanceFromPac(x, y) {
 	var dist = Math.sqrt(Math.pow(x - shape.i, 2) + Math.pow(y - shape.j, 2));
 	return dist;
+}
+
+function setSettingsForNewGame(element) {
+	if(confirm('Are you sure you want to start a new game?')){
+	clearInterval(interval);
+	clearInterval(intervalMonsters);
+    backgroundAudio.pause();
+	$("#welcome").hide();
+	$("#login").hide();
+	$("#register").hide();
+	$("#gameSettings").show();
+	//init life
+	// if($('#game_information li').length === 6){
+	// 	$('#game_information li:last-child').remove();
+	// }
+	// else if(($('#game_information li').length === 4)){
+	// 	for(var i=0; i < 1; i++){
+	// 		$("#game_information").append('<li> <img src="cherry.png" height="20px" width="20px"></li>');
+	// 	}
+	// }
+	// else if(($('#game_information li').length === 3)){
+	// 	for(var i=0; i < 2; i++){
+	// 		$("#game_information").append('<li> <img src="cherry.png" height="20px" width="20px"></li>');
+	// 	}
+	// }
+	// else if(($('#game_information li').length === 2)){
+	// 	for(var i=0; i < 3; i++){
+	// 		$("#game_information").append('<li> <img src="cherry.png" height="20px" width="20px"></li>');
+	// 	}
+	// }
+	// else if(($('#game_information li').length === 1)){
+	// 	for(var i=0; i < 4; i++){
+	// 		$("#game_information").append('<li> <img src="cherry.png" height="20px" width="20px"></li>');
+	// 	}
+	// }
+	// else if(($('#game_information li').length === 0)){
+	// 	for(var i=0; i < 5; i++){
+	// 		$("#game_information").append('<li> <img src="cherry.png" height="20px" width="20px"></li>');
+	// 	}
+	// }
+	$("#gamePlay").hide();
+	//Start();
+	}
 }
 
 
