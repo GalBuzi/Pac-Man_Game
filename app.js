@@ -541,15 +541,15 @@ function checkDistanceFromPac(x, y) {
 	return dist;
 }
 
-function setSettingsForNewGame(element) {
+function restart(element) {
 	if(confirm('Are you sure you want to start a new game?')){
 	clearInterval(interval);
 	clearInterval(intervalMonsters);
     backgroundAudio.pause();
-	$("#welcome").hide();
-	$("#login").hide();
-	$("#register").hide();
-	$("#gameSettings").show();
+	// $("#welcome").hide();
+	// $("#login").hide();
+	// $("#register").hide();
+	// $("#gameSettings").show();
 	//init life
 	// if($('#game_information li').length === 6){
 	// 	$('#game_information li:last-child').remove();
@@ -579,8 +579,8 @@ function setSettingsForNewGame(element) {
 	// 		$("#game_information").append('<li> <img src="cherry.png" height="20px" width="20px"></li>');
 	// 	}
 	// }
-	$("#gamePlay").hide();
-	//Start();
+	// $("#gamePlay").hide();
+	Start();
 	}
 }
 
