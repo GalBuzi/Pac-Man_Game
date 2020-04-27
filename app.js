@@ -17,6 +17,11 @@ var sum_of_fifteen_points;
 var sum_of_twenty_points;
 var movingCharacter;
 var movingCharacterEaten=false;
+var backgroundAudio= new Audio("PacMan_Music.mp3");
+backgroundAudio.addEventListener('ended', function() {
+	this.currentTime = 0;
+	this.play();
+}, false);
 
 $(document).ready(function () {
 	context = canvas.getContext("2d");
@@ -35,6 +40,7 @@ class gameMonster {
 
 
 function Start() {
+	backgroundAudio.play();
 	board = new Array();
 	score = 0;
 	pac_color = "yellow";
