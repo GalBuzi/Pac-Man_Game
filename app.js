@@ -249,35 +249,37 @@ function UpdatePosition() {
 	if (score == sum_of_five_points + sum_of_fifteen_points + sum_of_twenty_points) {
 		window.clearInterval(interval);
 		window.alert("Game completed - You ate everything on your way!");
-	} else {// if(!isGameOver) {
+	} else if(!isGameOver()) {
 		Draw();
 	}
 }
 
-// function isGameOver(){//chech if there are more life for pacman or if it ran out of time and food
-//     var time_presented_to_user = $('input[name=gameTime]').val();
+function isGameOver(){//chech if there are more life for pacman or if it ran out of time and food
+    var time_presented_to_user = $('input[name=gameTime]').val();
 
-//     //check pacman's life bar
-//     if (pacLife === 0) {
-//             window.clearInterval(interval);
-//             window.clearInterval(monsterInterval);
-// //             backgroundAudio.pause();
-//             Alert.render("You got just " + score + " points! - Such a LOSER!");
-// //             Alert.render("<img src='Images/gif-you-lost.gif' width='500' height='400'>");
-//             return true;
-//     }else if(time_elapsed >= time_presented_to_user || food_left_to_show_user === 0) { //check if time is over or there's no food left on board
-//             window.clearInterval(interval);
-//             window.clearInterval(monsterInterval);
-// //             backgroundAudio.pause(); 
-//             if (score < 100)
-//                 Alert.render("You can do better than " + score + " points!");
-//             else
-//             {
-//                 Alert.render("<img src='Images/winner.gif' width='500' height='400'>");
-//             }
-//             return true;
-//         }
-// }
+    //check pacman's life bar
+    if (pacman_lifes_left < 0) {
+            window.clearInterval(interval);
+            window.clearInterval(intervalMonsters);
+//             backgroundAudio.pause();
+            alert("You got just " + score + " points! - Such a LOSER!");
+            return true;
+    }
+    else if(time_elapsed >= time_presented_to_user  || food_left_to_show_user===0) { //check if time is over or finished food before time is up
+            window.clearInterval(interval);
+            window.clearInterval(intervalMonsters);
+//             backgroundAudio.pause(); 
+            if (score < 100)
+                alert("You can do better than " + score + " points!");
+            else
+            {
+                alert("You are a WINNER!");
+            }
+            return true;
+        }
+
+        return false;
+}
 
 function Draw() {
 	context.clearRect(0, 0, canvas.width, canvas.height); //clean board
@@ -291,18 +293,22 @@ function Draw() {
 			center.y = j * 60 + 30;
 			if (board[i][j] == 2) { //draw pacman
 				if (pac_direction == 1) {//up
-					let img = document.getElementById("up");
+					let img = new Image();
+				    img.src = 'up.png';
 					context.drawImage(img, center.x - 25, center.y - 25, 50, 50);
 				}
 				else if (pac_direction == 2) { //down
-					let img = document.getElementById("down");
+					let img = new Image();
+				    img.src = 'down.png';
 					context.drawImage(img, center.x - 25, center.y - 25, 50, 50);
 				}
 				else if (pac_direction == 4) { //right
-					let img = document.getElementById("right");
+					let img = new Image();
+				    img.src = 'right.png';
 					context.drawImage(img, center.x - 25, center.y - 25, 50, 50);
 				} else if (pac_direction == 3) { //left
-					let img = document.getElementById("left");
+					let img = new Image();
+				    img.src = 'left.png';
 					context.drawImage(img, center.x - 25, center.y - 25, 50, 50);
 				}
 			}
@@ -333,7 +339,8 @@ function Draw() {
 				context.fill();
 			}
 			else if (board[i][j] == 6) {
-				let img = document.getElementById("cherry");
+				let img = new Image();
+				img.src = 'cherry.png';
 				context.drawImage(img, center.x - 25, center.y - 25, 50, 50);
 			}
 			//draw monsters
@@ -347,11 +354,9 @@ function Draw() {
 	for (var m = 0; m < monstersNum ; m++) {
 		if (board[monsters[m].x][monsters[m].y] === 2) {
 			pacman_lifes_left--;
-			// if(pacLife>=0)
-			// $('#gameDetails li:last-child').remove();
+			$('#game_information li:last-child').remove();
 			score = score - 10;
 			if (pacman_lifes_left >= 0) {
-				//restoreMonstersAndPacToBase();
 				if (monstersNum == 1) {
                     monsters[0].x=19;
 					monsters[0].y=9;
@@ -385,9 +390,6 @@ function Draw() {
 				shape.i = emptyC[0];
 				shape.j = emptyC[1];
 				break;
-				// } else if (checkEndGame()) {
-				// 	break;
-				// }
 			}
 		}
 	}
@@ -409,7 +411,7 @@ function moveMonsters() {
 		randMove = Math.random();
 		monster = monsters[i];
 		if (typeof monster !== 'undefined') {
-			if (randMove > 0.5) {
+			if (randMove > 0.8) {
 				//explore other posiotion (far from pac-man)
 				optionalPositions = cellsToMoveTo(monster.x, monster.y);
 				if (optionalPositions.length > 0) {
@@ -455,19 +457,10 @@ function moveMonsters() {
 				}
 			}
 
-			//make sure that only one monster is heading towards pacman if 2 or more monsters 
-			//have the same distance to pacman
-			// 				if ((i === 0) ||
-			// 					(i === 1 && (minX !== monsters[0].x || minY !== monsters[0].y)) ||
-			// 					(i === 2 && (minX !== monsters[0].x || minY !== monsters[0].y) &&
-			// 						(minX !== monsters[1].x || minY !== monsters[1].y)) ||
-			// 					(i === 3 && (minX !== monsters[0].x || minY !== monsters[0].y) &&
-			// 						(minX !== monsters[1].x || minY !== monsters[1].y)) &&
-			// 					(minX !== monsters[2].x || minY !== monsters[2].y)) {
+
 			monster.x = minX;
 			monster.y = minY;
-			// 		}
-			//    monster caught pacman
+
 			minDistance = Number.POSITIVE_INFINITY;
 		}
 	}
