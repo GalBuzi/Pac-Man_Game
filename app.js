@@ -40,7 +40,7 @@ class gameMonster {
 
 
 function Start() {
-	backgroundAudio.play();
+	// backgroundAudio.play();
 	board = new Array();
 	score = 0;
 	pac_color = "yellow";
