@@ -15,8 +15,8 @@ var pacman_lifes_left;
 var sum_of_five_points;
 var sum_of_fifteen_points;
 var sum_of_twenty_points;
-var movingCharacter;
-var movingCharacterEaten=false;
+var movingCharacter;//the moving character 
+var movingCharacterEaten=false;//check if the moving character was eat
 var backgroundAudio= new Audio("PacMan_Music.mp3");
 backgroundAudio.addEventListener('ended', function() {
 	this.currentTime = 0;
@@ -37,7 +37,6 @@ class gameMonster {
 		this.img.src = url;
 	}
 }
-
 
 
 function Start() {
@@ -490,11 +489,8 @@ function moveMonsters() {
 					}
 				}
 			}
-
-
 			monster.x = minX;
 			monster.y = minY;
-
 			minDistance = Number.POSITIVE_INFINITY;
 		}
 	}
@@ -542,44 +538,41 @@ function checkDistanceFromPac(x, y) {
 }
 
 function restart(element) {
-	if(confirm('Are you sure you want to start a new game?')){
+	backgroundAudio.pause();
+	if(confirm('Are you sure you want to restart the game?')){
 	clearInterval(interval);
 	clearInterval(intervalMonsters);
-    backgroundAudio.pause();
-	// $("#welcome").hide();
-	// $("#login").hide();
-	// $("#register").hide();
-	// $("#gameSettings").show();
+	movingCharacterEaten = false;
+
 	//init life
-	// if($('#game_information li').length === 6){
-	// 	$('#game_information li:last-child').remove();
-	// }
-	// else if(($('#game_information li').length === 4)){
-	// 	for(var i=0; i < 1; i++){
-	// 		$("#game_information").append('<li> <img src="cherry.png" height="20px" width="20px"></li>');
-	// 	}
-	// }
-	// else if(($('#game_information li').length === 3)){
-	// 	for(var i=0; i < 2; i++){
-	// 		$("#game_information").append('<li> <img src="cherry.png" height="20px" width="20px"></li>');
-	// 	}
-	// }
-	// else if(($('#game_information li').length === 2)){
-	// 	for(var i=0; i < 3; i++){
-	// 		$("#game_information").append('<li> <img src="cherry.png" height="20px" width="20px"></li>');
-	// 	}
-	// }
-	// else if(($('#game_information li').length === 1)){
-	// 	for(var i=0; i < 4; i++){
-	// 		$("#game_information").append('<li> <img src="cherry.png" height="20px" width="20px"></li>');
-	// 	}
-	// }
-	// else if(($('#game_information li').length === 0)){
-	// 	for(var i=0; i < 5; i++){
-	// 		$("#game_information").append('<li> <img src="cherry.png" height="20px" width="20px"></li>');
-	// 	}
-	// }
-	// $("#gamePlay").hide();
+	if(pacman_lifes_left === 6){
+		$('#game_information li:last-child').remove();
+	}
+	else if(pacman_lifes_left === 4){
+		for(var i=0; i < 1; i++){
+			$("#game_information").append('<li> <img src="cherry.png" height="20px" width="20px"></li>');
+		}
+	}
+	else if(pacman_lifes_left === 3){
+		for(var i=0; i < 2; i++){
+			$("#game_information").append('<li> <img src="cherry.png" height="20px" width="20px"></li>');
+		}
+	}
+	else if(pacman_lifes_left === 2){
+		for(var i=0; i < 3; i++){
+			$("#game_information").append('<li> <img src="cherry.png" height="20px" width="20px"></li>');
+		}
+	}
+	else if(pacman_lifes_left === 1){
+		for(var i=0; i < 4; i++){
+			$("#game_information").append('<li> <img src="cherry.png" height="20px" width="20px"></li>');
+		}
+	}
+	else if(pacman_lifes_left === 0){
+		for(var i=0; i < 5; i++){
+			$("#game_information").append('<li> <img src="cherry.png" height="20px" width="20px"></li>');
+		}
+	}
 	Start();
 	}
 }
