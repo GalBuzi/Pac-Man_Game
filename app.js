@@ -170,7 +170,7 @@ function Start() {
 		false
 	);
 	interval = setInterval(UpdatePosition, 160); //update posision to all charecters every 250 mili sec
-	intervalMonsters = setInterval(moveMonsters, 350);
+	intervalMonsters = setInterval(moveMonsters, 250);
 }
 
 function placeWalls(i, j) {
@@ -275,10 +275,7 @@ function UpdatePosition() {
 	board[shape.i][shape.j] = 2;
 	var currentTime = new Date(); //to define next line
 	time_elapsed = (currentTime - start_time) / 1000;
-	if (score == sum_of_five_points + sum_of_fifteen_points + sum_of_twenty_points + 50) {
-		window.clearInterval(interval);
-		window.alert("Game completed - You ate everything on your way!");
-	} else if(!isGameOver()) {
+	if(!isGameOver()) {
 		Draw();
 	}
 }
@@ -290,14 +287,14 @@ function isGameOver(){//chech if there are more life for pacman or if it ran out
     if (pacman_lifes_left < 0) {
             window.clearInterval(interval);
             window.clearInterval(intervalMonsters);
-//             backgroundAudio.pause();
-            alert("You got just " + score + " points! - Such a LOSER!");
+            backgroundAudio.pause();
+            alert("LOSER!");
             return true;
     }
     else if(time_elapsed >= time_presented_to_user  || food_left_to_show_user===0) { //check if time is over or finished food before time is up
             window.clearInterval(interval);
             window.clearInterval(intervalMonsters);
-//             backgroundAudio.pause(); 
+            backgroundAudio.pause(); 
             if (score < 100)
                 alert("You can do better than " + score + " points!");
             else
@@ -459,7 +456,7 @@ function moveMonsters() {
 				//explore posiotion (close to pac-man)		
 				//right
 				if (isPositionValid(monster.x + 1, monster.y)) {
-					mDist = checkDistanceFromPac(monster.x + 1, monster.y);
+					minDistToPacman = checkDistanceFromPac(monster.x + 1, monster.y);
 					if (minDistToPacman < minDistance) {
 						minDistance = minDistToPacman;
 						minX = monster.x + 1;
