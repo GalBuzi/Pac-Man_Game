@@ -15,6 +15,8 @@ var pacman_lifes_left;
 var sum_of_five_points;
 var sum_of_fifteen_points;
 var sum_of_twenty_points;
+var movingCharacter;
+var movingCharacterEaten=false;
 
 $(document).ready(function () {
 	context = canvas.getContext("2d");
@@ -38,6 +40,7 @@ function Start() {
 	pac_color = "yellow";
 	pac_direction = 1;
 	pacman_lifes_left = 5;
+	movingCharacter = [19,9,"Ghost_scary.png"];
 	monsters = [];
 	monstersNum = $('select[name=numMonsters]').val();
 	if (monstersNum == 1) {
@@ -243,6 +246,11 @@ function UpdatePosition() {
 		score += 5;
 		food_left_to_show_user--;
 	}
+	if(shape.i === movingCharacter[0] && shape.j === movingCharacter[1])//pacman ate moving character
+	{
+		score+=50;
+		movingCharacterEaten=true;
+	}
 	board[shape.i][shape.j] = 2;
 	var currentTime = new Date(); //to define next line
 	time_elapsed = (currentTime - start_time) / 1000;
@@ -348,6 +356,12 @@ function Draw() {
 				if (monsters[k].x === i && monsters[k].y === j)
 					context.drawImage(monsters[k].img, i * 60, j * 60, 60, 60);
 			}
+			//draw moving character
+			if(movingCharacter[0]=== i && movingCharacter[1]===j && !movingCharacterEaten) {
+				var movingCharacterImg = new Image();
+				movingCharacterImg.src = movingCharacter[2];
+					context.drawImage(movingCharacterImg, i * 60, j * 60, 45, 45);
+				}
 		}
 	}
 
@@ -463,6 +477,13 @@ function moveMonsters() {
 
 			minDistance = Number.POSITIVE_INFINITY;
 		}
+	}
+	//move moving character -ghost
+	optionalPositions=cellsToMoveTo(movingCharacter[0],movingCharacter[1]);
+	if(optionalPositions.length !==0){
+		randMoveIndex= Math.floor(Math.random() * Math.floor(optionalPositions.length));
+		movingCharacter[0]=optionalPositions[randMoveIndex][0];
+		movingCharacter[1]=optionalPositions[randMoveIndex][1];
 	}
 }
 
