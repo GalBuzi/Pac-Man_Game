@@ -29,25 +29,26 @@
 		<content>
 			<!-- Welcome Part -->
 			<div class="content" id="welcome">
-				<h1 id="h1welcome" style="color: black;">
-					<span data-shadow-text="Text-Shadow" id="spanWelcome"><marquee behavior="scroll" direction="right"><u>Welcome To Our Pacman Game!!!</u></marquee></span>
-					<!-- <audio id="myAudio" controls autoplay>
-					<source src="PacMan Original Theme.mp3" type="audio/mpeg">
-					</audio> -->
-					<!-- <audio src="PacMan Original Theme.mp3"></audio> -->
-					<!-- <embed src="PacMan Original Theme.mp3" width="180" height="90" loop="false" autostart="false" hidden="true" /> -->
-
-					<br><br><br><br><br><br><br><br>
+				<h1 id="h1welcome" style="color:  rgb(241, 241, 200);">
+					<span data-shadow-text="Text-Shadow" id="spanWelcome">
+						<marquee behavior="scroll" width='70%' direction="left"><u>Welcome To Our Pacman Game!</u>
+						</marquee>
+					</span>
 				</h1>
 
-				
-				<br>
-				<h1 id="logregister"><br><br><br><u>Please Login or Register to continue!</u></h1>
-
-				<button class="welcomeButton" id="RegisterButton" onclick="registerEnterFunction(this)">Register</button>
-				<button class="welcomeButton" id="LoginButton" onclick="loginEnterFunction(this)">Login</button>
+				<div class="row">
+					<div class="column">
+						<img src="pacman_welcome.png" width="740px" height="282px" style="width:100%">
+					</div>
+					<div class="column">
+						<img src="paccccmmman.png" width="750px" height="600px" style="width:100%">
+					</div>
+				</div>
+				<button class="welcomeButton" id="RegisterButton" onclick="registerEnterFunction(this)">Guest? Please
+					Register!</button>
+				<button class="welcomeButton" id="LoginButton" onclick="loginEnterFunction(this)">Login and
+					Play!</button>
 			</div>
-
 			<!-- Register Part -->
 			<div class="content" id="register" style="text-align:center">
 				<h2><u>Please Enter Register Information Details:</u></h2>
@@ -70,7 +71,8 @@
 				<b>Date of birth:</b>
 				<input class="Date" type="Date" id="dateReg" required>
 				<br><br><br><br><br><br><br><br>
-				<button class="submitButton" id="SubmitButton" onclick="validateRegister() ;return false;">Submit</button>
+				<button class="submitButton" id="SubmitButton"
+					onclick="validateRegister() ;return false;">Submit</button>
 
 
 			</div>
@@ -80,11 +82,11 @@
 				<br>
 				<b><u>Please enter user name and password!</u></b><br><br>
 				<b>User name:</b>
-				<input class="name" type="text" id="username" placeholder="Username" required >
+				<input class="name" type="text" id="username" placeholder="Username" required>
 				<br><br>
 				<b>Password:</b>
-                <input class="pass" type="password" id="password" placeholder="Password" required>
-                <br><br>
+				<input class="pass" type="password" id="password" placeholder="Password" required>
+				<br><br>
 
 				<button class="loginButton" id="loginButton" onclick="validateLogin() ;return false;">Login</button>
 				<br><br><br><br><br>
@@ -95,82 +97,74 @@
 
 			<!-- Game Settings Part -->
 			<div class="content" id="gameSettings" style="text-align:center">
-				<br>
-				<h3><u>Game-Settings</u></h3>
-				<div>
-					<table id="settingsTable" style="display: inline-block">
-							<tr>
-								<th> Choose Food Amount: </th>
-								<th>
-									<div class="range-slider">
-										<input class="range-slider__range" type="range" value="75" min="50" max="90" onchange="showRangeSliderValue(this.value)">
-										<span class="range-slider__value">75</span>
-									</div>
-								</th>
-							</tr>
-						<tr>
-							<th> Game duration:</th>
-							<th><input type="text" name="gameTime" placeholder="Insert 60 or more Seconds"></th>
-						</tr>
-						<tr>
-							<th>Number of monsters:</th>
-							<th> <select name="numMonsters">
-									<option selected>1</option>
-									<option >2</option>
-									<option >3</option>
-									<option >4</option>
-							</select>
-							</th>
-						</tr>
-						<tr>
-							<th></th>
-							<th> 5 points <input type="color" name="5ptColor" value="#948cea"> </th>
-						</tr>
-						<tr>
-							<th> Game balls color :</th>
-							<th> 15 points <input type="color" name="15ptColor" value="#eda3c1"> </th>
-						<tr>
-							<th></th>
-							<th> 25 points <input type="color" name="25ptColor" value="#8dddb8"> </th>
-						</tr>
-						<br>
-					</table>
-
-					<table id="keysTable" style="float:right">
-						<tr>
-							<th>Set game buttons:</th>
-							<th>
-								<input class="keys" type="button" value="Up" width="1px" height="10px" onclick="catchUserChoiceForKeys(this)">
-								<span id="keyUp"></span>
-							</th>
-							<th></th>
-						</tr>
-						<tr>
-							<th>
-								<span id="keyLeft"></span>
-								<input class="keys" value="Left" type="button" width="1px" height="10px"  onclick="catchUserChoiceForKeys(this)"></th>
-							<th><img src="arrow.png" height="100" width="150"></th>
-							<th>
-								<input class="keys" value="Right" type="button" width="1px" height="10px" onclick="catchUserChoiceForKeys(this)">
-								<span id="keyRight"></span>
-							</th>
-						</tr>
-						<tr>
-							<th></th>
-							<th>
-								<input class="keys" id="buttonDown" value="Down" type="button" width="1px" height="10px" onclick="catchUserChoiceForKeys(this)">
-								<span id="keyDown"></span>
-							</th>
-							<th></th>
-						</tr>
-					</table>
+				<h3><u><b>Game-Settings</b></u></h3>
+				Choose Food Amount:
+				<span style="display:inline-block; width: 25px;"></span>
+				<div class="range-slider" style="display: inline-block;">
+					<input class="range-slider__range" type="range" value="75" min="50" max="90"
+						onchange="showRangeSliderValue(this.value)">
+					<span class="range-slider__value">75</span>
 				</div>
+				<br>
+				<br>
+				<th> Game duration:</th>
+				<th><input type="text" name="gameTime" placeholder="Insert 60 or more Seconds"></th>
+				<br>
+				<br>
+				Number of monsters:
+				<select name="numMonsters">
+					<option selected>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+				</select>
+				<br>
+				<br>
+				Choose a color for 5 points food: <input type="color" name="5ptColor" value="#948cea">
+				<br>
+				Choose a color for 15 points food: <input type="color" name="15ptColor" value="#eda3c1">
+				<br>
+				Choose a color for 25 points food: <input type="color" name="25ptColor" value="#8dddb8"> 
+				<br>
+				<br>
+				<br>
+				<table id="keysTable">
+					<tr>
+						<th>Set game buttons:</th>
+						<th>
+							<input class="keys" type="button" value="Up" width="1px" height="10px" onclick="catchUserChoiceForKeys(this)">
+							<span id="keyUp"></span>
+						</th>
+						<th></th>
+					</tr>
+					<tr>
+						<th>
+							<span id="keyLeft"></span>
+							<input id="keyLeftBtn" class="keys" value="Left" type="button" width="1px" height="10px"  onclick="catchUserChoiceForKeys(this)"></th>
+						<th><img src="arrow.png" height="100" width="150" ></th>
+						<th>
+							<input class="keys" value="Right" type="button" width="1px" height="10px" onclick="catchUserChoiceForKeys(this)">
+							<span id="keyRight"></span>
+						</th>
+					</tr>
+					<tr>
+						<th></th>
+						<th>
+							<input class="keys" id="buttonDown" value="Down" type="button" width="1px" height="10px" onclick="catchUserChoiceForKeys(this)">
+							<span id="keyDown"></span>
+						</th>
+						<th></th>
+					</tr>
+				</table>
 				<br>
 				<br>
 				<button class="randomButton" id="randomButton" onclick="randomizeGameSettings(this)">Random</button>
 				<button class="playButton" id="playButton" onclick="allGameSettingSet(this)">Start Play!</button>
 
 			</div>
+
+
+
 
 			<!-- The Modal -->
 			<dialog class="content" id="about">
@@ -194,46 +188,46 @@
 			<!-- Game Play Part -->
 			<div id="gamePlay">
 
-			<ul id="game_information">
-			        <li> <b>Your Game Settings:</b> </li>
-			        <span style="display:inline-block; width: 25px;"></span>
-			        <li> <b>5 Pt Color: </b>  <input type="color" name="5PtKeyColor" disabled> </li>
-			        <span style="display:inline-block; width: 25px;"></span>
-                    <li> <b>15 Pt Color:</b> <input type="color" name="15PtKeyColor" disabled> </li>
-                    <span style="display:inline-block; width: 25px;"></span>
-                    <li> <b>25 Pt Color:</b> <input type="color" name="25PtKeyColor" disabled> </li>
-                    <span style="display:inline-block; width: 25px;"></span>
-                    <li><b>Lifes Left: </b></li>
-                    <span style="display:inline-block; width: 5px;"></span>
-                    <li> <img id="cherry" src="cherry.png" height="20px" width="20px"></li>
-                    <li> <img src="cherry.png" height="20px" width="20px"></li>
-                    <li> <img src="cherry.png" height="20px" width="20px"></li>
-                    <li> <img src="cherry.png" height="20px" width="20px"></li>
-                    <li> <img src="cherry.png" height="20px" width="20px"></li>
-			    </ul>
-				
-			    <canvas id="canvas" height="600" width="1200">
-				<img id="up" src="up.png" width="30px" height="30px">
-				<img id="down" src="down.png" width="30px" height="30px">
-				<img id="right" src="right.png" width="30px" height="30px">
-				<img id="left" src="left.png" width="30px" height="30px">
+				<ul id="game_information">
+					<li> <b>Your Game Settings:</b> </li>
+					<span style="display:inline-block; width: 25px;"></span>
+					<li> <b>5 Pt Color: </b> <input type="color" name="5PtKeyColor" disabled> </li>
+					<span style="display:inline-block; width: 25px;"></span>
+					<li> <b>15 Pt Color:</b> <input type="color" name="15PtKeyColor" disabled> </li>
+					<span style="display:inline-block; width: 25px;"></span>
+					<li> <b>25 Pt Color:</b> <input type="color" name="25PtKeyColor" disabled> </li>
+					<span style="display:inline-block; width: 25px;"></span>
+					<li><b>Lifes Left: </b></li>
+					<span style="display:inline-block; width: 5px;"></span>
+					<li> <img id="cherry" src="cherry.png" height="20px" width="20px"></li>
+					<li> <img src="cherry.png" height="20px" width="20px"></li>
+					<li> <img src="cherry.png" height="20px" width="20px"></li>
+					<li> <img src="cherry.png" height="20px" width="20px"></li>
+					<li> <img src="cherry.png" height="20px" width="20px"></li>
+				</ul>
+
+				<canvas id="canvas" height="600" width="1200">
+					<img id="up" src="up.png" width="30px" height="30px">
+					<img id="down" src="down.png" width="30px" height="30px">
+					<img id="right" src="right.png" width="30px" height="30px">
+					<img id="left" src="left.png" width="30px" height="30px">
 				</canvas>
-                
-                <ul id="timer_score">
-			        <div id="score">
-					<label for="lblScore">SCORE:</label>
-					<input id="lblScore" type="text" disabled />
-				    </div>
-				    <div id="time">
-					<label for="lblTime">TIME:</label>
-					<input id="lblTime" type="text" disabled/>
-					<div id="food">
-					<label for="foodLeft">Food Left:</label>
-					<input id="foodLeft" type="text" disabled/>
-				    </div>
-			    </ul>
-                
-				
+
+				<ul id="timer_score">
+					<div id="score">
+						<label for="lblScore">SCORE:</label>
+						<input id="lblScore" type="text" disabled />
+					</div>
+					<div id="time">
+						<label for="lblTime">TIME:</label>
+						<input id="lblTime" type="text" disabled />
+						<div id="food">
+							<label for="foodLeft">Food Left:</label>
+							<input id="foodLeft" type="text" disabled />
+						</div>
+				</ul>
+
+
 			</div>
 
 
@@ -248,11 +242,11 @@
 <script>
 
 	var users = ['p'];
-    var passwords =  ['p'];
+	var passwords = ['p'];
 
 
-	$(document).ready(function(){
-    	$("#welcome").show();
+	$(document).ready(function () {
+		$("#welcome").show();
 		$("#login").hide();
 		$("#register").hide();
 		$("#gameSettings").hide();
@@ -264,35 +258,35 @@
 		$("#welcome").hide();
 		$("#login").hide();
 		$("#register").show();
-	 	$("#gameSettings").hide();
-    	$("#gamePlay").hide();	
+		$("#gameSettings").hide();
+		$("#gamePlay").hide();
 	}
 
 	function loginEnterFunction(element) {
 		$("#welcome").hide();
 		$("#login").show();
 		$("#register").hide();
-	 	$("#gameSettings").hide();
-    	$("#gamePlay").hide();	
+		$("#gameSettings").hide();
+		$("#gamePlay").hide();
 	}
 
 	function homePageFunction(element) {
 		$("#welcome").show();
 		$("#login").hide();
 		$("#register").hide();
-	 	$("#gameSettings").hide();
-    	$("#gamePlay").hide();	
+		$("#gameSettings").hide();
+		$("#gamePlay").hide();
 	}
 
 	function startGameFunction(element) {
 		$("#welcome").hide();
 		$("#login").hide();
 		$("#register").hide();
-	 	$("#gameSettings").hide();
-    	$("#gamePlay").show();	
+		$("#gameSettings").hide();
+		$("#gamePlay").show();
 	}
 
-	
+
 </script>
 
 </html>

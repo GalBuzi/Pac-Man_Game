@@ -1,3 +1,5 @@
+
+
 .wrapper {
 	display: grid;
 	grid-template-areas:
@@ -7,7 +9,7 @@
 	grid-template-rows: 80px 800px 50px;
 	grid-template-columns: 15% 1fr;
   grid-gap: 4px;
-  background-color: #262626;
+  background-color: dodgerblue;
   flex-direction: column;
   height: 1025px;
 }
@@ -41,15 +43,10 @@ header {
     text-align: 50%;
     font-size: 25px;
     font-style: italic;
-    background-color: #262626;
+    background-color: #b39467;
     font-weight: bold;
     color: rgb(255, 255, 255);
-    border-bottom: 2px solid #0016ff;
-}
-
-#h1welcome{
-  color:white;
-  padding-left: 30%;
+    border-bottom: 2px solid #030303;
 }
 
 #logregister{
@@ -64,7 +61,20 @@ nav {
 
 content {
     grid-area: content;
+    padding-left: 10%;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace; 
 
+}
+
+.row {
+  display: flex;
+}
+
+/* Create three equal columns that sits next to each other */
+.column {
+  flex: 33.33%;
+  padding: 5px;
 }
 
 
@@ -80,17 +90,10 @@ footer {
 }
 
 
-#welcome{
-  background-image: url("pacman_welcome.png");
-  background-position: 40%;
-  background-repeat: no-repeat;
-}
-
-
 [id^=RegisterButton]{
   position: absolute;
   border-radius: 10px;
-  padding: 10px 50px;
+  padding: 20px 50px;
   font-size:20px;
   font-family: 'Courier New', Courier, monospace;
   -webkit-transition-duration: 0.4s; /* Safari */
@@ -101,7 +104,7 @@ footer {
 
 [id^=LoginButton]{
   border-radius: 10px;
-  padding: 10px 50px;
+  padding: 20px 50px;
   font-size:20px;
   font-family: 'Courier New', Courier, monospace;
   -webkit-transition-duration: 0.4s; /* Safari */
@@ -111,8 +114,7 @@ footer {
 
 #RegisterButton{
   position: absolute;
-  top: 40%;
-  left: 75%;
+  left: 27%;
   background-color: rgb(241, 241, 200);
   font-weight: bold;
   color: black;
@@ -120,47 +122,21 @@ footer {
 
 #LoginButton{
   position: absolute;
-  top: 50%;
-  left: 75%;
+  left: 50%; 
   background-color:  rgb(241, 241, 200);
   font-weight: bold;
   color: black;
 }
 
 #register{
-  background-color: rgb(241, 241, 200);
-  display: block;
-  position: relative;
-  width: 50%;
-  left: 22%;
-  margin-top:30px;
-
-}
-
-#gameSettings{
     background-color: rgb(241, 241, 200);
     display: block;
-    position: relative;
-    width:90%;
-    left: 5%;
-    height:50%;
+    position: fixed;
+    width: 40%;
+    left: 27%;
     margin-top:30px;
-  
-  }
+    font-size: x-large;
 
-#settingsTable {
-    margin-top:1%;
-
-}
-
-#keysTable{
-    margin-top: 1%;
-    margin-right: 10%;
-}
-
-.keys{
-    width: 60px;
-    height: 20px;
 }
 
 #SubmitButton{
@@ -174,9 +150,8 @@ footer {
 
 [id^=SubmitButton]{
   border-radius: 10px;
-  padding: 10px 50px;
+  padding: 10px 100px;
   font-size:20px;
-  font-family: 'Courier New', Courier, monospace;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
 }
@@ -184,10 +159,11 @@ footer {
 #login{
     background-color: rgb(241, 241, 200);
     display: block;
-    position: relative;
+    position: fixed;
     width: 40%;
     left: 27%;
     margin-top:30px;
+    font-size: x-large;
   
   }
 
@@ -202,19 +178,46 @@ footer {
   
   [id^=loginButton]{
     border-radius: 10px;
-    padding: 10px 50px;
+    padding: 10px 100px;
     font-size:20px;
-    font-family: 'Courier New', Courier, monospace;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
   }
 
+#gameSettings{
+  background-color: rgb(241, 241, 200);
+  display: block;
+  position: fixed;
+  width: 40%;
+  left: 27%;
+  margin-top:30px;
+  font-size: x-large;
+  font-weight: bold; 
+  }
+
+  #keyLeftBtn{
+    margin-left: 75%;
+  }
+
+#settingsTable {
+    margin-top:1%;
+
+}
+
+#keysTable{
+    margin-right: 5%;
+}
+
+.keys{
+    width: 60px;
+    height: 20px;
+}
   
 .menu{
-  background-color: #262626;
-  padding: 15px;
+  background-color: peru;
   border-right:  2px solid #0016ff;
   color:#ffffff;
+  font-size: x-large;
 }
 .menu li
 {
@@ -224,10 +227,10 @@ footer {
 {
   text-decoration: none;
   display: inline-block;
-  padding: 10px 25px;
-  height:15px;
-  border-radius: 5px;
-  /*border-bottom: 5px solid white;*/
+  padding: 40px 15px;
+  height:25px;
+  border-radius: 25px;
+  
 }
 .menu a:hover
 {
