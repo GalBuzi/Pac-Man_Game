@@ -9,7 +9,7 @@
 	grid-template-rows: 80px 800px 50px;
 	grid-template-columns: 15% 1fr;
   grid-gap: 4px;
-  background-color: dodgerblue;
+  background-color: #79BFFF;
   flex-direction: column;
   height: 1025px;
 }
@@ -43,10 +43,10 @@ header {
     text-align: 50%;
     font-size: 25px;
     font-style: italic;
-    background-color: #b39467;
+    background-color: #09254E;
     font-weight: bold;
     color: rgb(255, 255, 255);
-    border-bottom: 2px solid #030303;
+    border-bottom: 2px solid #ffffff;
 }
 
 #logregister{
@@ -64,7 +64,6 @@ content {
     padding-left: 10%;
     box-sizing: border-box;
     font-family: 'Courier New', Courier, monospace; 
-
 }
 
 .row {
@@ -83,9 +82,9 @@ footer {
     padding: 15px;
     text-align: center;
     font-size: 16px;
-    background-color: #262626;
+    background-color: #09254E;
     color: #ffffff;
-    border-top:  2px solid #0016ff;
+    border-top:  2px solid #f2f9fa;
     object-position: bottom;
 }
 
@@ -114,36 +113,45 @@ footer {
 
 #RegisterButton{
   position: absolute;
-  left: 27%;
-  background-color: rgb(241, 241, 200);
+  top: 60%;
+  left: 20%;
+  background-color: rgb(61, 88, 163);
   font-weight: bold;
-  color: black;
+  color: whitesmoke;
+  font-weight:bold;
+
 }
 
 #LoginButton{
   position: absolute;
-  left: 50%; 
-  background-color:  rgb(241, 241, 200);
+  left: 40%; 
+  top: 60%;
+  background-color: rgb(61, 88, 163);
   font-weight: bold;
-  color: black;
+  color: whitesmoke;
 }
 
 #register{
-    background-color: rgb(241, 241, 200);
+    background-color: #D5D8DD;
     display: block;
     position: fixed;
     width: 40%;
     left: 27%;
     margin-top:30px;
     font-size: x-large;
+    text-align:center;
 
+}
+
+#usernameReg{
+  width: 12%; 
 }
 
 #SubmitButton{
   position: absolute;
   top: 75%;
   left: 35%;
-  background-color:  rgb(160, 199, 160);
+  background-color:  rgb(121, 191, 255);
   font-weight: bold;
   color: black;
 }
@@ -157,7 +165,7 @@ footer {
 }
 
 #login{
-    background-color: rgb(241, 241, 200);
+    background-color: #D5D8DD;
     display: block;
     position: fixed;
     width: 40%;
@@ -171,7 +179,7 @@ footer {
     position: absolute;
     top: 70%;
     left: 35%;
-    background-color:  rgb(160, 199, 160);
+    background-color:  #79bfff;
     font-weight: bold;
     color: black;
   }
@@ -185,7 +193,7 @@ footer {
   }
 
 #gameSettings{
-  background-color: rgb(241, 241, 200);
+  background-color: #D5D8DD;
   display: block;
   position: fixed;
   width: 40%;
@@ -214,10 +222,11 @@ footer {
 }
   
 .menu{
-  background-color: peru;
-  border-right:  2px solid #0016ff;
+  background-color: #3D58A3;
+  border-right:  2px solid #fffffe;
   color:#ffffff;
   font-size: x-large;
+  text-align:center;
 }
 .menu li
 {
@@ -234,7 +243,7 @@ footer {
 }
 .menu a:hover
 {
-  background: rgba(255, 255, 255, 0.747);
+  background: rgb(121, 191, 255);
   color:black;
 }
 
@@ -285,13 +294,14 @@ footer {
 }
 
 #canvas {
+  background-color: #09254e;
   padding-top: 15px;
   padding-bottom: 15px;
   padding-right: 15px;
   padding-left: 15px;
   box-sizing: border-box;
   margin: auto;
-  border: 7px  double #0016ff;
+  border: 7px  double #ffffff;
   padding: 0;
   margin: auto;
   display: block;
@@ -306,10 +316,11 @@ footer {
 
 #gamePlay ul {
   overflow: hidden;
-  background-color:  #262626;
+  background-color:  #79bfff;
   font-size: x-large;
-  color: white;
+  color: #09254e;
   text-align:center;
+  font-weight: bold;
 }
 
 #gamePlay ul li{

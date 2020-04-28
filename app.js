@@ -360,7 +360,7 @@ function Draw() {
 			else if (board[i][j] == 4) { //draw walls
 				context.beginPath();
 				context.rect(center.x - 30, center.y - 30, 60, 60);
-				context.strokeStyle = "#0016ff";
+				context.strokeStyle = "#000000";
 				context.stroke();
 				context.fillStyle = "#67c0ff"; //color
 				context.fill();

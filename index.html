@@ -29,7 +29,7 @@
 		<content>
 			<!-- Welcome Part -->
 			<div class="content" id="welcome">
-				<h1 id="h1welcome" style="color:  rgb(241, 241, 200);">
+				<h1 id="h1welcome" style="color: #09254e;">
 					<span data-shadow-text="Text-Shadow" id="spanWelcome">
 						<marquee behavior="scroll" width='70%' direction="left"><u>Welcome To Our Pacman Game!</u>
 						</marquee>
@@ -40,17 +40,17 @@
 					<div class="column">
 						<img src="pacman_welcome.png" width="740px" height="282px" style="width:100%">
 					</div>
+					<button class="welcomeButton" id="RegisterButton" onclick="registerEnterFunction(this)">Guest? Please
+					Register!</button>
+				    <button class="welcomeButton" id="LoginButton" onclick="loginEnterFunction(this)">Login and
+					Play!</button>
 					<div class="column">
 						<img src="paccccmmman.png" width="750px" height="600px" style="width:100%">
 					</div>
 				</div>
-				<button class="welcomeButton" id="RegisterButton" onclick="registerEnterFunction(this)">Guest? Please
-					Register!</button>
-				<button class="welcomeButton" id="LoginButton" onclick="loginEnterFunction(this)">Login and
-					Play!</button>
 			</div>
 			<!-- Register Part -->
-			<div class="content" id="register" style="text-align:center">
+			<div class="content" id="register">
 				<h2><u>Please Enter Register Information Details:</u></h2>
 
 				<b>User Name:</b>
@@ -225,10 +225,8 @@
 							<label for="foodLeft">Food Left:</label>
 							<input id="foodLeft" type="text" disabled />
 						</div>
-						
 				</ul>
 				<button class="newGame" id="restart" onclick="restart(this)">Restart</button>
-
 			</div>
 
 
