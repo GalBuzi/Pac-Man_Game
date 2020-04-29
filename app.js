@@ -23,6 +23,8 @@ backgroundAudio.addEventListener('ended', function() {
 	this.play();
 }, false);
 
+var strong_monster;
+
 $(document).ready(function () {
 	context = canvas.getContext("2d");
 	//Start();
@@ -51,18 +53,22 @@ function Start() {
 	monstersNum = $('select[name=numMonsters]').val();
 	if (monstersNum == 1) {
 		monsters.push(new gameMonster(19, 9, "Blue_Monster.png"));
+		strong_monster = Math.floor(Math.random() * monstersNum);
 	} else if (monstersNum == 2) {
 		monsters.push(new gameMonster(19, 9, "Blue_Monster.png"));
 		monsters.push(new gameMonster(0, 0, "Red_Monster.png"));
+		strong_monster = Math.floor(Math.random() * monstersNum);
 	} else if (monstersNum == 3) {
 		monsters.push(new gameMonster(19, 9, "Blue_Monster.png"));
 		monsters.push(new gameMonster(0, 0, "Red_Monster.png"));
 		monsters.push(new gameMonster(0, 9, "Pink_Monster.png"));
+		strong_monster = Math.floor(Math.random() * monstersNum);
 	} else if (monstersNum == 4) {
 		monsters.push(new gameMonster(19, 9, "Blue_Monster.png"));
 		monsters.push(new gameMonster(0, 0, "Red_Monster.png"));
 		monsters.push(new gameMonster(0, 9, "Pink_Monster.png"));
 		monsters.push(new gameMonster(19, 0, "Orange_Monster.png"));
+		strong_monster = Math.floor(Math.random() * monstersNum);
 	}
 	var cnt = 200; //num
 	var food_remain = $('.range-slider input[type=range]').val(); //total food left on board
@@ -110,30 +116,32 @@ function Start() {
 							board[i][j] = 1;
 						}
 					}
-				} else if (randomNum < (1.0 * (pacman_remain + food_remain)) / cnt) { //place the pacman on board where there is no food
-					if (!isCorner(i, j)) { //pacman cant be in corner because the monsters are
-						shape.i = i;
-						shape.j = j;
-						pacman_remain--;
-						board[i][j] = 2;
-					}
-					else {
-						board[i][j] = 0;
-					}
-				} else {
+				} 
+// 				else if (randomNum < (1.0 * (pacman_remain + food_remain)) / cnt) { //place the pacman on board where there is no food
+// 					if (!isCorner(i, j)) { //pacman cant be in corner because the monsters are
+// 						shape.i = i;
+// 						shape.j = j;
+// 						pacman_remain--;
+// 						board[i][j] = 2;
+// 					}
+// 					else {
+// 						board[i][j] = 0;
+// 					}
+// 				} 
+				else {
 					board[i][j] = 0;
 				}
 				cnt--;
 			}
 		}
 	}
-	if (shape.i === undefined || shape.j === undefined) {//place pacman if it didnt happen in loop
+// 	if (shape.i === undefined || shape.j === undefined) {//place pacman if it didnt happen in loop
 		var pacman_pos = findRandomEmptyCellForPacman(board);
 		board[pacman_pos[0]][pacman_pos[1]] = 2;
 		shape.i = pacman_pos[0];
 		shape.j = pacman_pos[1];
 		pacman_remain--;
-	}
+// 	}
 	while (food_remain > 0) {
 		while(five_points_food > 0){
 			var emptyCell = findRandomEmptyCell(board);
@@ -198,13 +206,16 @@ function findRandomEmptyCell(board) {
 }
 
 function findRandomEmptyCellForPacman(board) {
-	var i = Math.floor(Math.random() * 19 + 1);
-	var j = Math.floor(Math.random() * 9 + 1);
-	while (board[i][j] != 0 && !isCorner(i, j) && i<=16 && i>=3 && j<=7 && j>=2) {
-		i = Math.floor(Math.random() * 19 + 1);
-		j = Math.floor(Math.random() * 9 + 1);
+	var emptyCells = []
+	for(var h = 0 ; h < 20 ; h++){
+		for(var t = 0 ; t < 10 ; t++){
+			if(board[h][t] == 0 && !isCorner(h, t) && h<=16 && h>=3 && t<=7 && t>=2){
+				emptyCells.push( [h,t] );
+			}
+		}
 	}
-	return [i, j];
+	var cellToReturn = Math.floor(Math.random() * emptyCells.length + 1);
+    return emptyCells[cellToReturn];
 }
 
 function GetKeyPressed() {
@@ -385,11 +396,18 @@ function Draw() {
 	}
 
 	for (var m = 0; m < monstersNum ; m++) {
-		if (board[monsters[m].x][monsters[m].y] === 2) {
+		if(board[monsters[m].x][monsters[m].y] === 2 && monsters[m] === monsters[strong_monster]){
+			pacman_lifes_left = pacman_lifes_left - 2;
+			$('#game_information li:last-child').remove();
+			$('#game_information li:last-child').remove();
+			score = score - 20;
+		}
+		else if (board[monsters[m].x][monsters[m].y] === 2 && (monsters[m] != monsters[strong_monster])) {
 			pacman_lifes_left--;
 			$('#game_information li:last-child').remove();
 			score = score - 10;
-			if (pacman_lifes_left >= 0) {
+		}
+		if (board[monsters[m].x][monsters[m].y] === 2 && pacman_lifes_left >= 0) {
 				if (monstersNum == 1) {
                     monsters[0].x=19;
 					monsters[0].y=9;
@@ -424,7 +442,6 @@ function Draw() {
 				shape.j = emptyC[1];
 				break;
 			}
-		}
 	}
 }
 
@@ -569,6 +586,11 @@ function restart(element) {
 		}
 	}
 	else if(pacman_lifes_left === 0){
+		for(var i=0; i < 5; i++){
+			$("#game_information").append('<li> <img src="cherry.png" height="20px" width="20px"></li>');
+		}
+	}
+	else if(pacman_lifes_left === -1){
 		for(var i=0; i < 5; i++){
 			$("#game_information").append('<li> <img src="cherry.png" height="20px" width="20px"></li>');
 		}
