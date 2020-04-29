@@ -296,7 +296,7 @@ function isGameOver(){//chech if there are more life for pacman or if it ran out
     var time_presented_to_user = $('input[name=gameTime]').val();
 
     //check pacman's life bar
-    if (pacman_lifes_left < 0) {
+    if (pacman_lifes_left <= 0) {
             window.clearInterval(interval);
             window.clearInterval(intervalMonsters);
             backgroundAudio.pause();
@@ -407,7 +407,7 @@ function Draw() {
 			$('#game_information li:last-child').remove();
 			score = score - 10;
 		}
-		if (board[monsters[m].x][monsters[m].y] === 2 && pacman_lifes_left >= 0) {
+		if (board[monsters[m].x][monsters[m].y] === 2 && pacman_lifes_left > 0) {
 				if (monstersNum == 1) {
                     monsters[0].x=19;
 					monsters[0].y=9;
