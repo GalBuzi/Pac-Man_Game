@@ -654,3 +654,11 @@ function gotoAbout(element) {
 	$("#gamePlay").hide();
 	$("#about").show();
 }
+
+function enableMute() { 
+	backgroundAudio.pause();
+} 
+
+function disableMute() { 
+	backgroundAudio.play();
+} 

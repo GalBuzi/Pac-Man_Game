@@ -192,13 +192,99 @@ footer {
     transition-duration: 0.4s;
   }
 
+  #randomButton{
+    position: absolute;
+    top: 82%;
+    left: 20%;
+    background-color:  #79bfff;
+    font-weight: bold;
+    color: black;
+  }
+  
+  [id^=randomButton]{
+    border-radius: 10px;
+    padding: 10px 100px;
+    font-size:20px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
+
+  #playButton{
+    position: absolute;
+    top: 82%;
+    left: 55%;
+    background-color:  #79bfff;
+    font-weight: bold;
+    color: black;
+  }
+  
+  [id^=playButton]{
+    border-radius: 10px;
+    padding: 10px 100px;
+    font-size:20px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
+
+  #muteButton{
+    position: absolute;
+    top: 32%;
+    left: 18%;
+    background-color: rgb(61, 88, 163);
+    font-weight: bold;
+    color: whitesmoke;
+  }
+  
+  [id^=muteButton]{
+    border-radius: 10px;
+    padding: 10px 100px;
+    font-size:20px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
+
+  #playMusicButton{
+    position: absolute;
+    top: 40%;
+    left: 18%;
+    background-color:  rgb(61, 88, 163);
+    font-weight: bold;
+    color: whitesmoke;
+  }
+  
+  [id^=playMusicButton]{
+    border-radius: 10px;
+    padding: 10px 100px;
+    font-size:20px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
+
+  #restart{
+    position: absolute;
+    top: 48%;
+    left: 18%;
+    background-color:  rgb(61, 88, 163);
+    font-weight: bold;
+    color: whitesmoke;
+  }
+  
+  [id^=restart]{
+    border-radius: 10px;
+    padding: 10px 100px;
+    font-size:20px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
+
 #gameSettings{
   background-color: #D5D8DD;
   display: block;
   position: fixed;
   width: 40%;
   left: 27%;
-  margin-top:30px;
+  height: 60%;
+  margin-top:40px;
   font-size: x-large;
   font-weight: bold; 
   }

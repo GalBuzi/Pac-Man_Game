@@ -128,7 +128,7 @@
 				<br>
 				<br>
 				<br>
-				<table id="keysTable">
+				<table id="keysTable" style=margin-left:auto;margin-right:auto;>
 					<tr>
 						<th>Set game buttons:</th>
 						<th>
@@ -227,6 +227,8 @@
 						</div>
 				</ul>
 				<button class="newGame" id="restart" onclick="restart(this)">Restart</button>
+				<button class="muteMusic" id="muteButton" onclick="enableMute(this)">Mute sound</button>
+				<button class="playMusic" id="playMusicButton" onclick="disableMute(this)">Play sound</button>
 			</div>
 
 
@@ -242,6 +244,7 @@
 
 	var users = ['p'];
 	var passwords = ['p'];
+
 
 
 	$(document).ready(function () {
