@@ -13,25 +13,14 @@
   height: 1025px;
 }
 
-@media (min-width: 1366px) {
+@media (min-width: 768px) {
   .wrapper {
   grid-template-areas:
   "header header header"
   "nav content content"
   "footer footer footer";
   grid-template-rows: auto 1fr auto;
-  grid-template-columns: 160px 1fr;
-  }
-}
-
-@media (min-height: 768px) {
-  .wrapper {
-  grid-template-areas:
-  "header header header"
-  "nav content content"
-  "footer footer footer";
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: 160px 1fr;
+  grid-template-columns: 180px 1fr;
   }
 }
 

@@ -45,13 +45,12 @@ function Start() {
 	backgroundAudio.play();
 	board = new Array();
 	score = 0;
-	pac_color = "yellow";
 	pac_direction = 1;
 	pacman_lifes_left = 5;
 	movingCharacter = [19,9,"Ghost_scary.png"];
 	monsters = [];
 	monstersNum = $('select[name=numMonsters]').val();
-	if (monstersNum == 1) {
+	if (monstersNum == 1) {//create monsters according to user's choice 
 		monsters.push(new gameMonster(19, 9, "Blue_Monster.png"));
 		strong_monster = Math.floor(Math.random() * monstersNum);
 	} else if (monstersNum == 2) {
@@ -70,7 +69,7 @@ function Start() {
 		monsters.push(new gameMonster(19, 0, "Orange_Monster.png"));
 		strong_monster = Math.floor(Math.random() * monstersNum);
 	}
-	var cnt = 200; //num
+	var cnt = 200; 
 	var food_remain = $('.range-slider input[type=range]').val(); //total food left on board
 	food_left_to_show_user = food_remain;
 	var five_points_food = Math.ceil(0.6 * food_remain);
@@ -79,7 +78,7 @@ function Start() {
 	sum_of_fifteen_points = 15 * fifteen_points_food;
 	var twenty_five_points_food = Math.floor(0.1 * food_remain);
 	sum_of_twenty_points = 20 * twenty_five_points_food;
-	var pacman_remain = 1; //boolean , how many time to draw the pacman
+	var pacman_remain = 1; //boolean , did we draw the pacman or not
 	start_time = new Date();
 	// 0=empty , 1=twenty_five_points_food, 2=pacman, 3=fifteen_points_food , 4=wall, 5=five_points_food, 6=life
 	for (var i = 0; i < 20; i++) {
@@ -116,18 +115,7 @@ function Start() {
 							board[i][j] = 1;
 						}
 					}
-				} 
-// 				else if (randomNum < (1.0 * (pacman_remain + food_remain)) / cnt) { //place the pacman on board where there is no food
-// 					if (!isCorner(i, j)) { //pacman cant be in corner because the monsters are
-// 						shape.i = i;
-// 						shape.j = j;
-// 						pacman_remain--;
-// 						board[i][j] = 2;
-// 					}
-// 					else {
-// 						board[i][j] = 0;
-// 					}
-// 				} 
+				}
 				else {
 					board[i][j] = 0;
 				}
@@ -135,14 +123,12 @@ function Start() {
 			}
 		}
 	}
-// 	if (shape.i === undefined || shape.j === undefined) {//place pacman if it didnt happen in loop
-		var pacman_pos = findRandomEmptyCellForPacman(board);
+		var pacman_pos = findRandomEmptyCellForPacman(board);//place pacman on board
 		board[pacman_pos[0]][pacman_pos[1]] = 2;
 		shape.i = pacman_pos[0];
 		shape.j = pacman_pos[1];
 		pacman_remain--;
-// 	}
-	while (food_remain > 0) {
+	while (food_remain > 0) { //place remaining food on board
 		while(five_points_food > 0){
 			var emptyCell = findRandomEmptyCell(board);
 			board[emptyCell[0]][emptyCell[1]] = 5;//place 5 points in whats left
@@ -151,13 +137,13 @@ function Start() {
 		}
 		while(fifteen_points_food > 0){
 			var emptyCell = findRandomEmptyCell(board);
-			board[emptyCell[0]][emptyCell[1]] = 3;//place 5 points in whats left
+			board[emptyCell[0]][emptyCell[1]] = 3;//place 15 points in whats left
 			fifteen_points_food--;
 			food_remain--;
 		}
 		while(twenty_five_points_food > 0){
 			var emptyCell = findRandomEmptyCell(board);
-			board[emptyCell[0]][emptyCell[1]] = 1;//place 5 points in whats left
+			board[emptyCell[0]][emptyCell[1]] = 1;//place 25 points in whats left
 			twenty_five_points_food--
 			food_remain--;
 		}
@@ -177,11 +163,11 @@ function Start() {
 		},
 		false
 	);
-	interval = setInterval(UpdatePosition, 160); //update posision to all charecters every 250 mili sec
-	intervalMonsters = setInterval(moveMonsters, 250);
+	interval = setInterval(UpdatePosition, 160); //update posision to pacman every 160 mili sec
+	intervalMonsters = setInterval(moveMonsters, 250); //update posision to all monsters every 160 mili sec
 }
 
-function placeWalls(i, j) {
+function placeWalls(i, j) { // return true if its wall coordinates
 	return (i === 2 && j === 1) || (i === 3 && j === 1) || (i === 2 && j === 2) || (i === 3 && j === 2) || (i === 2 && j === 5)
 		|| (i === 2 && j === 6) || (i === 2 && j === 7) || (i === 3 && j === 6) || (i === 6 && j === 5) || (i === 6 && j === 6)
 		|| (i === 9 && j === 9) || (i === 9 && j === 8) || (i === 9 && j === 7) || (i === 7 && j === 1) || (i === 8 && j === 1)
@@ -191,11 +177,11 @@ function placeWalls(i, j) {
 		|| (i === 17 && j === 3) || (i === 18 && j === 3) || (i === 17 && j === 1);
 }
 
-function isCorner(i, j) {
+function isCorner(i, j) { //return true if coordinates are corner in board
 	return (i == 0 && j == 0) || (i == 19 && j == 0) || (i == 0 && j == 9) || (i == 19 && j == 9);
 }
 
-function findRandomEmptyCell(board) {
+function findRandomEmptyCell(board) { //find random cell to put food in
 	var i = Math.floor(Math.random() * 19 + 1);
 	var j = Math.floor(Math.random() * 9 + 1);
 	while (board[i][j] != 0) {
@@ -205,7 +191,7 @@ function findRandomEmptyCell(board) {
 	return [i, j];
 }
 
-function findRandomEmptyCellForPacman(board) {
+function findRandomEmptyCellForPacman(board) { //find random cell to put pacman away from corners and monsters
 	var emptyCells = []
 	for(var h = 0 ; h < 20 ; h++){
 		for(var t = 0 ; t < 10 ; t++){
@@ -218,7 +204,7 @@ function findRandomEmptyCellForPacman(board) {
     return emptyCells[cellToReturn];
 }
 
-function GetKeyPressed() {
+function GetKeyPressed() { //get direction from user's pressing
 	if (keysDown[$('#keyUp').text()]) {
 		return 1;
 	}
@@ -234,10 +220,8 @@ function GetKeyPressed() {
 }
 
 
-
-
 function UpdatePosition() {
-	board[shape.i][shape.j] = 0; //coordinates of pacman - delete the pacman and put 0
+	board[shape.i][shape.j] = 0; //coordinates of pacman - delete the cell and put 0
 	var x = GetKeyPressed(); //get key pressed by user
 	if (x == 1) {
 		if (shape.j > 0 && board[shape.i][shape.j - 1] != 4) { //check move up
@@ -321,9 +305,9 @@ function isGameOver(){//chech if there are more life for pacman or if it ran out
 
 function Draw() {
 	context.clearRect(0, 0, canvas.width, canvas.height); //clean board
-	lblScore.value = score;
-	lblTime.value = time_elapsed;
-	foodLeft.value = food_left_to_show_user;
+	lblScore.value = score; //update for user
+	lblTime.value = time_elapsed;//update for user
+	foodLeft.value = food_left_to_show_user;//update for user
 	for (var i = 0; i < 20; i++) {
 		for (var j = 0; j < 10; j++) {
 			var center = new Object();
@@ -355,18 +339,24 @@ function Draw() {
 				context.arc(center.x, center.y, 12, 0, 2 * Math.PI); // circle
 				context.fillStyle = $('input[name=25ptColor]').val(); //color
 				context.fill();
+				context.strokeStyle = "#ffffff";
+				context.stroke();
 			}
 			else if (board[i][j] == 3) {
 				context.beginPath();
 				context.arc(center.x, center.y, 8, 0, 2 * Math.PI); // circle
 				context.fillStyle = $('input[name=15ptColor]').val(); //color
 				context.fill();
+				context.strokeStyle = "#ffffff";
+				context.stroke();
 			}
 			else if (board[i][j] == 5) {
 				context.beginPath();
 				context.arc(center.x, center.y, 5, 0, 2 * Math.PI); // circle
 				context.fillStyle = $('input[name=5ptColor]').val(); //color
 				context.fill();
+				context.strokeStyle = "#ffffff";
+				context.stroke();
 			}
 			else if (board[i][j] == 4) { //draw walls
 				context.beginPath();
@@ -395,19 +385,19 @@ function Draw() {
 		}
 	}
 
-	for (var m = 0; m < monstersNum ; m++) {
-		if(board[monsters[m].x][monsters[m].y] === 2 && monsters[m] === monsters[strong_monster]){
+	for (var m = 0; m < monstersNum ; m++) { //if monster gets the pacman
+		if(board[monsters[m].x][monsters[m].y] === 2 && monsters[m] === monsters[strong_monster]){ //strong monster decrease score by 20 and life by 2
 			pacman_lifes_left = pacman_lifes_left - 2;
 			$('#game_information li:last-child').remove();
 			$('#game_information li:last-child').remove();
 			score = score - 20;
 		}
-		else if (board[monsters[m].x][monsters[m].y] === 2 && (monsters[m] != monsters[strong_monster])) {
+		else if (board[monsters[m].x][monsters[m].y] === 2 && (monsters[m] != monsters[strong_monster])) {//regular monster decrease score by 10 and life by 1
 			pacman_lifes_left--;
 			$('#game_information li:last-child').remove();
 			score = score - 10;
 		}
-		if (board[monsters[m].x][monsters[m].y] === 2 && pacman_lifes_left > 0) {
+		if (board[monsters[m].x][monsters[m].y] === 2 && pacman_lifes_left > 0) { //get monsters back to corners
 				if (monstersNum == 1) {
                     monsters[0].x=19;
 					monsters[0].y=9;
@@ -474,7 +464,7 @@ function moveMonsters() {
 				//explore posiotion (close to pac-man)		
 				//right
 				if (isPositionValid(monster.x + 1, monster.y)) {
-					minDistToPacman = checkDistanceFromPac(monster.x + 1, monster.y);
+					minDistToPacman = Math.sqrt(Math.pow(monster.x + 1 - shape.i, 2) + Math.pow(monster.y - shape.j, 2)); //check Manhatten distance to right direction
 					if (minDistToPacman < minDistance) {
 						minDistance = minDistToPacman;
 						minX = monster.x + 1;
@@ -482,7 +472,7 @@ function moveMonsters() {
 					}
 				}//left
 				if (isPositionValid(monster.x - 1, monster.y)) {
-					minDistToPacman = checkDistanceFromPac(monster.x - 1, monster.y);
+					minDistToPacman = Math.sqrt(Math.pow(monster.x - 1 - shape.i, 2) + Math.pow(monster.y - shape.j, 2)); //check Manhatten distance to left direction
 					if (minDistToPacman < minDistance) {
 						minDistance = minDistToPacman;
 						minX = monster.x - 1;
@@ -490,7 +480,7 @@ function moveMonsters() {
 					}
 				}//down
 				if (isPositionValid(monster.x, monster.y + 1)) {
-					minDistToPacman = checkDistanceFromPac(monster.x, monster.y + 1);
+					minDistToPacman = Math.sqrt(Math.pow(monster.x - shape.i, 2) + Math.pow(monster.y + 1 - shape.j, 2)); //check Manhatten distance to down direction
 					if (minDistToPacman < minDistance) {
 						minDistance = minDistToPacman;
 						minX = monster.x;
@@ -498,7 +488,7 @@ function moveMonsters() {
 					}
 				}//up
 				if (isPositionValid(monster.x, monster.y - 1)) {
-					minDistToPacman = checkDistanceFromPac(monster.x, monster.y - 1);
+					minDistToPacman = Math.sqrt(Math.pow(monster.x - shape.i, 2) + Math.pow(monster.y - 1 - shape.j, 2)); //check Manhatten distance to up direction
 					if (minDistToPacman < minDistance) {
 						minDistance = minDistToPacman;
 						minX = monster.x;
@@ -512,9 +502,9 @@ function moveMonsters() {
 		}
 	}
 	//move moving character -ghost
-	optionalPositions=cellsToMoveTo(movingCharacter[0],movingCharacter[1]);
+	optionalPositions=cellsToMoveTo(movingCharacter[0],movingCharacter[1]); //get moves the ghost can go to
 	if(optionalPositions.length !==0){
-		randMoveIndex= Math.floor(Math.random() * Math.floor(optionalPositions.length));
+		randMoveIndex= Math.floor(Math.random() * Math.floor(optionalPositions.length)); //choose random move
 		movingCharacter[0]=optionalPositions[randMoveIndex][0];
 		movingCharacter[1]=optionalPositions[randMoveIndex][1];
 	}
@@ -548,20 +538,14 @@ function isPositionValid(x, y) {
 	return (x <= 19 && x >= 0 && y <= 9 && y >= 0 && board[x][y] !== 4);
 }
 
-//compute Manhattan distance from pacman to monster
-function checkDistanceFromPac(x, y) {
-	var dist = Math.sqrt(Math.pow(x - shape.i, 2) + Math.pow(y - shape.j, 2));
-	return dist;
-}
-
-function restart(element) {
+function restart(element) { //restart game with same settings
 	backgroundAudio.pause();
 	if(confirm('Are you sure you want to restart the game?')){
 	clearInterval(interval);
 	clearInterval(intervalMonsters);
 	movingCharacterEaten = false;
 
-	//init life
+	//restore life
 	if(pacman_lifes_left === 6){
 		$('#game_information li:last-child').remove();
 	}
@@ -590,17 +574,12 @@ function restart(element) {
 			$("#game_information").append('<li> <img src="cherry.png" height="20px" width="20px"></li>');
 		}
 	}
-	else if(pacman_lifes_left === -1){
-		for(var i=0; i < 5; i++){
-			$("#game_information").append('<li> <img src="cherry.png" height="20px" width="20px"></li>');
-		}
-	}
 	Start();
 	}
 }
 
 
-function registerEnterFunction(element) {
+function registerEnterFunction(element) { //show register div
 	$("#welcome").hide();
 	$("#login").hide();
 	$("#register").show();
@@ -609,7 +588,7 @@ function registerEnterFunction(element) {
 	$("#about").hide();
 }
 
-function loginEnterFunction(element) {
+function loginEnterFunction(element) {//show login div
 	$("#welcome").hide();
 	$("#login").show();
 	$("#register").hide();
@@ -618,7 +597,7 @@ function loginEnterFunction(element) {
 	$("#about").hide();
 }
 
-function homePageFunction(element) {
+function homePageFunction(element) {//show welcome div
 	$("#welcome").show();
 	$("#login").hide();
 	$("#register").hide();
@@ -628,7 +607,7 @@ function homePageFunction(element) {
 }
 
 
-function startGameFunction(element) {
+function startGameFunction(element) {//show gamePlay div
 	$("#welcome").hide();
 	$("#login").hide();
 	$("#register").hide();
@@ -637,7 +616,7 @@ function startGameFunction(element) {
 	$("#about").hide();
 }
 
-function gotoSettings(element) {
+function gotoSettings(element) {//show gameSettings div
 	$("#welcome").hide();
 	$("#login").hide();
 	$("#register").hide();
@@ -646,7 +625,7 @@ function gotoSettings(element) {
 	$("#about").hide();
 }
 
-function gotoAbout(element) {
+function gotoAbout(element) {//show about div
 	$("#welcome").hide();
 	$("#login").hide();
 	$("#register").hide();
@@ -655,10 +634,10 @@ function gotoAbout(element) {
 	$("#about").show();
 }
 
-function enableMute() { 
+function enableMute() {  //mute music
 	backgroundAudio.pause();
 } 
 
-function disableMute() { 
+function disableMute() { //play music
 	backgroundAudio.play();
 } 
