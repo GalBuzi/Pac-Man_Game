@@ -227,7 +227,7 @@ footer {
   #muteButton{
     position: absolute;
     top: 30%;
-    left: 3%;
+    left: -5%;
     background-color: rgb(61, 88, 163);
     font-weight: bold;
     color: whitesmoke;
@@ -244,7 +244,7 @@ footer {
   #playMusicButton{
     position: absolute;
     top: 42%;
-    left: 3%;
+    left: -5%;
     background-color:  rgb(61, 88, 163);
     font-weight: bold;
     color: whitesmoke;
@@ -261,7 +261,7 @@ footer {
   #restart{
     position: absolute;
     top: 54%;
-    left: 3%;
+    left:-5%;
     background-color:  rgb(61, 88, 163);
     font-weight: bold;
     color: whitesmoke;
