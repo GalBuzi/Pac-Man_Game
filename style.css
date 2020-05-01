@@ -113,7 +113,7 @@ footer {
 #RegisterButton{
   position: absolute;
   top: 60%;
-  left: 20%;
+  left: 7%;
   background-color: rgb(61, 88, 163);
   font-weight: bold;
   color: whitesmoke;
@@ -122,7 +122,7 @@ footer {
 /*check2*/
 #LoginButton{
   position: absolute;
-  left: 40%; 
+  left: 27%; 
   top: 60%;
   background-color: rgb(61, 88, 163);
   font-weight: bold;
