@@ -1,4 +1,7 @@
 
+#my{
+  zoom: 67%;
+  }
 
 .wrapper {
 	display: grid;
@@ -12,7 +15,7 @@
   background-color: #79BFFF;
   flex-direction: column;
   height: 1025px;
-  zoom: 75%;
+  
 }
 
 @media (min-width: 1366px) {
