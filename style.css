@@ -1,39 +1,25 @@
 
 .wrapper {
-	display: grid;
+	display: flex;
 	grid-template-areas:
     "header header header"
     "nav content content"
     "footer footer footer";
-	grid-template-rows: 80px 800px 50px;
-	grid-template-columns: 15% 1fr;
   grid-gap: 4px;
   background-color: #79BFFF;
   flex-direction: column;
-  height: 1025px;
+  min-height: 100vh;
+  width: device-width;
+  
 }
 
-@media (min-width: 1366px) {
+@media (min-width: 768px) {
   .wrapper {
-  grid-template-areas:
-  "header header header"
-  "nav content content"
-  "footer footer footer";
+  display: grid;
   grid-template-rows: auto 1fr auto;
-  grid-template-columns: 160px 1fr;
+  grid-template-columns: 160px auto;
   }
 }
-
-/* @media (min-height: 768px) {
-  .wrapper {
-  grid-template-areas:
-  "header header header"
-  "nav content content"
-  "footer footer footer";
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: 160px 1fr;
-  }
-} */
 
 header {
     grid-area: header;
@@ -46,6 +32,44 @@ header {
     font-weight: bold;
     color: rgb(255, 255, 255);
     border-bottom: 2px solid #ffffff;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+
+nav {
+  grid-area: nav;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+
+}
+
+content {
+  grid-area: content;
+  padding-left: 10%;
+  font-family: 'Courier New', Courier, monospace; 
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+footer {
+  grid-area: footer;
+  padding: 15px;
+  text-align: center;
+  font-size: 16px;
+  background-color: #09254E;
+  color: #ffffff;
+  border-top:  2px solid #f2f9fa;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 4;
 }
 
 #logregister{
@@ -53,17 +77,6 @@ header {
   padding-left: 20%;
 }
 
-nav {
-    grid-area: nav;
-
-}
-
-content {
-    grid-area: content;
-    padding-left: 10%;
-    box-sizing: border-box;
-    font-family: 'Courier New', Courier, monospace; 
-}
 
 .row {
   display: flex;
@@ -76,16 +89,7 @@ content {
 }
 
 
-footer {
-    grid-area: footer;
-    padding: 15px;
-    text-align: center;
-    font-size: 16px;
-    background-color: #09254E;
-    color: #ffffff;
-    border-top:  2px solid #f2f9fa;
-    object-position: bottom;
-}
+
 
 
 [id^=RegisterButton]{
@@ -311,6 +315,7 @@ footer {
   color:#ffffff;
   font-size: x-large;
   text-align:center;
+  grid-area: nav;
 }
 .menu li
 {
