@@ -13,16 +13,27 @@
   height: 1025px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1366px) {
   .wrapper {
   grid-template-areas:
   "header header header"
   "nav content content"
   "footer footer footer";
   grid-template-rows: auto 1fr auto;
-  grid-template-columns: 180px 1fr;
+  grid-template-columns: 160px 1fr;
   }
 }
+
+/* @media (min-height: 768px) {
+  .wrapper {
+  grid-template-areas:
+  "header header header"
+  "nav content content"
+  "footer footer footer";
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 160px 1fr;
+  }
+} */
 
 header {
     grid-area: header;
@@ -102,7 +113,7 @@ footer {
 #RegisterButton{
   position: absolute;
   top: 60%;
-  left: 7%;
+  left: 20%;
   background-color: rgb(61, 88, 163);
   font-weight: bold;
   color: whitesmoke;
@@ -112,7 +123,7 @@ footer {
 
 #LoginButton{
   position: absolute;
-  left: 27%; 
+  left: 40%; 
   top: 60%;
   background-color: rgb(61, 88, 163);
   font-weight: bold;
@@ -182,8 +193,8 @@ footer {
 
   #randomButton{
     position: absolute;
-    top: 85%;
-    left: 13%;
+    top: 82%;
+    left: 20%;
     background-color:  #79bfff;
     font-weight: bold;
     color: black;
@@ -199,8 +210,8 @@ footer {
 
   #playButton{
     position: absolute;
-    top: 85%;
-    left: 51%;
+    top: 82%;
+    left: 55%;
     background-color:  #79bfff;
     font-weight: bold;
     color: black;
@@ -270,8 +281,8 @@ footer {
   display: block;
   position: fixed;
   width: 40%;
-  left: 22%;
-  height: 85%;
+  left: 27%;
+  height: 60%;
   margin-top:40px;
   font-size: x-large;
   font-weight: bold; 
