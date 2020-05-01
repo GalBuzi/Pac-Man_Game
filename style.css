@@ -1,4 +1,5 @@
 
+
 .wrapper {
 	display: grid;
 	grid-template-areas:
@@ -11,6 +12,7 @@
   background-color: #79BFFF;
   flex-direction: column;
   height: 1025px;
+  zoom: 70%;
 }
 
 @media (min-width: 1366px) {
