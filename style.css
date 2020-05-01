@@ -80,7 +80,7 @@ footer {
 [id^=RegisterButton]{
   position: absolute;
   border-radius: 10px;
-  padding: 20px 50px;
+  padding: 20px 40px;
   font-size:20px;
   font-family: 'Courier New', Courier, monospace;
   -webkit-transition-duration: 0.4s; /* Safari */
@@ -91,7 +91,7 @@ footer {
 
 [id^=LoginButton]{
   border-radius: 10px;
-  padding: 20px 50px;
+  padding: 20px 40px;
   font-size:20px;
   font-family: 'Courier New', Courier, monospace;
   -webkit-transition-duration: 0.4s; /* Safari */
@@ -106,8 +106,6 @@ footer {
   background-color: rgb(61, 88, 163);
   font-weight: bold;
   color: whitesmoke;
-  font-weight:bold;
-
 }
 
 #LoginButton{
@@ -183,7 +181,7 @@ footer {
   #randomButton{
     position: absolute;
     top: 85%;
-    left: 13%;
+    left: 22%;
     background-color:  #79bfff;
     font-weight: bold;
     color: black;
@@ -191,7 +189,7 @@ footer {
   
   [id^=randomButton]{
     border-radius: 10px;
-    padding: 10px 100px;
+    padding: 10px 50px;
     font-size:20px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
@@ -200,7 +198,7 @@ footer {
   #playButton{
     position: absolute;
     top: 85%;
-    left: 51%;
+    left: 55%;
     background-color:  #79bfff;
     font-weight: bold;
     color: black;
@@ -208,7 +206,7 @@ footer {
   
   [id^=playButton]{
     border-radius: 10px;
-    padding: 10px 100px;
+    padding: 10px 50px;
     font-size:20px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
