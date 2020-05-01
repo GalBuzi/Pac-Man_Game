@@ -8,8 +8,7 @@
   grid-gap: 4px;
   background-color: #79BFFF;
   flex-direction: column;
-  min-height: 100vh;
-  width: device-width;
+  height: 1025px;
   
 }
 
