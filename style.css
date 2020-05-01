@@ -98,7 +98,7 @@ footer {
   transition-duration: 0.4s;
 }
 
-
+/*check1*/
 #RegisterButton{
   position: absolute;
   top: 60%;
@@ -108,6 +108,7 @@ footer {
   color: whitesmoke;
 }
 
+/*check2*/
 #LoginButton{
   position: absolute;
   left: 27%; 
