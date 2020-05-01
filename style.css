@@ -102,7 +102,7 @@ footer {
 #RegisterButton{
   position: absolute;
   top: 60%;
-  left: 20%;
+  left: 7%;
   background-color: rgb(61, 88, 163);
   font-weight: bold;
   color: whitesmoke;
@@ -112,7 +112,7 @@ footer {
 
 #LoginButton{
   position: absolute;
-  left: 40%; 
+  left: 27%; 
   top: 60%;
   background-color: rgb(61, 88, 163);
   font-weight: bold;
@@ -182,8 +182,8 @@ footer {
 
   #randomButton{
     position: absolute;
-    top: 82%;
-    left: 20%;
+    top: 85%;
+    left: 13%;
     background-color:  #79bfff;
     font-weight: bold;
     color: black;
@@ -199,8 +199,8 @@ footer {
 
   #playButton{
     position: absolute;
-    top: 82%;
-    left: 55%;
+    top: 85%;
+    left: 51%;
     background-color:  #79bfff;
     font-weight: bold;
     color: black;
@@ -270,8 +270,8 @@ footer {
   display: block;
   position: fixed;
   width: 40%;
-  left: 27%;
-  height: 60%;
+  left: 22%;
+  height: 85%;
   margin-top:40px;
   font-size: x-large;
   font-weight: bold; 
