@@ -276,16 +276,16 @@ footer {
   }
 
 #gameSettings{
-  background-color: #D5D8DD;
-  display: block;
-  position: fixed;
-  width: 40%;
-  left: 27%;
-  height: 60%;
-  margin-top:40px;
-  font-size: x-large;
-  font-weight: bold; 
-  }
+    background-color: #D5D8DD;
+    display: block;
+    position: fixed;
+    width: 40%;
+    left: 22%;
+    height: 85%;
+    margin-top:40px;
+    font-size: x-large;
+    font-weight: bold; 
+    }
 
   #keyLeftBtn{
     margin-left: 75%;
