@@ -215,8 +215,8 @@ footer {
 
   #muteButton{
     position: absolute;
-    top: 32%;
-    left: 18%;
+    top: 30%;
+    left: 3%;
     background-color: rgb(61, 88, 163);
     font-weight: bold;
     color: whitesmoke;
@@ -224,7 +224,7 @@ footer {
   
   [id^=muteButton]{
     border-radius: 10px;
-    padding: 10px 100px;
+    padding: 10px 45px;
     font-size:20px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
@@ -232,8 +232,8 @@ footer {
 
   #playMusicButton{
     position: absolute;
-    top: 40%;
-    left: 18%;
+    top: 42%;
+    left: 3%;
     background-color:  rgb(61, 88, 163);
     font-weight: bold;
     color: whitesmoke;
@@ -241,7 +241,7 @@ footer {
   
   [id^=playMusicButton]{
     border-radius: 10px;
-    padding: 10px 100px;
+    padding: 10px 45px;
     font-size:20px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
@@ -249,8 +249,8 @@ footer {
 
   #restart{
     position: absolute;
-    top: 48%;
-    left: 18%;
+    top: 54%;
+    left: 3%;
     background-color:  rgb(61, 88, 163);
     font-weight: bold;
     color: whitesmoke;
@@ -258,7 +258,7 @@ footer {
   
   [id^=restart]{
     border-radius: 10px;
-    padding: 10px 100px;
+    padding: 10px 65px;
     font-size:20px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
