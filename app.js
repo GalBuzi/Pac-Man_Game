@@ -47,6 +47,8 @@ function Start() {
 	score = 0;
 	pac_direction = 1;
 	pacman_lifes_left = 5;
+	while( $('#game_information li').length <10)
+         $("#game_information").append('<li> <img src="cherry.png" height="20px" width="20px"></li>');
 	movingCharacter = [19,9,"Ghost_scary.png"];
 	monsters = [];
 	monstersNum = $('select[name=numMonsters]').val();
@@ -548,31 +550,7 @@ function restart(element) { //restart game with same settings
 	//restore life
 	if(pacman_lifes_left === 6){
 		$('#game_information li:last-child').remove();
-	}
-	else if(pacman_lifes_left === 4){
-		for(var i=0; i < 1; i++){
-			$("#game_information").append('<li> <img src="cherry.png" height="20px" width="20px"></li>');
-		}
-	}
-	else if(pacman_lifes_left === 3){
-		for(var i=0; i < 2; i++){
-			$("#game_information").append('<li> <img src="cherry.png" height="20px" width="20px"></li>');
-		}
-	}
-	else if(pacman_lifes_left === 2){
-		for(var i=0; i < 3; i++){
-			$("#game_information").append('<li> <img src="cherry.png" height="20px" width="20px"></li>');
-		}
-	}
-	else if(pacman_lifes_left === 1){
-		for(var i=0; i < 4; i++){
-			$("#game_information").append('<li> <img src="cherry.png" height="20px" width="20px"></li>');
-		}
-	}
-	else if(pacman_lifes_left === 0){
-		for(var i=0; i < 5; i++){
-			$("#game_information").append('<li> <img src="cherry.png" height="20px" width="20px"></li>');
-		}
+		pacman_lifes_left = 5;
 	}
 	Start();
 	}
