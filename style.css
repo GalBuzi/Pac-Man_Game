@@ -373,13 +373,6 @@ footer {
   cursor: pointer;
 }
 
-#gamePlay{
-    height: fit-content;
-}
-
-#game_information{
-  padding-right: 25%;
-}
 
 #game_information li{
   font-size: large;
