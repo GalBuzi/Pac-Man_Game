@@ -379,7 +379,10 @@ footer {
 
 #game_information{
   padding-right: 25%;
-  font-size: medium;
+}
+
+#game_information li{
+  font-size: large;
 }
 
 #canvas {
