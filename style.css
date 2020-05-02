@@ -329,6 +329,7 @@ footer {
 {
   background: rgb(121, 191, 255);
   color:black;
+  cursor:pointer;
 }
 
 #about{
