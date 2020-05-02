@@ -6,7 +6,7 @@
     "footer footer footer";
   background-color: #79BFFF;
   flex-direction: column;
-  min-height: 100%;
+  min-height: 97vh;
 }
 
 @media (min-width: 768px) {
@@ -53,6 +53,7 @@ content {
   grid-column-end: 4;
   grid-row-start: 2;
   grid-row-end: 3;
+  
 }
 
 footer {
@@ -67,6 +68,7 @@ footer {
   grid-column-end: 4;
   grid-row-start: 3;
   grid-row-end: 4;
+  
 }
 
 #logregister{
@@ -76,11 +78,17 @@ footer {
 
 #welcome{
   display: inline-flex;
+  padding-top: 10%;
   
 }
 
-.firstPart{
+.first{
   margin-top: 5%;
+}
+
+#pacPic{
+  width: 100%;
+  height: 100%;
 }
 
 #LoginButton {
@@ -124,14 +132,12 @@ footer {
 
 #register{
   background-color: #D5D8DD;
-  display: block;
-  position: fixed;
+  position: relative;
   width: 40%;
   left: 27%;
   border-radius: 7%;
-  margin-top:60px;
   font-size: x-large;
-  height: 70%;
+  height: 75%;
 }
 
 #usernameReg{
@@ -163,9 +169,8 @@ footer {
     left: 27%;
     margin-top:30px;
     font-size: x-large;
-    border-radius: 7%;
-    margin-top:60px;
-  
+    border-radius: 7%;  
+    height: 45%;
   }
 
   #loginButton {
@@ -182,7 +187,6 @@ footer {
     text-decoration:none;
     text-shadow:0px 1px 0px #283966;
     position: relative;
-    top: 70%;
   }
 
   #randomButton {
@@ -199,7 +203,6 @@ footer {
     text-decoration:none;
     text-shadow:0px 1px 0px #283966;
     position: relative;
-    top: 85%;
   }
 
 
@@ -218,7 +221,6 @@ footer {
     text-decoration:none;
     text-shadow:0px 1px 0px #283966;
     position: relative;
-    top: 85%;
     left: 5%;
   }
 
@@ -275,12 +277,11 @@ footer {
 
 #gameSettings{
     background-color: #D5D8DD;
-    display: block;
-    position: fixed;
+    position: relative;
     width: 40%;
     left: 22%;
-    height: 90%;
-    font-size: x-large;
+    height: 85%;
+    font-size: large;
     font-weight: bold;
     border-radius: 7%;
     }
