@@ -7,7 +7,7 @@
   grid-gap: 4px;
   background-color: #79BFFF;
   flex-direction: column;
-  min-height: 95%;
+  min-height: 100%;
 }
 
 @media (min-width: 768px) {
@@ -58,7 +58,7 @@ content {
 
 footer {
   grid-area: footer;
-  padding: 15px;
+  padding: 5px;
   text-align: center;
   font-size: 16px;
   background-color: #09254E;
