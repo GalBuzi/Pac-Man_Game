@@ -558,6 +558,9 @@ function restart(element) { //restart game with same settings
 
 
 function registerEnterFunction(element) { //show register div
+	window.clearInterval(interval);
+    window.clearInterval(intervalMonsters);
+	enableMute();
 	$("#welcome").hide();
 	$("#login").hide();
 	$("#register").show();
@@ -567,6 +570,9 @@ function registerEnterFunction(element) { //show register div
 }
 
 function loginEnterFunction(element) {//show login div
+	window.clearInterval(interval);
+    window.clearInterval(intervalMonsters);
+	enableMute();
 	$("#welcome").hide();
 	$("#login").show();
 	$("#register").hide();
@@ -576,6 +582,9 @@ function loginEnterFunction(element) {//show login div
 }
 
 function homePageFunction(element) {//show welcome div
+	window.clearInterval(interval);
+    window.clearInterval(intervalMonsters);
+	enableMute();
 	$("#welcome").show();
 	$("#login").hide();
 	$("#register").hide();
@@ -595,6 +604,9 @@ function startGameFunction(element) {//show gamePlay div
 }
 
 function gotoSettings(element) {//show gameSettings div
+	window.clearInterval(interval);
+    window.clearInterval(intervalMonsters);
+	enableMute();
 	$("#welcome").hide();
 	$("#login").hide();
 	$("#register").hide();
@@ -604,6 +616,9 @@ function gotoSettings(element) {//show gameSettings div
 }
 
 function gotoAbout(element) {//show about div
+	window.clearInterval(interval);
+    window.clearInterval(intervalMonsters);
+	enableMute();
 	$("#welcome").hide();
 	$("#login").hide();
 	$("#register").hide();

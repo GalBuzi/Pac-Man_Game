@@ -247,6 +247,9 @@
 	var passwords = ['p'];
 
 	$(document).ready(function () {
+		window.clearInterval(interval);
+        window.clearInterval(intervalMonsters);
+		enableMute();
 		$("#welcome").show();
 		$("#login").hide();
 		$("#register").hide();
@@ -254,40 +257,7 @@
 		$("#gamePlay").hide();
 		$("#about").hide();
 	});
-
-	function registerEnterFunction(element) {
-		$("#welcome").hide();
-		$("#login").hide();
-		$("#register").show();
-		$("#gameSettings").hide();
-		$("#gamePlay").hide();
-	}
-
-	function loginEnterFunction(element) {
-		$("#welcome").hide();
-		$("#login").show();
-		$("#register").hide();
-		$("#gameSettings").hide();
-		$("#gamePlay").hide();
-	}
-
-	function homePageFunction(element) {
-		$("#welcome").show();
-		$("#login").hide();
-		$("#register").hide();
-		$("#gameSettings").hide();
-		$("#gamePlay").hide();
-	}
-
-	function startGameFunction(element) {
-		$("#welcome").hide();
-		$("#login").hide();
-		$("#register").hide();
-		$("#gameSettings").hide();
-		$("#gamePlay").show();
-	}
-
-
+	
 </script>
 
 </html>
