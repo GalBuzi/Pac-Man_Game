@@ -1,8 +1,4 @@
 
-.container{
-  zoom: 250%;
-  }
-
 .wrapper {
 	display: grid;
 	grid-template-areas:
