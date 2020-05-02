@@ -4,7 +4,6 @@
     "header header header"
     "nav content content"
     "footer footer footer";
-  grid-gap: 4px;
   background-color: #79BFFF;
   flex-direction: column;
   min-height: 100%;
