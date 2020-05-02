@@ -1,4 +1,8 @@
 
+.container{
+  zoom: 250%;
+  }
+
 .wrapper {
 	display: grid;
 	grid-template-areas:
@@ -88,70 +92,77 @@ footer {
     object-position: bottom;
 }
 
-
-[id^=RegisterButton]{
+#LoginButton {
+	box-shadow: 0px 0px 0px 2px #9fb4f2;
+	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	background-color:#7892c2;
+	border-radius:10px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:30px;
+	padding:12px 20px;
+	text-decoration:none;
+  text-shadow:0px 1px 0px #283966;
   position: absolute;
-  border-radius: 10px;
-  padding: 20px 40px;
-  font-size:20px;
-  font-family: 'Courier New', Courier, monospace;
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
-} 
-
-
-
-[id^=LoginButton]{
-  border-radius: 10px;
-  padding: 20px 40px;
-  font-size:20px;
-  font-family: 'Courier New', Courier, monospace;
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
+  left: 31%; 
+  top: 60%;
 }
 
-/*check1*/
-#RegisterButton{
+
+#RegisterButton {
+	box-shadow: 0px 0px 0px 2px #9fb4f2;
+	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	background-color:#7892c2;
+	border-radius:10px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:30px;
+	padding:12px 20px;
+	text-decoration:none;
+  text-shadow:0px 1px 0px #283966;
   position: absolute;
   top: 60%;
   left: 6%;
-  background-color: rgb(61, 88, 163);
-  font-weight: bold;
-  color: whitesmoke;
 }
 
-
 #register{
-    background-color: #D5D8DD;
-    display: block;
-    position: fixed;
-    width: 40%;
-    left: 27%;
-    margin-top:30px;
-    font-size: x-large;
-    text-align:center;
-
+  background-color: #D5D8DD;
+  display: block;
+  position: fixed;
+  width: 40%;
+  left: 27%;
+  border-radius: 7%;
+  margin-top:60px;
+  font-size: x-large;
 }
 
 #usernameReg{
   width: 12%; 
 }
 
-#SubmitButton{
+#SubmitButton {
+	box-shadow: 0px 0px 0px 2px #9fb4f2;
+	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	background-color:#7892c2;
+	border-radius:10px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:30px;
+	padding:6px 32px;
+	text-decoration:none;
+  text-shadow:0px 1px 0px #283966;
   position: absolute;
   top: 80%;
-  left: 35%;
-  background-color:  rgb(121, 191, 255);
-  font-weight: bold;
-  color: black;
-}
-
-[id^=SubmitButton]{
-  border-radius: 10px;
-  padding: 10px 100px;
-  font-size:20px;
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
+  left: 38%;
 }
 
 #login{
@@ -162,109 +173,124 @@ footer {
     left: 27%;
     margin-top:30px;
     font-size: x-large;
+    border-radius: 7%;
+    margin-top:60px;
   
   }
 
-  #loginButton{
+  #loginButton {
+    box-shadow: 0px 0px 0px 2px #9fb4f2;
+    background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+    background-color:#7892c2;
+    border-radius:10px;
+    border:1px solid #4e6096;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:30px;
+    padding:8px 35px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #283966;
     position: absolute;
     top: 70%;
-    left: 35%;
-    background-color:  #79bfff;
-    font-weight: bold;
-    color: black;
-  }
-  
-  [id^=loginButton]{
-    border-radius: 10px;
-    padding: 10px 100px;
-    font-size:20px;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
+    left: 38%;
   }
 
-  #randomButton{
+  #randomButton {
+    box-shadow: 0px 0px 0px 2px #9fb4f2;
+    background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+    background-color:#7892c2;
+    border-radius:10px;
+    border:1px solid #4e6096;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:30px;
+    padding:8px 35px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #283966;
     position: absolute;
     top: 85%;
-    left: 22%;
-    background-color:  #79bfff;
-    font-weight: bold;
-    color: black;
-  }
-  
-  [id^=randomButton]{
-    border-radius: 10px;
-    padding: 10px 50px;
-    font-size:20px;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
+    left: 18%;
   }
 
-  #playButton{
+
+  #playButton {
+    box-shadow: 0px 0px 0px 2px #9fb4f2;
+    background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+    background-color:#7892c2;
+    border-radius:10px;
+    border:1px solid #4e6096;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:30px;
+    padding:8px 35px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #283966;
     position: absolute;
     top: 85%;
     left: 55%;
-    background-color:  #79bfff;
-    font-weight: bold;
-    color: black;
-  }
-  
-  [id^=playButton]{
-    border-radius: 10px;
-    padding: 10px 50px;
-    font-size:20px;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
   }
 
-  #muteButton{
+  #muteButton {
+    box-shadow: 0px 0px 0px 2px #9fb4f2;
+    background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+    background-color:#7892c2;
+    border-radius:10px;
+    border:1px solid #4e6096;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:22px;
+    padding:8px 35px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #283966;
     position: absolute;
     top: 30%;
     left: -5%;
-    background-color: rgb(61, 88, 163);
-    font-weight: bold;
-    color: whitesmoke;
-  }
-  
-  [id^=muteButton]{
-    border-radius: 10px;
-    padding: 10px 45px;
-    font-size:20px;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
   }
 
-  #playMusicButton{
+  #playMusicButton {
+    box-shadow: 0px 0px 0px 2px #9fb4f2;
+    background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+    background-color:#7892c2;
+    border-radius:10px;
+    border:1px solid #4e6096;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:22px;
+    padding:8px 35px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #283966;
     position: absolute;
     top: 42%;
     left: -5%;
-    background-color:  rgb(61, 88, 163);
-    font-weight: bold;
-    color: whitesmoke;
-  }
-  
-  [id^=playMusicButton]{
-    border-radius: 10px;
-    padding: 10px 45px;
-    font-size:20px;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
   }
 
-  #restart{
+  #restart {
+    box-shadow: 0px 0px 0px 2px #9fb4f2;
+    background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+    background-color:#7892c2;
+    border-radius:10px;
+    border:1px solid #4e6096;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:22px;
+    padding:8px 55px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #283966;
     position: absolute;
     top: 54%;
     left:-5%;
-    background-color:  rgb(61, 88, 163);
-    font-weight: bold;
-    color: whitesmoke;
-  }
-  
-  [id^=restart]{
-    border-radius: 10px;
-    padding: 10px 65px;
-    font-size:20px;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
   }
 
 #gameSettings{
@@ -276,7 +302,9 @@ footer {
     height: 85%;
     margin-top:40px;
     font-size: x-large;
-    font-weight: bold; 
+    font-weight: bold;
+    border-radius: 7%;
+    margin-top:60px;
     }
 
   #keyLeftBtn{
