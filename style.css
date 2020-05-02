@@ -7,7 +7,7 @@
   grid-gap: 4px;
   background-color: #79BFFF;
   flex-direction: column;
-  min-height: 100%;
+  min-height: 95%;
 }
 
 @media (min-width: 768px) {
