@@ -28,45 +28,55 @@
 		</nav>
 		<content>
 			<!-- Welcome Part -->
-			<div class="content" id="welcome" style="position: relative;">
-				<h1 id="h1welcome" style="color: #09254e;">
+			<div class="content" id="welcome">
+
+				<!-- <h1 id="h1welcome" style="color: #09254e;">
 					<span data-shadow-text="Text-Shadow" id="spanWelcome">
 						<marquee behavior="scroll" width='70%' direction="left"><u>Welcome To Our Pacman Game!</u>
 						</marquee>
 					</span>
-				</h1>
+				</h1> -->
 
-				<div class="row">
-					<div class="column">
-						<img src="pacman_welcome.png" width="740px" height="282px" style="width:100%">
-					</div>
-					<button class="welcomeButton" id="RegisterButton" onclick="registerEnterFunction(this)">Guest? Please
-					Register!</button>
-				    <button class="welcomeButton" id="LoginButton" onclick="loginEnterFunction(this)">Login and
-					Play!</button>
-					<div class="column">
-						<img src="paccccmmman.png" width="750px" height="600px" style="width:100%">
-					</div>
+				<div class="firstPart">
+						<img id="pacLogo" src="pacman_welcome.png" width="740px" height="282px" style="width:100%">
+					<button class="welcomeButton" id="RegisterButton" onclick="registerEnterFunction(this)">Guest?
+						Please
+						Register!</button>
+					<button class="welcomeButton" id="LoginButton" onclick="loginEnterFunction(this)">Login and
+						Play!</button>
+
 				</div>
+
+				<div class="firstPart">
+					<img id="pacPic" src="paccccmmman.png" width="750px" height="600px" style="width:100%">
+				</div>
+
 			</div>
+
+			
 			<!-- Register Part -->
 			<div class="content" id="register" style="text-align:center; position: relative">
 				<h2><u>Please Enter Register Information Details:</u></h2>
 
 				<b>User Name:</b>
-				<input class="name" type="text" id="usernameReg" style="font-size: large ;width: 32%;" placeholder="Choose user name" required>
+				<input class="name" type="text" id="usernameReg" style="font-size: large ;width: 32%;"
+					placeholder="Choose user name" required>
 				<br><br>
 				<b>Password:</b>
-				<input class="pass" type="password" id="passwordReg" style="font-size: large ;width: 32%;" placeholder="Choose Password" required>
+				<input class="pass" type="password" id="passwordReg" style="font-size: large ;width: 32%;"
+					placeholder="Choose Password" required>
 				<br><br>
 				<b>First Name:</b>
-				<input class="name" type="text" id="firstNameReg" style="font-size: large ;width: 32%;" placeholder="Enter your first name" required>
+				<input class="name" type="text" id="firstNameReg" style="font-size: large ;width: 32%;"
+					placeholder="Enter your first name" required>
 				<br><br>
 				<b>Last Name:</b>
-				<input class="name" type="text" id="lastNameReg" style="font-size: large ;width: 32%;" placeholder="Enter your last name" required>
+				<input class="name" type="text" id="lastNameReg" style="font-size: large ;width: 32%;"
+					placeholder="Enter your last name" required>
 				<br><br>
 				<b>E-mail:</b>
-				<input class="mail" type="email" id="emailReg" style="font-size: large ;width: 32%;" placeholder="Enter your email:" required>
+				<input class="mail" type="email" id="emailReg" style="font-size: large ;width: 32%;"
+					placeholder="Enter your email:" required>
 				<br><br>
 				<b>Date of birth:</b>
 				<input class="Date" type="Date" id="dateReg" style="font-size: large ;width: 32%;" required>
@@ -82,10 +92,12 @@
 				<br>
 				<b><u>Please enter user name and password!</u></b><br><br>
 				<b>User name:</b>
-				<input class="name" type="text" id="username" style="font-size: large ;width: 25%;" placeholder="Username" required>
+				<input class="name" type="text" id="username" style="font-size: large ;width: 25%;"
+					placeholder="Username" required>
 				<br><br>
 				<b>Password:</b>
-				<input class="pass" type="password" id="password" style="font-size: large ;width: 25%;" placeholder="Password" required>
+				<input class="pass" type="password" id="password" style="font-size: large ;width: 25%;"
+					placeholder="Password" required>
 				<br><br>
 
 				<button class="loginButton" id="loginButton" onclick="validateLogin() ;return false;">Login</button>
@@ -108,7 +120,8 @@
 				<br>
 				<br>
 				<th> Game duration:</th>
-				<th><input type="text" name="gameTime" style="font-size: large ;width: 36%;" placeholder="Insert 60 or more Seconds"></th>
+				<th><input type="text" name="gameTime" style="font-size: large ;width: 36%;"
+						placeholder="Insert 60 or more Seconds"></th>
 				<br>
 				<br>
 				Number of monsters:
@@ -124,7 +137,7 @@
 				<br>
 				Choose a color for 15 points food: <input type="color" name="15ptColor" value="#eda3c1">
 				<br>
-				Choose a color for 25 points food: <input type="color" name="25ptColor" value="#8dddb8"> 
+				Choose a color for 25 points food: <input type="color" name="25ptColor" value="#8dddb8">
 				<br>
 				<br>
 				<br>
@@ -132,7 +145,8 @@
 					<tr>
 						<th>Set game buttons:</th>
 						<th>
-							<input class="keys" type="button" value="Up" width="1px" height="10px" onclick="catchUserChoiceForKeys(this)">
+							<input class="keys" type="button" value="Up" width="1px" height="10px"
+								onclick="catchUserChoiceForKeys(this)">
 							<span id="keyUp"></span>
 						</th>
 						<th></th>
@@ -140,17 +154,20 @@
 					<tr>
 						<th>
 							<span id="keyLeft"></span>
-							<input id="keyLeftBtn" class="keys" value="Left" type="button" width="1px" height="10px"  onclick="catchUserChoiceForKeys(this)"></th>
-						<th><img src="arrow.png" height="100" width="150" ></th>
+							<input id="keyLeftBtn" class="keys" value="Left" type="button" width="1px" height="10px"
+								onclick="catchUserChoiceForKeys(this)"></th>
+						<th><img src="arrow.png" height="100" width="150"></th>
 						<th>
-							<input class="keys" value="Right" type="button" width="1px" height="10px" onclick="catchUserChoiceForKeys(this)">
+							<input class="keys" value="Right" type="button" width="1px" height="10px"
+								onclick="catchUserChoiceForKeys(this)">
 							<span id="keyRight"></span>
 						</th>
 					</tr>
 					<tr>
 						<th></th>
 						<th>
-							<input class="keys" id="buttonDown" value="Down" type="button" width="1px" height="10px" onclick="catchUserChoiceForKeys(this)">
+							<input class="keys" id="buttonDown" value="Down" type="button" width="1px" height="10px"
+								onclick="catchUserChoiceForKeys(this)">
 							<span id="keyDown"></span>
 						</th>
 						<th></th>
@@ -160,7 +177,6 @@
 				<br>
 				<button class="randomButton" id="randomButton" onclick="randomizeGameSettings(this)">Random</button>
 				<button class="playButton" id="playButton" onclick="allGameSettingSet(this)">Start Play!</button>
-
 			</div>
 
 			<!-- The Modal -->
@@ -171,12 +187,15 @@
 					<span class="close">&times;</span>
 					<h1>About:</h1>
 					<p style="font-size:25px"> Presentors: Gal Buzaglo & Shay Eretz Kdosha</p>
-					<p style="font-size:25px"> JQuery plugin was used in our code mainly in the registration window and login window
-						to get the values of the variables and make operations on the user input. In addition we 
+					<p style="font-size:25px"> JQuery plugin was used in our code mainly in the registration window and
+						login window
+						to get the values of the variables and make operations on the user input. In addition we
 						use jquery to hide and show dives.</p>
-					<p style="font-size:25px"> In our program we used in grid template to order the layouts of header, navigation, content and
+					<p style="font-size:25px"> In our program we used in grid template to order the layouts of header,
+						navigation, content and
 						footer as required.</p>
-						<p style="font-size:25px">The main difficulties in this assignment were to handling with page resolution and working with CSS.</p>
+					<p style="font-size:25px">The main difficulties in this assignment were to handling with page
+						resolution and working with CSS.</p>
 				</div>
 			</dialog>
 
@@ -186,13 +205,13 @@
 
 				<ul id="game_information">
 					<li> <b>Your Game Settings:</b> </li>
-					<span style="display:inline-block; width: 5px;"></span>
+					<span style="display:inline-block; width: 1px;"></span>
 					<li> <b>5 Pt Color: </b> <input type="color" name="5PtKeyColor" disabled> </li>
-					<span style="display:inline-block; width: 5px;"></span>
+					<span style="display:inline-block; width: 1px;"></span>
 					<li> <b>15 Pt Color:</b> <input type="color" name="15PtKeyColor" disabled> </li>
-					<span style="display:inline-block; width: 5px;"></span>
+					<span style="display:inline-block; width: 1px;"></span>
 					<li> <b>25 Pt Color:</b> <input type="color" name="25PtKeyColor" disabled> </li>
-					<span style="display:inline-block; width: 5px;"></span>
+					<span style="display:inline-block; width: 1px;"></span>
 					<li><b>Lifes Left: </b></li>
 					<span style="display:inline-block; width: 3px;"></span>
 					<li> <img id="cherry" src="cherry.png" height="20px" width="20px"></li>
