@@ -1,44 +1,27 @@
 
 .wrapper {
-	display: grid;
+	display: flex;
 	grid-template-areas:
     "header header header"
     "nav content content"
     "footer footer footer";
-	grid-template-rows: 80px 800px 50px;
-	grid-template-columns: 15% 1fr;
   grid-gap: 4px;
   background-color: #79BFFF;
   flex-direction: column;
-  height: 1025px;
-  
+  min-height: 100vh;  
 }
 
-@media (min-width: 1366px) {
+@media (min-width: 768px) {
   .wrapper {
-  grid-template-areas:
-  "header header header"
-  "nav content content"
-  "footer footer footer";
+  display: grid;
   grid-template-rows: auto 1fr auto;
-  grid-template-columns: 160px 1fr;
+  grid-template-columns: 8% auto;
   }
 }
-
-/* @media (min-height: 768px) {
-  .wrapper {
-  grid-template-areas:
-  "header header header"
-  "nav content content"
-  "footer footer footer";
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: 160px 1fr;
-  }
-} */
 
 header {
     grid-area: header;
-    padding: 2%;
+    padding: 0.5%;
     padding-left: 25%;
     text-align: 50%;
     font-size: 25px;
@@ -47,6 +30,45 @@ header {
     font-weight: bold;
     color: rgb(255, 255, 255);
     border-bottom: 2px solid #ffffff;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+
+nav {
+  grid-area: nav;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+
+}
+
+
+content {
+  grid-area: content;
+  padding-left: 10%;
+  font-family: 'Courier New', Courier, monospace; 
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+footer {
+  grid-area: footer;
+  padding: 15px;
+  text-align: center;
+  font-size: 16px;
+  background-color: #09254E;
+  color: #ffffff;
+  border-top:  2px solid #f2f9fa;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 4;
 }
 
 #logregister{
@@ -54,38 +76,13 @@ header {
   padding-left: 20%;
 }
 
-nav {
-    grid-area: nav;
-
+#welcome{
+  display: inline-flex;
+  
 }
 
-content {
-    grid-area: content;
-    padding-left: 10%;
-    box-sizing: border-box;
-    font-family: 'Courier New', Courier, monospace; 
-}
-
-.row {
-  display: flex;
-}
-
-/* Create three equal columns that sits next to each other */
-.column {
-  flex: 33.33%;
-  padding: 5px;
-}
-
-
-footer {
-    grid-area: footer;
-    padding: 15px;
-    text-align: center;
-    font-size: 16px;
-    background-color: #09254E;
-    color: #ffffff;
-    border-top:  2px solid #f2f9fa;
-    object-position: bottom;
+.firstPart{
+  margin-top: 5%;
 }
 
 #LoginButton {
@@ -102,9 +99,9 @@ footer {
 	padding:12px 20px;
 	text-decoration:none;
   text-shadow:0px 1px 0px #283966;
-  position: absolute;
-  left: 31%; 
-  top: 60%;
+  position: relative;
+  left: 25%; 
+  top: 10%;
 }
 
 
@@ -121,10 +118,10 @@ footer {
 	font-size:30px;
 	padding:12px 20px;
 	text-decoration:none;
-  text-shadow:0px 1px 0px #283966;
-  position: absolute;
-  top: 60%;
-  left: 6%;
+  text-shadow:0px 1px 0px #ffffff;
+  position: relative;
+  left: 18%;
+  top: 10%;
 }
 
 #register{
@@ -156,7 +153,7 @@ footer {
 	padding:6px 32px;
 	text-decoration:none;
   text-shadow:0px 1px 0px #283966;
-  position: absolute;
+  position: relative;
   top: 80%;
   left: 38%;
 }
@@ -179,7 +176,6 @@ footer {
     background-color:#7892c2;
     border-radius:10px;
     border:1px solid #4e6096;
-    display:inline-block;
     cursor:pointer;
     color:#ffffff;
     font-family:Arial;
@@ -187,9 +183,8 @@ footer {
     padding:8px 35px;
     text-decoration:none;
     text-shadow:0px 1px 0px #283966;
-    position: absolute;
+    position: relative;
     top: 70%;
-    left: 38%;
   }
 
   #randomButton {
@@ -198,7 +193,6 @@ footer {
     background-color:#7892c2;
     border-radius:10px;
     border:1px solid #4e6096;
-    display:inline-block;
     cursor:pointer;
     color:#ffffff;
     font-family:Arial;
@@ -206,9 +200,8 @@ footer {
     padding:8px 35px;
     text-decoration:none;
     text-shadow:0px 1px 0px #283966;
-    position: absolute;
+    position: relative;
     top: 85%;
-    left: 18%;
   }
 
 
@@ -226,9 +219,9 @@ footer {
     padding:8px 35px;
     text-decoration:none;
     text-shadow:0px 1px 0px #283966;
-    position: absolute;
+    position: relative;
     top: 85%;
-    left: 55%;
+    left: 5%;
   }
 
   #muteButton {
@@ -237,7 +230,6 @@ footer {
     background-color:#7892c2;
     border-radius:10px;
     border:1px solid #4e6096;
-    display:inline-block;
     cursor:pointer;
     color:#ffffff;
     font-family:Arial;
@@ -245,9 +237,8 @@ footer {
     padding:8px 35px;
     text-decoration:none;
     text-shadow:0px 1px 0px #283966;
-    position: absolute;
-    top: 30%;
-    left: -5%;
+    position: relative;
+    left: 20%;
   }
 
   #playMusicButton {
@@ -256,7 +247,6 @@ footer {
     background-color:#7892c2;
     border-radius:10px;
     border:1px solid #4e6096;
-    display:inline-block;
     cursor:pointer;
     color:#ffffff;
     font-family:Arial;
@@ -264,9 +254,8 @@ footer {
     padding:8px 35px;
     text-decoration:none;
     text-shadow:0px 1px 0px #283966;
-    position: absolute;
-    top: 42%;
-    left: -5%;
+    position: relative;
+    left: 20%;
   }
 
   #restart {
@@ -275,7 +264,6 @@ footer {
     background-color:#7892c2;
     border-radius:10px;
     border:1px solid #4e6096;
-    display:inline-block;
     cursor:pointer;
     color:#ffffff;
     font-family:Arial;
@@ -283,9 +271,8 @@ footer {
     padding:8px 55px;
     text-decoration:none;
     text-shadow:0px 1px 0px #283966;
-    position: absolute;
-    top: 54%;
-    left:-5%;
+    position: relative;
+    left: 57%;
   }
 
 #gameSettings{
@@ -294,12 +281,10 @@ footer {
     position: fixed;
     width: 40%;
     left: 22%;
-    height: 85%;
-    margin-top:40px;
+    height: 90%;
     font-size: x-large;
     font-weight: bold;
     border-radius: 7%;
-    margin-top:60px;
     }
 
   #keyLeftBtn{
@@ -326,6 +311,7 @@ footer {
   color:#ffffff;
   font-size: x-large;
   text-align:center;
+  grid-area: nav;
 }
 .menu li
 {
@@ -392,22 +378,26 @@ footer {
     height: -webkit-fill-available
 }
 
+#game_information{
+  padding-right: 25%;
+}
+
 #canvas {
   background-color: #09254e;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-right: 8px;
+  padding-left: 8px;
   box-sizing: border-box;
   margin: auto;
   border: 7px  double #ffffff;
   padding: 0;
   margin: auto;
   display: block;
-  width: 1200px;
-  height: 600px;
+  width: 1100px;
+  height: 500px;
   position: relative;
-  top: 15px;
+  top: 8px;
   bottom: 0;
   left: 0;
   right: 0;
