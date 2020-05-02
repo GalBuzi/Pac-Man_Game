@@ -14,7 +14,7 @@
 
 <body class="container">
 	<div class="wrapper">
-		<header id="header"><img src="pacman_logo3.png" width="400px" height="50px">
+		<header id="header"> <img src="pacman_logo3.png" width="400px" height="50px">
 			Shay Eretz Kdosha 203276258 & Gal Buzaglo 203886528
 		</header>
 		<nav class="menu">
@@ -30,13 +30,6 @@
 			<!-- Welcome Part -->
 			<div class="content" id="welcome">
 
-				<!-- <h1 id="h1welcome" style="color: #09254e;">
-					<span data-shadow-text="Text-Shadow" id="spanWelcome">
-						<marquee behavior="scroll" width='70%' direction="left"><u>Welcome To Our Pacman Game!</u>
-						</marquee>
-					</span>
-				</h1> -->
-
 				<div class="firstPart">
 						<img id="pacLogo" src="pacman_welcome.png" width="740px" height="282px" style="width:100%">
 					<button class="welcomeButton" id="RegisterButton" onclick="registerEnterFunction(this)">Guest?
@@ -48,7 +41,7 @@
 				</div>
 
 				<div class="firstPart">
-					<img id="pacPic" src="paccccmmman.png" width="750px" height="600px" style="width:100%">
+					<img id="pacPic" src="paccccmmman.png">
 				</div>
 
 			</div>
@@ -80,7 +73,7 @@
 				<br><br>
 				<b>Date of birth:</b>
 				<input class="Date" type="Date" id="dateReg" style="font-size: large ;width: 32%;" required>
-				<br><br><br><br><br><br><br><br>
+				<br><br><br><br>
 				<button class="submitButton" id="SubmitButton"
 					onclick="validateRegister() ;return false;">Submit</button>
 
@@ -98,12 +91,9 @@
 				<b>Password:</b>
 				<input class="pass" type="password" id="password" style="font-size: large ;width: 25%;"
 					placeholder="Password" required>
-				<br><br>
+				<br><br><br><br>
 
 				<button class="loginButton" id="loginButton" onclick="validateLogin() ;return false;">Login</button>
-				<br><br><br><br><br>
-
-
 			</div>
 
 
@@ -177,6 +167,7 @@
 				<br>
 				<button class="randomButton" id="randomButton" onclick="randomizeGameSettings(this)">Random</button>
 				<button class="playButton" id="playButton" onclick="allGameSettingSet(this)">Start Play!</button>
+				
 			</div>
 
 			<!-- The Modal -->
@@ -204,16 +195,11 @@
 			<div id="gamePlay" style="position: relative;">
 
 				<ul id="game_information">
-					<li> <b>Your Game Settings:</b> </li>
-					<span style="display:inline-block; width: 1px;"></span>
+					<li> <b>Game Settings:</b> </li>
 					<li> <b>5 Pt Color: </b> <input type="color" name="5PtKeyColor" disabled> </li>
-					<span style="display:inline-block; width: 1px;"></span>
 					<li> <b>15 Pt Color:</b> <input type="color" name="15PtKeyColor" disabled> </li>
-					<span style="display:inline-block; width: 1px;"></span>
 					<li> <b>25 Pt Color:</b> <input type="color" name="25PtKeyColor" disabled> </li>
-					<span style="display:inline-block; width: 1px;"></span>
 					<li><b>Lifes Left: </b></li>
-					<span style="display:inline-block; width: 3px;"></span>
 					<li> <img id="cherry" src="cherry.png" height="20px" width="20px"></li>
 					<li> <img src="cherry.png" height="20px" width="20px"></li>
 					<li> <img src="cherry.png" height="20px" width="20px"></li>
@@ -241,9 +227,9 @@
 							<input id="foodLeft" type="text" disabled />
 						</div>
 				</ul>
-				<button class="newGame" id="restart" onclick="restart(this)">Restart</button>
 				<button class="muteMusic" id="muteButton" onclick="enableMute(this)">Mute sound</button>
 				<button class="playMusic" id="playMusicButton" onclick="disableMute(this)">Play sound</button>
+				<button class="newGame" id="restart" onclick="restart(this)">Restart</button>
 			</div>
 
 
