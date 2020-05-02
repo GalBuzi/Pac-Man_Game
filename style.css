@@ -7,7 +7,7 @@
   grid-gap: 4px;
   background-color: #79BFFF;
   flex-direction: column;
-  min-height: 100vh;  
+  min-height: 100%;
 }
 
 @media (min-width: 768px) {
@@ -132,6 +132,7 @@ footer {
   border-radius: 7%;
   margin-top:60px;
   font-size: x-large;
+  height: 70%;
 }
 
 #usernameReg{
@@ -153,8 +154,6 @@ footer {
 	text-decoration:none;
   text-shadow:0px 1px 0px #283966;
   position: relative;
-  top: 80%;
-  left: 38%;
 }
 
 #login{
@@ -238,7 +237,7 @@ footer {
     text-decoration:none;
     text-shadow:0px 1px 0px #283966;
     position: relative;
-    left: 20%;
+    left: 35%;
   }
 
   #playMusicButton {
@@ -255,7 +254,7 @@ footer {
     text-decoration:none;
     text-shadow:0px 1px 0px #283966;
     position: relative;
-    left: 20%;
+    left: 35%;
   }
 
   #restart {
@@ -272,7 +271,7 @@ footer {
     text-decoration:none;
     text-shadow:0px 1px 0px #283966;
     position: relative;
-    left: 57%;
+    left: 35%;
   }
 
 #gameSettings{
@@ -375,7 +374,7 @@ footer {
 }
 
 #gamePlay{
-    height: -webkit-fill-available
+    height: fit-content;
 }
 
 #game_information{
@@ -389,7 +388,6 @@ footer {
   padding-right: 8px;
   padding-left: 8px;
   box-sizing: border-box;
-  margin: auto;
   border: 7px  double #ffffff;
   padding: 0;
   margin: auto;
