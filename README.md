@@ -1,5 +1,8 @@
 # Assignment2
 
+Game website address:
+https://sise-web-development-environments.github.io/assignment2-shay_gal/
+
 Added functionality:
 1. Extra Life - an icon of cherry which means extra life for PacMan, it enables the user to get another try to play.
 2. Strong Monster - one of the monsters in the game set to be strong randomly. This strong monster cuts down 2 lives if it gets the PacMan, and decrease the score by 20 points.
