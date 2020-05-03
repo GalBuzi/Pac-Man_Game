@@ -17,6 +17,5 @@ Email - galbuz@post.bgu.ac.il
 
 Shay Eretz Kdosha:
 ID - 203276258
-Email - shayek34@gmail.com
-
+Email - shayeret@post.bgu.ac.il
  
