@@ -76,7 +76,7 @@ function Start() {
 	food_left_to_show_user = food_remain;
 	var five_points_food = Math.ceil(0.6 * food_remain);
 	sum_of_five_points = 5 * five_points_food;
-	var fifteen_points_food = Math.ceil(0.3 * food_remain);
+	var fifteen_points_food = Math.floor(0.3 * food_remain);
 	sum_of_fifteen_points = 15 * fifteen_points_food;
 	var twenty_five_points_food = Math.floor(0.1 * food_remain);
 	sum_of_twenty_points = 20 * twenty_five_points_food;
