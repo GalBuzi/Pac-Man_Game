@@ -12,10 +12,10 @@ about us:
 This app was designed by Gal Buzaglo & Shay Eretz Kdosha as part of Web Development Environments course.
 
 Gal Buzaglo: 
-ID - 203886528
+ID - 
 Email - galbuz@post.bgu.ac.il
 
 Shay Eretz Kdosha:
-ID - 203276258
+ID - 
 Email - shayeret@post.bgu.ac.il
  
